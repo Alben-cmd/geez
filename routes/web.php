@@ -14,10 +14,29 @@ use Illuminate\Support\Facades\Route;
 */
 
 //front page
-Route::get('/', function () {
-    return view('welcome');
-});
+//home
+Route::get('/', 'HomeController@index')->name('home');
+//about
+Route::get('/about', 'HomeController@about')->name('about');
+//contact 
+Route::get('/contact', 'HomeController@contact')->name('contact');
+//clothes
+Route::get('/clothes', 'ClothController@index')->name('clothes');
+Route::get('/clothes/{cloth}', 'ClothController@show')->name('cloth.show');
+//single cloth section
+Route::view('/single-cloth', 'front.clothes.single-cloth');
+//cart section
+Route::view('/cart', 'front.clothes.cart');
+//Checkout section
+Route::view('/checkout', 'front.clothes.checkout');
+//tailors
+Route::get('/tailors', 'TailorController@index')->name('tailors');
+//user dashborad 
+Route::get('/dashboard', 'ProfileController@index')->name('dashboard');
+//editing profile 
 
+Route::get('/profile', 'ProfileController@index')->name('profile');
+Route::post('/update-profile/{id}', 'ProfileController@update')->name('profile.update');
 Auth::routes();
 
 //Admin Section 

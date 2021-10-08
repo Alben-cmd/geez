@@ -1,77 +1,83 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="robots" content="index, follow" />
+    <title>Geez @yield('title')</title>
+    <meta name="description" content="Jesco - Fashoin eCommerce HTML Template" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-  <title>Geez-home</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+    <!-- Add site Favicon -->
+    <link rel="shortcut icon" href="{!! asset('assets/images/favicon/favicon.ico') !!}" type="image/png">
 
-  <!-- Favicons -->
-  <link href="{!! asset('assets/img/favicon.png')!!}" rel="icon">
-  <link href="{!! asset('assets/img/apple-touch-icon.png')!!}" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- vendor css (Icon Font) -->
+    <link rel="stylesheet" href="{!! asset('assets/css/vendor/bootstrap.min.css') !!}" />
+    <link rel="stylesheet" href="{!! asset('assets/css/vendor/pe-icon-7-stroke.css') !!}" />
+    <link rel="stylesheet" href="{!! asset('assets/css/vendor/font.awesome.css') !!}" />
 
-  <!-- Vendor CSS Files -->
-  <link href="{!! asset('assets/vendor/bootstrap/css/bootstrap.min.css')!!}" rel="stylesheet">
-  <link href="{!! asset('assets/vendor/icofont/icofont.min.css')!!}" rel="stylesheet">
-  <link href="{!! asset('assets/vendor/boxicons/css/boxicons.min.css')!!}" rel="stylesheet">
-  <link href="{!! asset('assets/vendor/owl.carousel/assets/owl.carousel.min.css')!!}" rel="stylesheet">
-  <link href="{!! asset('assets/vendor/remixicon/remixicon.css')!!}" rel="stylesheet">
-  <link href="{!! asset('assets/vendor/venobox/venobox.css')!!}" rel="stylesheet">
-  <link href="{!! asset('assets/vendor/aos/aos.css')!!}" rel="stylesheet">
+    <!-- plugins css (All Plugins Files) -->
+    <link rel="stylesheet" href="{!! asset('assets/css/plugins/animate.css') !!}" />
+    <link rel="stylesheet" href="{!! asset('assets/css/plugins/swiper-bundle.min.css') !!}" />
+    <link rel="stylesheet" href="{!! asset('assets/css/plugins/jquery-ui.min.css') !!}" />
+    <link rel="stylesheet" href="{!! asset('assets/css/plugins/nice-select.css') !!}" />
+    <link rel="stylesheet" href="{!! asset('assets/css/plugins/venobox.css') !!}" />
 
-  <!-- Template Main CSS File -->
-  <link href="{!! asset('assets/css/style.css')!!}" rel="stylesheet">
+    
+    <!-- Main Style -->
+    <link rel="stylesheet" href="{!! asset('assets/css/style.css') !!}" />
 
-  <!-- =======================================================
-  * Template Name: Presento - v1.0.0
-  * Template URL: https://bootstrapmade.com/presento-bootstrap-portfolio-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
-    <div class="container-fluid">
-      <div class="row justify-content-center">
-        @include('layouts.header')
-      </div>
+    <!-- Top Bar -->
 
-    </div>
-  </header><!-- End Header -->
+    {{-- <div class="header-to-bar"> HELLO EVERYONE! 25% Off All Products </div> --}}
 
-  <!-- ======= Hero Section ======= -->
-  @yield('content')
+    <!-- Top Bar -->
+    <!-- Header Area Start -->
+    @include('layouts.header')
 
-  <!-- ======= Footer ======= -->
-  @include('layouts.footer')
+    @include('layouts.cart')
+    <!-- Header Area End -->
+    <div class="offcanvas-overlay"></div>
 
-  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+    <!-- OffCanvas Wishlist Start -->
+    @yield('content')
+    <!--  Blog area End -->
 
-  <!-- Vendor JS Files -->
-  <script src="{!! asset('assets/vendor/jquery/jquery.min.js')!!}"></script>
-  <script src="{!! asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')!!}"></script>
-  <script src="{!! asset('assets/vendor/jquery.easing/jquery.easing.min.js')!!}"></script>
-  <script src="{!! asset('assets/vendor/php-email-form/validate.js')!!}"></script>
-  <script src="{!! asset('assets/vendor/owl.carousel/owl.carousel.min.js')!!}"></script>
-  <script src="{!! asset('assets/vendor/waypoints/jquery.waypoints.min.js')!!}"></script>
-  <script src="{!! asset('assets/vendor/counterup/counterup.min.js')!!}"></script>
-  <script src="{!! asset('assets/vendor/isotope-layout/isotope.pkgd.min.js')!!}"></script>
-  <script src="{!! asset('assets/vendor/venobox/venobox.min.js')!!}"></script>
-  <script src="{!! asset('assets/vendor/aos/aos.js')!!}"></script>
+    @include('layouts.footer')
+    <!-- Modal end -->
 
-  <!-- Template Main JS File -->
-  <script src="{!! asset('assets/js/main.js')!!}"></script>
+    <!-- Global Vendor, plugins JS -->
 
+    <!-- Vendor JS -->
+    <script src="{!! asset('assets/js/vendor/jquery-3.5.1.min.js') !!}"></script>
+
+    <script src="{!! asset('assets/js/vendor/bootstrap.bundle.min.js') !!}"></script>
+    <script src="{!! asset('assets/js/vendor/jquery-migrate-3.3.0.min.js') !!}"></script>
+    <script src="{!! asset('assets/js/vendor/modernizr-3.11.2.min.js') !!}"></script>
+
+    <!--Plugins JS-->
+    <script src="{!! asset('assets/js/plugins/swiper-bundle.min.js') !!}"></script>
+    <script src="{!! asset('assets/js/plugins/jquery-ui.min.js') !!}"></script>
+    <script src="{!! asset('assets/js/plugins/jquery.nice-select.min.js') !!}"></script>
+    <script src="{!! asset('assets/js/plugins/countdown.js') !!}"></script>
+    <script src="{!! asset('assets/js/plugins/scrollup.js') !!}"></script>
+    <script src="{!! asset('assets/js/plugins/jquery.zoom.min.js') !!}"></script>
+    <script src="{!! asset('assets/js/plugins/venobox.min.js') !!}"></script>
+    <script src="{!! asset('assets/js/plugins/ajax-mail.js') !!}"></script>
+
+    <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+    <!-- <script src="{!! asset('assets/js/vendor/vendor.min.js') !!}"></script>
+    <script src="{!! asset('assets/js/plugins/plugins.min.js') !!}"></script> -->
+
+    <!-- Main Js -->
+    <script src="{!! asset('assets/js/main.js') !!}"></script>
 </body>
 
 </html>

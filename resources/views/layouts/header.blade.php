@@ -1,67 +1,68 @@
-<div class="col-xl-10 d-flex align-items-center">
-          <h1 class="logo mr-auto"><a href="{{ url('/') }} ">Geez<span>.</span></a></h1>
-          <!-- Uncomment below if you prefer to use an image logo -->
-          <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt=""></a>-->
+    <header>
+        <div class="header-main sticky-nav ">
+            <div class="container position-relative">
+                <div class="row">
+                    <div class="col-auto align-self-center">
+                        <div class="header-logo">
+                            <a href="index.html"><img src="{!! asset('assets/images/logo/logo.png') !!}" alt="Site Logo" /></a>
+                        </div>
+                    </div>
+                    <div class="col align-self-center d-none d-lg-block">
+                        <div class="main-menu">
+                            <ul>
+                                <li class="{{ (Request()->is('/' )) ? 'active':"" }}"><a href="{{ route('home') }} ">Home</a></li>
+                                <li class="{{ (Request()->is('clothes' )) ? 'active':"" }}"><a href="{{ route('clothes') }} ">Clothes</a></li>
+                                <li class="{{ (Request()->is('tailors' )) ? 'active':"" }}"><a href="{{ route('tailors') }} ">Tailors</a></li>
+                                <li class="{{ (Request()->is('about' )) ? 'active':"" }}"><a href="{{ route('about') }} ">About</a></li>
+                                <li class="{{ (Request()->is('contact' )) ? 'active':"" }}"><a href="{{ route('contact') }} ">Contact us</a></li>
+                                @guest
+                                <li><a href="{{ route('login') }} ">Sign In/Register</a></li>
+                                @else
+                                <li class="dropdown "><a href="#">{{ Auth::user()->fname }} <i class="pe-7s-angle-down"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="{{ route('profile') }} ">Dashboard</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
 
-          <nav class="nav-menu d-none d-lg-block">
-            <ul>
-              <li class="active"><a href="#header">Home</a></li>
-              <li><a href="#clothes">Clothes</a></li>
-              <li><a href="#tailors">Tailors</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#faq">FAQ</a></li>
-              
-              
-             {{--  <li class="drop-down"><a href="">Drop Down</a>
-                <ul>
-                  <li><a href="#">Drop Down 1</a></li>
-                  <li class="drop-down"><a href="#">Deep Drop Down</a>
-                    <ul>
-                      <li><a href="#">Deep Drop Down 1</a></li>
-                      <li><a href="#">Deep Drop Down 2</a></li>
-                      <li><a href="#">Deep Drop Down 3</a></li>
-                      <li><a href="#">Deep Drop Down 4</a></li>
-                      <li><a href="#">Deep Drop Down 5</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Drop Down 2</a></li>
-                  <li><a href="#">Drop Down 3</a></li>
-                  <li><a href="#">Drop Down 4</a></li>
-                </ul>
-              </li> --}}
-              <li><a href="#contact">Contact</a></li>
-              @guest
-              <li>
-                  <a href="{{ route('login') }}">Login</a>
-              </li>
-              @if (Route::has('register'))
-                  <li class="nav-item">
-                      <a href="{{ route('register') }}">Register</a>
-                  </li>
-              @endif
-          @else
-            <li><a href="#">Dashboard</a></li>
-            <li class="drop-down"><a href="">{{ Auth::user()->name }}</a>
-              <ul>
-                <li><a class="dropdown-item" href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}</a>
-                </li>
-              </ul>
-            </li>
-             
-                  
-
-                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                          @csrf
-                      </form>
-                  </div>
-              </li>
-          @endguest
-
-            </ul>
-          </nav><!-- .nav-menu -->
-          
-          {{-- <a href="{{ route('register') }}" class="get-started-btn scrollto">Get Started</a> --}}
-        </div>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </li>
+                                    </ul>
+                                </li>
+                                @endguest 
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Header Action Start -->
+                    <div class="col col-lg-auto align-self-center pl-0">
+                        <div class="header-actions">
+                            <!-- Single Wedge Start -->
+                            <a href="#" class="header-action-btn" data-bs-toggle="modal" data-bs-target="#searchActive">
+                                <i class="pe-7s-search"></i>
+                            </a>
+                            <!-- Single Wedge End -->
+                            <!-- Single Wedge Start -->
+                            <a href="#offcanvas-wishlist" class="header-action-btn offcanvas-toggle">
+                                <i class="pe-7s-like"></i>
+                            </a>
+                            <!-- Single Wedge End -->
+                            <a href="#offcanvas-cart"
+                                class="header-action-btn header-action-btn-cart offcanvas-toggle pr-0">
+                                <i class="pe-7s-shopbag"></i>
+                                <span class="header-action-num">01</span>
+                                <!-- <span class="cart-amount">€30.00</span> -->
+                            </a>
+                            <a href="#offcanvas-mobile-menu"
+                                class="header-action-btn header-action-btn-menu offcanvas-toggle d-lg-none">
+                                <i class="pe-7s-menu"></i>
+                            </a>
+                        </div>
+                        <!-- Header Action End -->
+                    </div>
+                </div>
+            </div>
+    </header>

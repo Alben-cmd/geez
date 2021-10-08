@@ -1,230 +1,465 @@
-/**
-* Template Name: Presento - v1.0.0
-* Template URL: https://bootstrapmade.com/presento-bootstrap-portfolio-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-!(function($) {
-  "use strict";
+(function ($) {
+    "use strict";
 
-  // Smooth scroll for the navigation menu and links with .scrollto classes
-  var scrolltoOffset = $('#header').outerHeight() - 1;
-  $(document).on('click', '.nav-menu a, .mobile-nav a, .scrollto', function(e) {
-    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      if (target.length) {
-        e.preventDefault();
 
-        var scrollto = target.offset().top - scrolltoOffset;
 
-        if ($(this).attr("href") == '#header') {
-          scrollto = 0;
+    /*---------------------------
+       Commons Variables
+    ------------------------------ */
+    var $window = $(window),
+        $body = $("body");
+
+    /*----------------------------------------
+            Background Image             
+    -------------------------------------------*/
+
+    $('[data-bg-image]').each(function () {
+        var $this = $(this),
+            $image = $this.data('bg-image');
+        $this.css('background-image', 'url(' + $image + ')');
+    });
+
+    /*---------------------------
+       Menu Fixed On Scroll Active
+    ------------------------------ */
+    $(window).on("scroll", function (e) {
+        var window_top = $(window).scrollTop() + 1;
+        if (window_top > 250) {
+            $(".sticky-nav").addClass("menu_fixed animated fadeInDown");
+        } else {
+            $(".sticky-nav").removeClass("menu_fixed animated fadeInDown");
         }
+    });
 
-        $('html, body').animate({
-          scrollTop: scrollto
-        }, 1500, 'easeInOutExpo');
 
-        if ($(this).parents('.nav-menu, .mobile-nav').length) {
-          $('.nav-menu .active, .mobile-nav .active').removeClass('active');
-          $(this).closest('li').addClass('active');
+
+    /*-------------------------------
+        Create an toggle
+    ---------------------------------*/
+
+    $('.color a').on('click', function () {
+        $('.sidebar-widget-list a').removeClass('active');
+        $(this).addClass('active');
+    });
+
+    $('.size a').on('click', function () {
+        $('.sidebar-widget-list a').removeClass('active-2');
+        $(this).addClass('active-2');
+    });
+
+
+    /*-------------------------------
+        Create an toggle
+    ---------------------------------*/
+
+    $('.pro-details-color a').on('click', function () {
+        $('.pro-details-color a').removeClass('active-color');
+        $(this).addClass('active-color');
+    });
+
+    $('.pro-details-size a').on('click', function () {
+        $('.pro-details-size a').removeClass('active-size');
+        $(this).addClass('active-size');
+    });
+
+
+
+
+
+    /*---------------------------------
+        Off Canvas Function
+    -----------------------------------*/
+    (function () {
+        var $offCanvasToggle = $(".offcanvas-toggle"),
+            $offCanvas = $(".offcanvas"),
+            $offCanvasOverlay = $(".offcanvas-overlay"),
+            $mobileMenuToggle = $(".mobile-menu-toggle");
+        $offCanvasToggle.on("click", function (e) {
+            e.preventDefault();
+            var $this = $(this),
+                $target = $this.attr("href");
+            $body.addClass("offcanvas-open");
+            $($target).addClass("offcanvas-open");
+            $offCanvasOverlay.fadeIn();
+            if ($this.parent().hasClass("mobile-menu-toggle")) {
+                $this.addClass("close");
+            }
+        });
+        $(".offcanvas-close, .offcanvas-overlay").on("click", function (e) {
+            e.preventDefault();
+            $body.removeClass("offcanvas-open");
+            $offCanvas.removeClass("offcanvas-open");
+            $offCanvasOverlay.fadeOut();
+            $mobileMenuToggle.find("a").removeClass("close");
+        });
+    })();
+
+    /*----------------------------------
+        Off Canvas Menu
+    -----------------------------------*/
+    function mobileOffCanvasMenu() {
+        var $offCanvasNav = $(".offcanvas-menu, .overlay-menu"),
+            $offCanvasNavSubMenu = $offCanvasNav.find(".sub-menu");
+
+        /*Add Toggle Button With Off Canvas Sub Menu*/
+        $offCanvasNavSubMenu.parent().prepend('<span class="menu-expand"></span>');
+
+        /*Category Sub Menu Toggle*/
+        $offCanvasNav.on("click", "li a, .menu-expand", function (e) {
+            var $this = $(this);
+            if ($this.attr("href") === "#" || $this.hasClass("menu-expand")) {
+                e.preventDefault();
+                if ($this.siblings("ul:visible").length) {
+                    $this.parent("li").removeClass("active");
+                    $this.siblings("ul").slideUp();
+                    $this.parent("li").find("li").removeClass("active");
+                    $this.parent("li").find("ul:visible").slideUp();
+                } else {
+                    $this.parent("li").addClass("active");
+                    $this.closest("li").siblings("li").removeClass("active").find("li").removeClass("active");
+                    $this.closest("li").siblings("li").find("ul:visible").slideUp();
+                    $this.siblings("ul").slideDown();
+                }
+            }
+        });
+    }
+    mobileOffCanvasMenu();
+
+
+    /*----------------------------------
+     * Offcanvas: User Panel
+     ----------------------------------*/
+    function mobileOffCanvasUserPanel() {
+        var $offCanvasNav = $('.offcanvas-userpanel'),
+            $offCanvasNavSubMenu = $offCanvasNav.find('.user-sub-menu');
+
+        /*Add Toggle Button With Off Canvas Sub Menu*/
+        $offCanvasNavSubMenu.parent().prepend('<span class="offcanvas__user-expand"></span>');
+
+        /*Category Sub Menu Toggle*/
+        $offCanvasNav.on('click', 'li a, .offcanvas__user-expand', function (e) {
+            var $this = $(this);
+            if ($this.attr('href') === '#' || $this.hasClass('offcanvas__user-expand')) {
+                e.preventDefault();
+                if ($this.siblings('ul:visible').length) {
+                    $this.parent('li').removeClass('active');
+                    $this.siblings('ul').slideUp();
+                    $this.parent('li').find('li').removeClass('active');
+                    $this.parent('li').find('ul:visible').slideUp();
+                } else {
+                    $this.parent('li').addClass('active');
+                    $this.closest('li').siblings('li').removeClass('active').find('li').removeClass('active');
+                    $this.closest('li').siblings('li').find('ul:visible').slideUp();
+                    $this.siblings('ul').slideDown();
+                }
+            }
+        });
+    }
+    mobileOffCanvasUserPanel();
+
+    /*---------------------
+        Hero Slider
+     ---------------------- */
+
+    var heroSlider = new Swiper('.hero-slider.swiper-container', {
+        loop: true,
+        speed: 2000,
+        effect: "fade",
+        autoplay: {
+            delay: 7000,
+            disableOnInteraction: false,
+        },
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
         }
+    });
 
-        if ($('body').hasClass('mobile-nav-active')) {
-          $('body').removeClass('mobile-nav-active');
-          $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
-          $('.mobile-nav-overly').fadeOut();
+    /*---------------------
+        Category Slider
+     ---------------------- */
+
+    var categorySlider = new Swiper('.testimonial-wrapper.swiper-container', {
+        loop: true,
+        slidesPerView: 3,
+        spaceBetween: 30,
+        speed: 1500,
+        breakpoints: {
+            0: {
+                slidesPerView: 1,
+            },
+            478: {
+                slidesPerView: 1,
+            },
+            576: {
+                slidesPerView: 1,
+            },
+            768: {
+                slidesPerView: 2,
+            },
+            992: {
+                slidesPerView: 2,
+            },
+            1200: {
+                slidesPerView: 3,
+            },
+        },
+    });
+
+    /*---------------------
+        New Product Slider
+     ---------------------- */
+
+    var productSlider = new Swiper('.new-product-slider.swiper-container', {
+        slidesPerView: 4,
+        spaceBetween: 30,
+        speed: 1500,
+        loop: true,
+
+        // Navigation arrows
+
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+
+        breakpoints: {
+            0: {
+                slidesPerView: 1,
+            },
+            478: {
+                slidesPerView: 2,
+            },
+            576: {
+                slidesPerView: 2,
+            },
+            768: {
+                slidesPerView: 3,
+            },
+            992: {
+                slidesPerView: 3,
+            },
+            1200: {
+                slidesPerView: 4,
+            },
+        },
+    });
+
+    /*---------------------------
+        Quick view Slider 
+    ------------------------------ */
+    var galleryThumb = new Swiper('.gallery-thumbs', {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+    });
+    var galleryTop = new Swiper('.gallery-top', {
+        spaceBetween: 0,
+        loop: true,
+        thumbs: {
+            swiper: galleryThumb
         }
-        return false;
-      }
-    }
-  });
+    });
 
-  // Activate smooth scroll on page load with hash links in the url
-  $(document).ready(function() {
-    if (window.location.hash) {
-      var initial_nav = window.location.hash;
-      if ($(initial_nav).length) {
-        var scrollto = $(initial_nav).offset().top - scrolltoOffset;
-        $('html, body').animate({
-          scrollTop: scrollto
-        }, 1500, 'easeInOutExpo');
-      }
-    }
-  });
-
-  // Navigation active state on scroll
-  var nav_sections = $('section');
-  var main_nav = $('.nav-menu, .mobile-nav');
-
-  $(window).on('scroll', function() {
-    var cur_pos = $(this).scrollTop() + 200;
-
-    nav_sections.each(function() {
-      var top = $(this).offset().top,
-        bottom = top + $(this).outerHeight();
-
-      if (cur_pos >= top && cur_pos <= bottom) {
-        if (cur_pos <= bottom) {
-          main_nav.find('li').removeClass('active');
+    /*---------------------------
+        Product Details Slider 
+    ------------------------------ */
+    var zoomThumb = new Swiper('.zoom-thumbs', {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+    });
+    var zoomTop = new Swiper('.zoom-top', {
+        spaceBetween: 0,
+        slidesPerView: 1,
+        thumbs: {
+            swiper: zoomThumb
         }
-        main_nav.find('a[href="#' + $(this).attr('id') + '"]').parent('li').addClass('active');
-      }
-      if (cur_pos < 300) {
-        $(".nav-menu ul:first li:first, .mobile-menu ul:first li:first").addClass('active');
-      }
-    });
-  });
-
-  // Mobile Navigation
-  if ($('.nav-menu').length) {
-    var $mobile_nav = $('.nav-menu').clone().prop({
-      class: 'mobile-nav d-lg-none'
-    });
-    $('body').append($mobile_nav);
-    $('body').prepend('<button type="button" class="mobile-nav-toggle d-lg-none"><i class="icofont-navigation-menu"></i></button>');
-    $('body').append('<div class="mobile-nav-overly"></div>');
-
-    $(document).on('click', '.mobile-nav-toggle', function(e) {
-      $('body').toggleClass('mobile-nav-active');
-      $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
-      $('.mobile-nav-overly').toggle();
     });
 
-    $(document).on('click', '.mobile-nav .drop-down > a', function(e) {
-      e.preventDefault();
-      $(this).next().slideToggle(300);
-      $(this).parent().toggleClass('active');
+    /*---------------------------
+        Product Details Slider 
+    ------------------------------ */
+    var zoomThumb = new Swiper('.zoom-thumbs-2', {
+        spaceBetween: 0,
+        slidesPerView: 4,
+        direction: 'vertical',
+        freeMode: true,
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
     });
-
-    $(document).click(function(e) {
-      var container = $(".mobile-nav, .mobile-nav-toggle");
-      if (!container.is(e.target) && container.has(e.target).length === 0) {
-        if ($('body').hasClass('mobile-nav-active')) {
-          $('body').removeClass('mobile-nav-active');
-          $('.mobile-nav-toggle i').toggleClass('icofont-navigation-menu icofont-close');
-          $('.mobile-nav-overly').fadeOut();
+    var zoomTop = new Swiper('.zoom-top-2', {
+        spaceBetween: 0,
+        loop: true,
+        thumbs: {
+            swiper: zoomThumb
         }
-      }
-    });
-  } else if ($(".mobile-nav, .mobile-nav-toggle").length) {
-    $(".mobile-nav, .mobile-nav-toggle").hide();
-  }
-
-  // Toggle .header-scrolled class to #header when page is scrolled
-  $(window).scroll(function() {
-    if ($(this).scrollTop() > 100) {
-      $('#header').addClass('header-scrolled');
-    } else {
-      $('#header').removeClass('header-scrolled');
-    }
-  });
-
-  if ($(window).scrollTop() > 100) {
-    $('#header').addClass('header-scrolled');
-  }
-
-  // Portfolio details carousel
-  $(".portfolio-details-carousel").owlCarousel({
-    autoplay: true,
-    dots: true,
-    loop: true,
-    items: 1
-  });
-
-  // Back to top button
-  $(window).scroll(function() {
-    if ($(this).scrollTop() > 100) {
-      $('.back-to-top').fadeIn('slow');
-    } else {
-      $('.back-to-top').fadeOut('slow');
-    }
-  });
-
-  $('.back-to-top').click(function() {
-    $('html, body').animate({
-      scrollTop: 0
-    }, 1500, 'easeInOutExpo');
-    return false;
-  });
-
-  // Clients carousel (uses the Owl Carousel library)
-  $(".clients-carousel").owlCarousel({
-    autoplay: true,
-    dots: true,
-    loop: true,
-    responsive: {
-      0: {
-        items: 2
-      },
-      768: {
-        items: 4
-      },
-      900: {
-        items: 6
-      }
-    }
-  });
-
-  // jQuery counterUp
-  $('[data-toggle="counter-up"]').counterUp({
-    delay: 10,
-    time: 1000
-  });
-
-  // Testimonials carousel (uses the Owl Carousel library)
-  $(".testimonials-carousel").owlCarousel({
-    autoplay: true,
-    dots: true,
-    loop: true,
-    responsive: {
-      0: {
-        items: 1
-      },
-      768: {
-        items: 1
-      },
-      900: {
-        items: 2
-      },
-      1400: {
-        items: 3
-      }
-    }
-  });
-
-  // Porfolio isotope and filter
-  $(window).on('load', function() {
-    var portfolioIsotope = $('.portfolio-container').isotope({
-      itemSelector: '.portfolio-item',
-      layoutMode: 'fitRows'
     });
 
-    $('#portfolio-flters li').on('click', function() {
-      $("#portfolio-flters li").removeClass('filter-active');
-      $(this).addClass('filter-active');
 
-      portfolioIsotope.isotope({
-        filter: $(this).data('filter')
-      });
-      aos_init();
+
+    /*----------------------------
+        Cart Plus Minus Button
+    ------------------------------ */
+    var CartPlusMinus = $(".cart-plus-minus");
+    CartPlusMinus.prepend('<div class="dec qtybutton">-</div>');
+    CartPlusMinus.append('<div class="inc qtybutton">+</div>');
+    $(".qtybutton").on("click", function () {
+        var $button = $(this);
+        var oldValue = $button.parent().find("input").val();
+        if ($button.text() === "+") {
+            var newVal = parseFloat(oldValue) + 1;
+        } else {
+            // Don't allow decrementing below zero
+            if (oldValue > 1) {
+                var newVal = parseFloat(oldValue) - 1;
+            } else {
+                newVal = 1;
+            }
+        }
+        $button.parent().find("input").val(newVal);
     });
 
-    // Initiate venobox (lightbox feature used in portofilo)
-    $(document).ready(function() {
-      $('.venobox').venobox();
-    });
-  });
 
-  // Init AOS
-  function aos_init() {
-    AOS.init({
-      duration: 1000,
-      once: true
+    /*------------------------------
+            Single Product Slider
+    -----------------------------------*/
+    var swiper = new Swiper(".single-product-slider", {
+        slidesPerView: 4,
+        spaceBetween: 20,
+        speed: 1500,
+        loop: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+            0: {
+                slidesPerView: 1,
+            },
+            478: {
+                slidesPerView: 1,
+            },
+            576: {
+                slidesPerView: 2,
+            },
+            768: {
+                slidesPerView: 3,
+            },
+            992: {
+                slidesPerView: 3,
+            },
+            1024: {
+                slidesPerView: 4,
+            },
+            1200: {
+                slidesPerView: 4,
+            },
+        },
     });
-  }
-  $(window).on('load', function() {
-    aos_init();
-  });
+
+    /*-------------------------------
+        Create an account toggle
+    ---------------------------------*/
+    $(".checkout-toggle2").on("click", function () {
+        $(".open-toggle2").slideToggle(1000);
+    });
+
+    $(".checkout-toggle").on("click", function () {
+        $(".open-toggle").slideToggle(1000);
+    });
+
+
+    /*---------------------
+        Scroll Up
+    --------------------- */
+    $.scrollUp({
+        scrollText: '<i class="pe-7s-angle-up"></i>',
+        easingType: "linear",
+        scrollSpeed: 900,
+        animation: "fade",
+    });
+    /*---------------------
+        Countdown
+    --------------------- */
+    $("[data-countdown]").each(function () {
+        var $this = $(this),
+            finalDate = $(this).data("countdown");
+        $this.countdown(finalDate, function (event) {
+            $this.html(event.strftime('<span class="cdown day"><span class="cdown-1">%-D</span><p>Days</p></span> <span class="cdown hour"><span class="cdown-1">%-H</span><p>Hours</p></span> <span class="cdown minutes"><span class="cdown-1">%M</span> <p>Mins</p></span> <span class="cdown second"><span class="cdown-1"> %S</span> <p>Sec</p></span>'));
+        });
+    });
+
+    /*-----------------------------
+        Blog Gallery Slider 
+    -------------------------------- */
+    var swiper = new Swiper(".blog-post-media.swiper-container", {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        loop: true,
+        autoplay: {
+            delay: 2000,
+            disableOnInteraction: false,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+
+    /*---------------------------
+            Brand Logo
+      ------------------------------ */
+    var companyLogoSlider = new Swiper('.brand-slider.swiper-container', {
+        slidesPerView: 5,
+        speed: 1500,
+        loop: true,
+        autoplay: {
+            delay: 2000,
+            disableOnInteraction: false,
+        },
+        breakpoints: {
+
+            0: {
+                slidesPerView: 2,
+            },
+            480: {
+                slidesPerView: 3,
+            },
+            768: {
+                slidesPerView: 3,
+            },
+            992: {
+                slidesPerView: 4,
+            },
+            1200: {
+                slidesPerView: 5,
+            },
+        }
+    });
+
+    /*---------------------------
+          Nice Select 
+       ------------------------------ */
+
+    $('.shop-sort').niceSelect();
+
+    /*-------------------------------
+      Product Gallery - Image Zoom
+     --------------------------------*/
+
+    $('.zoom-image-hover').zoom();
+
+
+    /*---------------------
+        venobox
+    --------------------- */
+    $('.venobox').venobox();
+
 
 })(jQuery);
