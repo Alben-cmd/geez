@@ -54,10 +54,10 @@
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/1.jpg"
+                                                            <img src="{{asset('assets/images/product-image/1.jpg')}}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="assets/images/product-image/1.jpg" alt="Product" />
+                                                                src="{{asset('assets/images/product-image/1.jpg')}}" alt="Product" />
                                                         </a>
 
                                                     </div>
@@ -79,10 +79,10 @@
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/2.jpg"
+                                                            <img src="{{asset('assets/images/product-image/2.jpg')}}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="assets/images/product-image/2.jpg" alt="Product" />
+                                                                src="{{asset('assets/images/product-image/2.jpg')}}" alt="Product" />
                                                         </a>
                                                        
                                                        
@@ -108,10 +108,10 @@
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/3.jpg"
+                                                            <img src="{{asset('assets/images/product-image/3.jpg')}}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="assets/images/product-image/3.jpg" alt="Product" />
+                                                                src="{{asset('assets/images/product-image/3.jpg')}}" alt="Product" />
                                                         </a>
                                                         
                                                        
@@ -135,10 +135,10 @@
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/4.jpg"
+                                                            <img src="{{asset('assets/images/product-image/4.jpg')}}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="assets/images/product-image/4.jpg" alt="Product" />
+                                                                src="{{asset('assets/images/product-image/4.jpg')}}" alt="Product" />
                                                         </a>
                                                         
                                                         
@@ -178,10 +178,10 @@
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/1.jpg"
+                                                            <img src="{{asset('assets/images/product-image/1.jpg')}}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="assets/images/product-image/1.jpg" alt="Product" />
+                                                                src="{{asset('assets/images/product-image/1.jpg')}}" alt="Product" />
                                                         </a>
                                                         
                                                         
@@ -205,10 +205,10 @@
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/2.jpg"
+                                                            <img src="{{asset('assets/images/product-image/2.jpg')}}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="assets/images/product-image/2.jpg" alt="Product" />
+                                                                src="{{asset('assets/images/product-image/2.jpg')}}" alt="Product" />
                                                         </a>
                                                        
                                                        
@@ -234,10 +234,10 @@
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/3.jpg"
+                                                            <img src="{{asset('assets/images/product-image/3.jpg')}}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="assets/images/product-image/3.jpg" alt="Product" />
+                                                                src="{{asset('assets/images/product-image/3.jpg')}}" alt="Product" />
                                                         </a>
                                                         
                                                        
@@ -261,10 +261,10 @@
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/4.jpg"
+                                                            <img src="{{asset('assets/images/product-image/4.jpg')}}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="assets/images/product-image/4.jpg" alt="Product" />
+                                                                src="{{asset('assets/images/product-image/4.jpg')}}" alt="Product" />
                                                         </a>
                                                         
                                                         
@@ -302,10 +302,10 @@
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/1.jpg"
+                                                            <img src="{{asset('assets/images/product-image/1.jpg')}}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="assets/images/product-image/1.jpg" alt="Product" />
+                                                                src="{{asset('assets/images/product-image/1.jpg')}}" alt="Product" />
                                                         </a>
                                                         
                                                         
@@ -329,10 +329,10 @@
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/2.jpg"
+                                                            <img src="{{asset('assets/images/product-image/2.jpg')}}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="assets/images/product-image/2.jpg" alt="Product" />
+                                                                src="{{asset('assets/images/product-image/2.jpg')}}" alt="Product" />
                                                         </a>
                                                        
                                                        
@@ -358,10 +358,10 @@
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/3.jpg"
+                                                            <img src="{{asset('assets/images/product-image/3.jpg')}}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="assets/images/product-image/3.jpg" alt="Product" />
+                                                                src="{{asset('assets/images/product-image/3.jpg')}}" alt="Product" />
                                                         </a>
                                                         
                                                        
@@ -385,10 +385,10 @@
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/4.jpg"
+                                                            <img src="{{asset('assets/images/product-image/4.jpg')}}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="assets/images/product-image/4.jpg" alt="Product" />
+                                                                src="{{asset('assets/images/product-image/4.jpg')}}" alt="Product" />
                                                         </a>
                                                         
                                                         
@@ -432,11 +432,11 @@
                                                 <label>Email</label>
                                                 <input type="text" name="email" value="{{ $profile->email }}">
                                             </div>
-                                            <div class="default-form-box mb-20">
-                                                <label>New Password</label>
-                                                <input type="password" name="new_password">
-                                               
+                                             <div class="default-form-box mb-20">
+                                                <label>Brand Name</label>
+                                                <input type="text" name="email" value="{{ $profile->brand_name }}">
                                             </div>
+                                            
                                             <div class="save_button mt-3">
                                                 <button class="btn"
                                                     type="submit">Save</button>
@@ -455,6 +455,11 @@
                                                         <strong>{{ $errors->first('current_password') }}</strong>
                                                     </span>
                                                 @endif
+                                            </div>
+                                            <div class="default-form-box mb-20">
+                                                <label>New Password</label>
+                                                <input type="password" name="new_password">
+                                               
                                             </div>
                                             <div class="default-form-box mb-20">
                                                 <label>Confirm Password</label>

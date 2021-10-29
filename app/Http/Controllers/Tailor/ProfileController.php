@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Tailor;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\User; 
 use Hash;
 use Auth;
-use App\User;
 
 class ProfileController extends Controller
 {
@@ -16,9 +17,9 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $profile = User::where('id' , Auth::id())->first();
+         $profile = User::where('id' , Auth::id())->first();
         // dd($profile);
-        return view('front.profile', compact('profile'));
+        return view('tailor.profile', compact('profile'));
     }
 
     /**
@@ -30,7 +31,7 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+        
            $user = User::find($id);
 
         if ($request->filled('current_password')) {

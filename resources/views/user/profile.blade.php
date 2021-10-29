@@ -54,10 +54,10 @@
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/1.jpg"
+                                                            <img src="{{asset('assets/images/product-image/1.jpg')}}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="assets/images/product-image/1.jpg" alt="Product" />
+                                                                src="{{asset('assets/images/product-image/1.jpg')}}" alt="Product" />
                                                         </a>
 
                                                     </div>
@@ -79,10 +79,10 @@
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/2.jpg"
+                                                            <img src="{{asset('assets/images/product-image/2.jpg')}}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="assets/images/product-image/2.jpg" alt="Product" />
+                                                                src="{{asset('assets/images/product-image/2.jpg')}}" alt="Product" />
                                                         </a>
                                                        
                                                        
@@ -108,10 +108,10 @@
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/3.jpg"
+                                                            <img src="{{asset('assets/images/product-image/3.jpg')}}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="assets/images/product-image/3.jpg" alt="Product" />
+                                                                src="{{asset('assets/images/product-image/3.jpg')}}" alt="Product" />
                                                         </a>
                                                         
                                                        
@@ -135,10 +135,10 @@
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/4.jpg"
+                                                            <img src="{{asset('assets/images/product-image/4.jpg')}}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="assets/images/product-image/4.jpg" alt="Product" />
+                                                                src="{{asset('assets/images/product-image/4.jpg')}}" alt="Product" />
                                                         </a>
                                                         
                                                         
@@ -178,10 +178,10 @@
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/1.jpg"
+                                                            <img src="{{asset('assets/images/product-image/1.jpg')}}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="assets/images/product-image/1.jpg" alt="Product" />
+                                                                src="{{asset('assets/images/product-image/1.jpg')}}" alt="Product" />
                                                         </a>
                                                         
                                                         
@@ -205,10 +205,10 @@
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/2.jpg"
+                                                            <img src="{{asset('assets/images/product-image/2.jpg')}}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="assets/images/product-image/2.jpg" alt="Product" />
+                                                                src="{{asset('assets/images/product-image/2.jpg')}}" alt="Product" />
                                                         </a>
                                                        
                                                        
@@ -234,10 +234,10 @@
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/3.jpg"
+                                                            <img src="{{asset('assets/images/product-image/3.jpg')}}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="assets/images/product-image/3.jpg" alt="Product" />
+                                                                src="{{asset('assets/images/product-image/3.jpg')}}" alt="Product" />
                                                         </a>
                                                         
                                                        
@@ -261,10 +261,10 @@
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/4.jpg"
+                                                            <img src="{{asset('assets/images/product-image/4.jpg')}}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="assets/images/product-image/4.jpg" alt="Product" />
+                                                                src="{{asset('assets/images/product-image/4.jpg')}}" alt="Product" />
                                                         </a>
                                                         
                                                         
@@ -302,10 +302,10 @@
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/1.jpg"
+                                                            <img src="{{asset('assets/images/product-image/1.jpg')}}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="assets/images/product-image/1.jpg" alt="Product" />
+                                                                src="{{asset('assets/images/product-image/1.jpg')}}" alt="Product" />
                                                         </a>
                                                         
                                                         
@@ -329,10 +329,10 @@
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/2.jpg"
+                                                            <img src="{{asset('assets/images/product-image/2.jpg')}}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="assets/images/product-image/2.jpg" alt="Product" />
+                                                                src="{{asset('assets/images/product-image/2.jpg')}}" alt="Product" />
                                                         </a>
                                                        
                                                        
@@ -358,10 +358,10 @@
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/3.jpg"
+                                                            <img src="{{asset('assets/images/product-image/3.jpg')}}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="assets/images/product-image/3.jpg" alt="Product" />
+                                                                src="{{asset('assets/images/product-image/3.jpg')}}" alt="Product" />
                                                         </a>
                                                         
                                                        
@@ -385,10 +385,10 @@
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/4.jpg"
+                                                            <img src="{{asset('assets/images/product-image/4.jpg')}}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="assets/images/product-image/4.jpg" alt="Product" />
+                                                                src="{{asset('assets/images/product-image/4.jpg')}}" alt="Product" />
                                                         </a>
                                                         
                                                         

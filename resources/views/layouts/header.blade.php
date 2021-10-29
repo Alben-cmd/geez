@@ -11,7 +11,7 @@
                         <div class="main-menu">
                             <ul>
                                 <li class="{{ (Request()->is('/' )) ? 'active':"" }}"><a href="{{ route('home') }} ">Home</a></li>
-                                <li class="{{ (Request()->is('clothes' )) ? 'active':"" }}"><a href="{{ route('clothes') }} ">Clothes</a></li>
+                                <li class="{{ (Request()->is('clothes' )) ? 'active':"" }}"><a href="{{ route('men_cloth') }} ">Clothes</a></li>
                                 <li class="{{ (Request()->is('tailors' )) ? 'active':"" }}"><a href="{{ route('tailors') }} ">Tailors</a></li>
                                 <li class="{{ (Request()->is('about' )) ? 'active':"" }}"><a href="{{ route('about') }} ">About</a></li>
                                 <li class="{{ (Request()->is('contact' )) ? 'active':"" }}"><a href="{{ route('contact') }} ">Contact us</a></li>

@@ -39,228 +39,42 @@
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active" id="shop-grid">
                                         <div class="row mb-n-30px">
+                                            @if(Session::has('status'))
+                                                <div class="alert alert-primary">
+                                                    {{ Session::get('status') }}
+                                                </div>
+                                            @endif
+                                            @if($tailors > 0)
+                                            @foreach ($tailors as $key => $item)
                                             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-30px" data-aos="fade-up"
                                                 data-aos-delay="200">
                                                 <!-- Single Prodect -->
                                                 <div class="product">
                                                     <div class="thumb">
-                                                        <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/1.jpg"
+                                                        <a href="{{ route('show.tailor', ['id' => $key]) }}" class="image">
+                                                            <img src="{{ $item['profilepicture'] }}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="assets/images/product-image/1.jpg" alt="Product" />
+                                                                src="{{ $item['profilepicture'] }}" alt="Product" />
                                                         </a>
                                                         
                                                         
-                                                        <button title="Add To Cart" class=" add-to-cart">Add
-                                                            To Cart</button>
+                                                        <button title="Add To Cart" class=" add-to-cart">{{ $item['tailorname'] }}</button>
                                                     </div>
                                                     <div class="content">
                                                         
-                                                        <h5 class="title"><a href="single-product.html">Women's
-                                                                Elizabeth Coat
+                                                        <h5 class="title"><a href="single-product.html">Location:{{ $item['tailoraddress'] }}
                                                             </a>
                                                         </h5>
                                                         <span class="price">
-                                                            <span class="new">$38.50</span>
+                                                            <span class="new">Email: {{ $item['emailaddress'] }}</span>
                                                         </span>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-30px" data-aos="fade-up"
-                                                data-aos-delay="400">
-                                                <!-- Single Prodect -->
-                                                <div class="product">
-                                                    <div class="thumb">
-                                                        <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/2.jpg"
-                                                                alt="Product" />
-                                                            <img class="hover-image"
-                                                                src="assets/images/product-image/2.jpg" alt="Product" />
-                                                        </a>
-                                                       
-                                                       
-                                                        <button title="Add To Cart" class=" add-to-cart">Add
-                                                            To Cart</button>
-                                                    </div>
-                                                    <div class="content">
-                                                        
-                                                        <h5 class="title"><a href="single-product.html">Ardene Microfiber Tights</a>
-                                                        </h5>
-                                                        <span class="price">
-                                                            <span class="new">$30.50</span>
-                                                            
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <!-- Single Prodect -->
-                                            </div>
-                                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-30px" data-aos="fade-up"
-                                                data-aos-delay="600">
-                                                <!-- Single Prodect -->
-                                                <div class="product">
-                                                    <div class="thumb">
-                                                        <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/3.jpg"
-                                                                alt="Product" />
-                                                            <img class="hover-image"
-                                                                src="assets/images/product-image/3.jpg" alt="Product" />
-                                                        </a>
-                                                        
-                                                       
-                                                        <button title="Add To Cart" class=" add-to-cart">Add
-                                                            To Cart</button>
-                                                    </div>
-                                                    <div class="content">
-                                                        
-                                                        <h5 class="title"><a href="single-product.html">Women's Long
-                                                                Sleeve
-                                                                Shirts</a></h5>
-                                                        <span class="price">
-                                                            <span class="new">$30.50</span>
-                                                            
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-30px" data-aos="fade-up"
-                                                data-aos-delay="800">
-                                                <!-- Single Prodect -->
-                                                <div class="product">
-                                                    <div class="thumb">
-                                                        <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/4.jpg"
-                                                                alt="Product" />
-                                                            <img class="hover-image"
-                                                                src="assets/images/product-image/4.jpg" alt="Product" />
-                                                        </a>
-                                                        
-                                                        
-                                                        <button title="Add To Cart" class=" add-to-cart">Add
-                                                            To Cart</button>
-                                                    </div>
-                                                    <div class="content">
-                                                       
-                                                        <h5 class="title"><a href="single-product.html">Parrera Sunglasses - Lomashop</a></h5>
-                                                        <span class="price">
-                                                            <span class="new">$38.50</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <!-- Single Prodect -->
-                                            </div>
-                                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-30px"
-                                                data-aos="fade-up" data-aos-delay="200">
-                                                <!-- Single Prodect -->
-                                                <div class="product">
-                                                    <div class="thumb">
-                                                        <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/5.jpg"
-                                                                alt="Product" />
-                                                            <img class="hover-image"
-                                                                src="assets/images/product-image/5.jpg" alt="Product" />
-                                                        </a>
-                                                        
-                                                        
-                                                        <button title="Add To Cart" class=" add-to-cart">Add
-                                                            To Cart</button>
-                                                    </div>
-                                                    <div class="content">
-                                                        
-                                                        <h5 class="title"><a href="single-product.html">Cool Man
-                                                                Wearing
-                                                                Leather</a></h5>
-                                                        <span class="price">
-                                                            <span class="new">$38.50</span>
-                                                            
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6  mb-30px"
-                                                data-aos="fade-up" data-aos-delay="400">
-                                                <!-- Single Prodect -->
-                                                <div class="product">
-                                                    <div class="thumb">
-                                                        <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/6.jpg"
-                                                                alt="Product" />
-                                                            <img class="hover-image"
-                                                                src="assets/images/product-image/6.jpg" alt="Product" />
-                                                        </a>
-                                                        
-                                                        <button title="Add To Cart" class=" add-to-cart">Add
-                                                            To Cart</button>
-                                                    </div>
-                                                    <div class="content">
-                                                        
-                                                        <h5 class="title"><a href="single-product.html">Portrait Of A Young Stylish</a>
-                                                        </h5>
-                                                        <span class="price">
-                                                            <span class="new">$38.50</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <!-- Single Prodect -->
-                                            </div>
-                                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-30px"
-                                                data-aos="fade-up" data-aos-delay="600">
-                                                <!-- Single Prodect -->
-                                                <div class="product">
-                                                    <div class="thumb">
-                                                        <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/7.jpg"
-                                                                alt="Product" />
-                                                            <img class="hover-image"
-                                                                src="assets/images/product-image/7.jpg" alt="Product" />
-                                                        </a>
-                                                        
-                                                       
-                                                        <button title="Add To Cart" class=" add-to-cart">Add
-                                                            To Cart</button>
-                                                    </div>
-                                                    <div class="content">
-                                                        
-                                                        <h5 class="title"><a href="single-product.html">Men's Fashion
-                                                                Leather
-                                                                Bag</a></h5>
-                                                        <span class="price">
-                                                            <span class="new">$30.50</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-30px" data-aos="fade-up"
-                                                data-aos-delay="800">
-                                                <!-- Single Prodect -->
-                                                <div class="product">
-                                                    <div class="thumb">
-                                                        <a href="single-product.html" class="image">
-                                                            <img src="assets/images/product-image/8.jpg"
-                                                                alt="Product" />
-                                                            <img class="hover-image"
-                                                                src="assets/images/product-image/8.jpg" alt="Product" />
-                                                        </a>
-                                                        
-                                                        
-                                                        <button title="Add To Cart" class=" add-to-cart">Add
-                                                            To Cart</button>
-                                                    </div>
-                                                    <div class="content">
-                                                        
-                                                        <h5 class="title"><a href="single-product.html">Long sleeve
-                                                                knee
-                                                                length</a></h5>
-                                                        <span class="price">
-                                                            <span class="new">$38.50</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <!-- Single Prodect -->
-                                            </div>
-                                            
+                                            @endforeach
+                                            @endif
                                            
-                                            
                                         </div>
                                     </div>
                                     

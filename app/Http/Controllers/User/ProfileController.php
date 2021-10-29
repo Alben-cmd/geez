@@ -1,24 +1,69 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Hash;
+use Kreait\Firebase\Database;
 use Auth;
-use App\User;
 
 class ProfileController extends Controller
 {
+    public function __construct(Database $database)
+    {
+        $this->database = $database;
+        $this->tablename = 'UserBase';
+
+    }
+    
+    public function index()
+    {
+        $profile = $this->database->getReference($this->tablename)->getValue();
+        // dd($profile);
+        return view('user.profile', compact('profile'));
+    }
+
     /**
-     * Display a listing of the resource.
+     * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function create()
     {
-        $profile = User::where('id' , Auth::id())->first();
-        // dd($profile);
-        return view('front.profile', compact('profile'));
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
     }
 
     /**
@@ -30,7 +75,7 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+        
            $user = User::find($id);
 
         if ($request->filled('current_password')) {
