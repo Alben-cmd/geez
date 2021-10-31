@@ -125,7 +125,5 @@
             </div>
         </div>
     </div>   
-   
+   <br><br><br>
 @endsection
-
-<a href="" class="btn" style="background-color: red; a aal"> </a><div align="center"></div>

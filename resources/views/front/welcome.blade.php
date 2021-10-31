@@ -14,7 +14,7 @@
                                 <div class="hero-slide-content hero-slide-content-2 -animated-1">
                                     
                                     <h2 class="title-1">Meet Tailors Fast,<br> get that dream wear</h2>
-                                    <a href="shop-left-sidebar.html" class="btn btn-lg btn-primary btn-hover-dark"> Shop
+                                    <a href="{{ route('men_cloth') }} " class="btn btn-lg btn-primary btn-hover-dark"> Shop
                                         Now <i class="#" aria-hidden="true"></i></a>
                                 </div>
                             </div>
@@ -61,9 +61,9 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="single-product.html" class="image">
-                                                <img src="{!! asset('assets/images/product-image/1.jpg') !!}" alt="Product" />
-                                                <img class="hover-image" src="{!! asset('assets/images/product-image/2.jpg') !!}"
+                                            <a href="#" class="image">
+                                                <img src="{{ $item['designimage'] }}" alt="Product" />
+                                                <img class="hover-image" src="{{ $item['designimage'] }}"
                                                     alt="Product" />
                                             </a>
                                             <span class="badges">
@@ -78,16 +78,15 @@
                                                {{--  <a href="compare.html" class="action compare" title="Compare"><i
                                                         class="pe-7s-refresh-2"></i></a> --}}
                                             </div>
-                                            <button title="Add To Cart" class=" add-to-cart">Add
-                                                To Cart</button>
+                                           <a href="#"><button title="Add To Cart" class=" add-to-cart">{{ $item['designname'] }}</button></a> 
                                         </div>
                                         <div class="content">
                                             
-                                            <h5 class="title"><a href="single-product.html">
+                                            <h5 class="title"><a href="#">Contact Designer:{{ $item['tailornumber'] }}
                                                 </a>
                                             </h5>
                                             <span class="price">
-                                                <span class="new">{{ $item['prize'] }}</span>
+                                                <span class="new">₦{{ $item['prize'] }}</span>
                                             </span>
                                         </div>
                                     </div>
@@ -104,7 +103,7 @@
                         </div>
                         <!-- 1st tab end -->
                         </div>
-                    <a href="shop-left-sidebar.html" class="btn btn-lg btn-primary btn-hover-dark m-auto"> View More <i
+                    <a href="{{ route('men_cloth') }} " class="btn btn-lg btn-primary btn-hover-dark m-auto"> View More <i
                             class="fa fa-arrow-right ml-15px" aria-hidden="true"></i></a>
                 </div>
             </div>
@@ -147,8 +146,8 @@
                                     <div class="product">
                                         <div class="thumb">
                                             <a href="single-product.html" class="image">
-                                                <img src="{!! asset('assets/images/product-image/1.jpg') !!}" alt="Product" />
-                                                <img class="hover-image" src="{!! asset('assets/images/product-image/2.jpg') !!}"
+                                                <img src="{{ $item['profilepicture'] }}" alt="Product" />
+                                                <img class="hover-image" src="{{ $item['profilepicture'] }}"
                                                     alt="Product" />
                                             </a>
                                             {{-- <span class="badges">
@@ -161,16 +160,15 @@
                                                     data-bs-target="#exampleModal"><i class="pe-7s-search"></i></a>
                                                 
                                             </div>
-                                            <button title="Add To Cart" class=" add-to-cart">Add
-                                                To Cart</button>
+                                            <a href="{{ route('show.tailor', ['id' => $key]) }} "><button title="Add To Cart" class=" add-to-cart">{{ $item['tailorname'] }}</button></a> 
                                         </div>
                                         <div class="content">
                                            
-                                            <h5 class="title"><a href="single-product.html">Women's Elizabeth Coat
-                                                </a>
+                                            <h5 class="title">Location:{{ $item['tailoraddress'] }}
+                                                
                                             </h5>
                                             <span class="price">
-                                                <span class="new">{{ $item['emailaddress'] }}</span>
+                                                <span class="new">Email: {{ $item['emailaddress'] }}</span>
                                             </span>
                                         </div>
                                     </div>
@@ -189,7 +187,7 @@
                         
                        
                     </div>
-                    <a href="shop-left-sidebar.html" class="btn btn-lg btn-primary btn-hover-dark m-auto"> View More <i
+                    <a href="{{ route('tailors') }} " class="btn btn-lg btn-primary btn-hover-dark m-auto"> View More <i
                             class="fa fa-arrow-right ml-15px" aria-hidden="true"></i></a>
                 </div>
             </div>

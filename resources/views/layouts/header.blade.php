@@ -4,7 +4,7 @@
                 <div class="row">
                     <div class="col-auto align-self-center">
                         <div class="header-logo">
-                            <a href="index.html"><img src="{!! asset('assets/images/logo/logo.png') !!}" alt="Site Logo" /></a>
+                            <a href="{{ route('home') }}">Geez{{-- <img src="{!! asset('assets/images/logo/logo.png') !!}" alt="Site Logo" /> --}}</a>
                         </div>
                     </div>
                     <div class="col align-self-center d-none d-lg-block">

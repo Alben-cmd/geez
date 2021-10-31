@@ -71,7 +71,7 @@
                                                             </a>
                                                         </h5>
                                                         <span class="price">
-                                                            <span class="new">${{ $item['prize'] }}</span>
+                                                            <span class="new">₦{{ $item['prize'] }}</span>
                                                         </span>
                                                         <p>
                                                             {{ $item['tailornumber'] }}
@@ -108,7 +108,7 @@
                                                             </a>
                                                         </h5>
                                                         <span class="price">
-                                                            <span class="new">${{ $item['prize'] }}</span>
+                                                            <span class="new">₦{{ $item['prize'] }}</span>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -140,7 +140,7 @@
                                                             </a>
                                                         </h5>
                                                         <span class="price">
-                                                            <span class="new">${{ $item['prize'] }}</span>
+                                                            <span class="new">₦{{ $item['prize'] }}</span>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -172,7 +172,7 @@
                                                             </a>
                                                         </h5>
                                                         <span class="price">
-                                                            <span class="new">${{ $item['prize'] }}</span>
+                                                            <span class="new">₦{{ $item['prize'] }}</span>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -204,7 +204,7 @@
                                                             </a>
                                                         </h5>
                                                         <span class="price">
-                                                            <span class="new">${{ $item['prize'] }}</span>
+                                                            <span class="new">₦{{ $item['prize'] }}</span>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -236,7 +236,7 @@
                                                             </a>
                                                         </h5>
                                                         <span class="price">
-                                                            <span class="new">${{ $item['prize'] }}</span>
+                                                            <span class="new">₦{{ $item['prize'] }}</span>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -304,7 +304,7 @@
                                                             </a>
                                                         </h5>
                                                         <span class="price">
-                                                            <span class="new">${{ $item['prize'] }}</span>
+                                                            <span class="new">₦{{ $item['prize'] }}</span>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -337,7 +337,7 @@
                                                             </a>
                                                         </h5>
                                                         <span class="price">
-                                                            <span class="new">${{ $item['prize'] }}</span>
+                                                            <span class="new">₦{{ $item['prize'] }}</span>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -369,7 +369,7 @@
                                                             </a>
                                                         </h5>
                                                         <span class="price">
-                                                            <span class="new">${{ $item['prize'] }}</span>
+                                                            <span class="new">₦{{ $item['prize'] }}</span>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -401,7 +401,7 @@
                                                             </a>
                                                         </h5>
                                                         <span class="price">
-                                                            <span class="new">${{ $item['prize'] }}</span>
+                                                            <span class="new">₦{{ $item['prize'] }}</span>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -433,7 +433,7 @@
                                                             </a>
                                                         </h5>
                                                         <span class="price">
-                                                            <span class="new">${{ $item['prize'] }}</span>
+                                                            <span class="new">₦{{ $item['prize'] }}</span>
                                                         </span>
                                                     </div>
                                                 </div>
