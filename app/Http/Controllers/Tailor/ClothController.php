@@ -54,7 +54,7 @@ class ClothController extends Controller
             $originalImage = $request->file('image');
             $name = time().$originalImage->getClientOriginalName();
             $image = Image::make($originalImage);
-            $image->resize(720, 480);
+            $image->resize(270, 310);
             $image->save($path.$name); 
             
             $cloth = new Cloth();

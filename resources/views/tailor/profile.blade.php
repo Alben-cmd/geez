@@ -63,7 +63,7 @@
 
                              <div class="default-form-box mb-20">
                                 <label>Location</label>
-                                <input type="text" name="email" value="{{ $profile->brand_name }}">
+                                <input type="text" name="email" value="{{ $profile->location }}">
                             </div>
                             
                             <div class="default-form-box mb-20">
