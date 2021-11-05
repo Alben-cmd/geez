@@ -64,7 +64,7 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
 
 Route::group(['as' => 'tailor.', 'prefix' => 'tailor', 'namespace' => 'Tailor', 'middleware' => ['auth', 'tailor']], function () 
 {
-    Route::get('dashboard', 'dashboardController@index')->name('dashboard');
+    Route::get('dashboard', 'DashboardController@index')->name('dashboard');
     Route::post('cloth/add', 'ClothController@store')->name('cloth.add');
     Route::get('cloth/edit/{id}', 'ClothController@edit')->name('cloth.edit');
     Route::post('cloth/post/{id}', 'ClothController@update')->name('cloth.update');
