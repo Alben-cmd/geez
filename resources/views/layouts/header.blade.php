@@ -20,7 +20,15 @@
                                 @else
                                 <li class="dropdown "><a href="#">{{ Auth::user()->fname }} <i class="pe-7s-angle-down"></i></a>
                                     <ul class="sub-menu">
-                                        <li><a href="{{ route('profile') }} ">Dashboard</a></li>
+                                      
+                                        @if(Auth::user()->role_id == 1)
+                                        <li><a href="{{ route('user.dashboard') }} ">Dashboard</a></li>
+                                        @elseif(Auth::user()->role_id == 2)
+                                        <li><a href="{{ route('tailor.dashboard') }} ">Dashboard</a></li>
+                                        @elseif(Auth::user()->role_id == 3)
+                                        <li><a href="{{ route('admin.dashboard') }} ">Dashboard</a></li>
+                                        @endif
+                                      
                                         <li><a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
