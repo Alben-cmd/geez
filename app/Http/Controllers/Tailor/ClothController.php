@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Tailor;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\cloth;
+use App\Cloth;
 use Image;
 use Illuminate\Support\Str;
 

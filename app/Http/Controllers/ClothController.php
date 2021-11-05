@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cloth; 
 use Illuminate\Http\Request;
 use App\cloth; 
 

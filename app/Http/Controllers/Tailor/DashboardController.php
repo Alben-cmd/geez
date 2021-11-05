@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Tailor;
 use App\User;
 use Auth;
-use App\cloth;
+use App\Cloth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
