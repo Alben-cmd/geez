@@ -7,9 +7,6 @@ use Illuminate\Http\Request;
 use App\User; 
 use Hash;
 use Auth;
-use Kreait\Firebase;
-use Kreait\Firebase\Factory;
-use Kreait\Firebase\ServiceAccount;
 
 class ProfileController extends Controller
 {

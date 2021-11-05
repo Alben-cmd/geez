@@ -106,8 +106,6 @@ class ProfileController extends Controller
 
             ]);
 
-
-
         $user->fname = $request->fname;
         $user->lname = $request->lname;
         $user->brand_name = $request->brand_name;

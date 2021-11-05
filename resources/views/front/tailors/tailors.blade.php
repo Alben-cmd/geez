@@ -50,11 +50,11 @@
                                                 <!-- Single Prodect -->
                                                 <div class="product">
                                                     <div class="thumb">
-                                                        <a href="{{ route('tailor.show', ['id' => $key ]) }}" class="image">
+                                                        <a href="{{ route('tailor.show', ['id' => $item['id'] ]) }}" class="image">
                                                             <img src="assets/images/product-image/1.jpg"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="assets/images/product-image/1.jpg" alt="Product" />
+                                                                src="{{ $item['profilepicture'] }}" alt="Product" />
                                                         </a>
                                                         
                                                         

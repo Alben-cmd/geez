@@ -7,12 +7,12 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-12 text-center">
                     <h2 class="breadcrumb-title">Shop</h2>
-                    <!-- breadcrumb-list start -->
+             
                     <ul class="breadcrumb-list">
                         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                         <li class="breadcrumb-item active">Login</li>
                     </ul>
-                    <!-- breadcrumb-list end -->
+                
                 </div>
             </div>
         </div>

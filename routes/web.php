@@ -16,6 +16,8 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 
 //front page
 //home
+
+
 Route::get('/', 'HomeController@index')->name('home');
 //about
 Route::get('/about', 'HomeController@about')->name('about');

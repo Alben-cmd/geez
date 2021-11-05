@@ -120,3 +120,4 @@ class CartController extends Controller
         return redirect()->route('cart.index')->with('success', 'Item was Added to Your Wish List!');
     }
 }
+

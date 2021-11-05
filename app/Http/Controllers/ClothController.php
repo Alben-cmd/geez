@@ -7,23 +7,13 @@ use App\cloth;
 
 class ClothController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+     public function index()
     {
-        $clothes = Cloth::inRandomOrder()->get();
+        $clothes = Cloth::inRandomOrder()->paginate(20);
         return view('front.clothes.clothes', compact('clothes'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
@@ -77,3 +67,4 @@ class ClothController extends Controller
         //
     }
 }
+
