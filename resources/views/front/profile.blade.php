@@ -59,9 +59,7 @@
                                                             <img class="hover-image"
                                                                 src="assets/images/product-image/1.jpg" alt="Product" />
                                                         </a>
-                                                        
-                                                        
-                                                         
+
                                                     </div>
                                                     <div class="content">
                                                         
@@ -436,7 +434,7 @@
                                             </div>
                                             <div class="default-form-box mb-20">
                                                 <label>New Password</label>
-                                                <input type="password" name="new-password">
+                                                <input type="password" name="new_password">
                                                
                                             </div>
                                             <div class="save_button mt-3">
@@ -451,16 +449,16 @@
                                             </div>
                                             <div class="default-form-box mb-20">
                                                 <label>Current Password</label>
-                                                <input type="password" name="current-password">
-                                                @if ($errors->has('current-password'))
+                                                <input type="password" name="current_password">
+                                                @if ($errors->has('current_password'))
                                                     <span class="help-block">
-                                                        <strong>{{ $errors->first('current-password') }}</strong>
+                                                        <strong>{{ $errors->first('current_password') }}</strong>
                                                     </span>
                                                 @endif
                                             </div>
                                             <div class="default-form-box mb-20">
                                                 <label>Confirm Password</label>
-                                                <input type="password" name="new-password_confirmation">
+                                                <input type="password" name="new_password_confirmation">
                                             </div>
                                             
                                             

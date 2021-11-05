@@ -38,8 +38,9 @@ class ClothController extends Controller
     public function show($slug)
     {
         $cloth = Cloth::where('slug', $slug)->firstOrFail();
+        $alsoLike = Cloth::where('slug', '!=', $slug)->mightAlsoLike()->get();
 
-        return view ('front.single-cloth', compact('cloth'));
+        return view ('front.clothes.single-cloth', compact('cloth', 'alsoLike'));
     }
 
     /**

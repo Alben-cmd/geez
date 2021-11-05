@@ -15,6 +15,12 @@ class CreateTailorsTable extends Migration
     {
         Schema::create('tailors', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('address');
+            $table->string('phone_1');
+            $table->string('phone_2');
+            $table->string('email');
+            $table->string('profile_pic');
             $table->timestamps();
         });
     }

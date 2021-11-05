@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Tailor;
 
 class TailorController extends Controller
 {
@@ -13,7 +14,8 @@ class TailorController extends Controller
      */
     public function index()
     {
-        return view('front.tailors.tailors');
+        $tailors = Tailor::inRandomOrder()->paginate(20);
+        return view('front.tailors.tailors', compact('tailors'));
     }
 
     /**
@@ -45,7 +47,8 @@ class TailorController extends Controller
      */
     public function show($id)
     {
-        //
+        $tailor = Tailor::find($id);
+        return view('front.tailors.single-tailor', compact('tailor'));
     }
 
     /**

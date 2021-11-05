@@ -22,49 +22,6 @@ class ProfileController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
- 
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -74,39 +31,28 @@ class ProfileController extends Controller
     public function update(Request $request, $id)
     {
 
+           $user = User::find($id);
 
-        if ($request->has('current-password')) {
+        if ($request->filled('current_password')) {
 
-            $validateData = $request->validate([
-            'current-password' => 'required',
-            'new-password' => 'required|string|min:6|confirmed',
-            'fname' => 'required|string|max:255',
-            'lname' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:users,email,'.$id,
-            ]);
-            $user = User::find($id);
+            // $validateData = $request->validate([
+            // 'current_password' => 'required',
+            // 'new_password' => 'required|string|min:6|confirmed',
+            // ]);
 
-            if (!(Hash::check($request->get('current-password'), Auth::user()->password)))
+        if (!(Hash::check($request->get('current_password'), Auth::user()->password)))
         {
             return redirect()->back()->with("error","Your Current Password does not matches!");
         }
 
-        if(strcmp($request->get('current-password'), $request->get('new-password')) ==0)
+        if(strcmp($request->get('current_password'), $request->get('new_password')) ==0)
         {
             return redirect()->back()->with("error", "New Password Cannot be same as your Current password!");
         }
 
-        $user->fname = $request->fname;
-        $user->lname = $request->lname;
-        $user->brand_name = $request->brand_name;
-        $user->email = $request->email;
+        $user->password = bcrypt($request->get('new_password'));
 
-        $user->password = bcrypt($request->get('new-password'));
-        $user->save();
         }
-
-        else{
-
             
            $validateData = $request->validate([
 
@@ -115,7 +61,7 @@ class ProfileController extends Controller
             'email' => 'required|email|max:255|unique:users,email,'.$id,
 
             ]);
-           $user = User::find($id);
+
 
 
         $user->fname = $request->fname;
@@ -124,7 +70,6 @@ class ProfileController extends Controller
         $user->email = $request->email;
         $user->save();
 
-        }
         return redirect()->back()->with('success', 'Profile Updated!');
     }
 

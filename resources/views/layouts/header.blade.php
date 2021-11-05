@@ -50,11 +50,13 @@
                                 <i class="pe-7s-like"></i>
                             </a>
                             <!-- Single Wedge End -->
-                            <a href="#offcanvas-cart"
-                                class="header-action-btn header-action-btn-cart offcanvas-toggle pr-0">
+                            <a href="{{ route('cart.index') }} "
+                                class="header-action-btn header-action-btn-cart">
                                 <i class="pe-7s-shopbag"></i>
-                                <span class="header-action-num">01</span>
-                                <!-- <span class="cart-amount">€30.00</span> -->
+                                @if( Cart::instance('default')->count() > 0)
+                                <span class="header-action-num">{{ Cart::instance('default')->count() }} </span>
+                                @endif
+                                
                             </a>
                             <a href="#offcanvas-mobile-menu"
                                 class="header-action-btn header-action-btn-menu offcanvas-toggle d-lg-none">

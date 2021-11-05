@@ -14,50 +14,56 @@ class ClothTableSeeder extends Seeder
     {
         Cloth::create([
             'name' => 'cloth 1',
+            'trending' => '0',
+            'category' => 'Men Top',
+            'image' => '0943495340',
             'slug' => 'cloth 1',
-            'details' => 'men top',
             'price' => 149999,
-            'description' => 'Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.'
         ]);
 
          Cloth::create([
             'name' => 'cloth 2',
+            'trending' => '0',
+            'category' => 'Men Top 2',
+            'image' => 'sddvsdvvvs',
             'slug' => 'cloth 2',
-            'details' => 'Women top',
-            'price' => 139999,
-            'description' => 'Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.'
+            'price' => 1343232,
         ]);
 
           Cloth::create([
             'name' => 'cloth 3',
+            'trending' => '0',
+            'category' => 'Men Top 3',
+            'image' => 'fwfwefwe',
             'slug' => 'cloth 3',
-            'details' => 'Children top',
-            'price' => 129999,
-            'description' => 'Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.'
+            'price' => 123231,
         ]);
 
            Cloth::create([
             'name' => 'cloth 4',
+            'trending' => '0',
+            'category' => 'Men Top 4',
+            'image' => '0sdvsdsv',
             'slug' => 'cloth 4',
-            'details' => 'Unisex top',
-            'price' => 119999,
-            'description' => 'Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.'
+            'price' => 12321,
         ]);
 
             Cloth::create([
             'name' => 'cloth 5',
+            'trending' => '0',
+            'category' => 'Men Top 5',
+            'image' => '09dvsdvsdv',
             'slug' => 'cloth 5',
-            'details' => 'men Pants',
-            'price' => 169999,
-            'description' => 'Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.'
+            'price' => 134323,
         ]);
 
              Cloth::create([
             'name' => 'cloth 6',
+            'trending' => '0',
+            'category' => 'Men Top 6',
+            'image' => '0wwfawvwe',
             'slug' => 'cloth 6',
-            'details' => 'Women Pants',
-            'price' => 199999,
-            'description' => 'Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.'
+            'price' => 1454223,
         ]);
     }
 }
