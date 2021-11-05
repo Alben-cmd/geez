@@ -33,9 +33,7 @@ class ClothController extends Controller
         return view ('front.clothes.single-cloth', compact('cloth', 'alsoLike'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
+   
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
