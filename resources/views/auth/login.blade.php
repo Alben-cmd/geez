@@ -82,6 +82,10 @@
                                     <div class="login-register-form">
                                         <form method="POST" action="{{ route('register') }}">
                                             @csrf
+                                            <input type="hidden" name="picture" placeholder="Profile Picture" />
+                                            <input name="location" placeholder="Location" type="hidden"/>
+                                            <input name="phone_2" placeholder="phone Number 2" type="hidden" />
+                                            <input type="hidden" name="brand_name" placeholder="Brand Name" />
                                             <input type="text" name="fname" placeholder="First Name" required />
                                                 @if ($errors->has('fname'))
                                                     <span class="invalid-feedback" role="alert">
@@ -125,11 +129,11 @@
                                     <div class="login-register-form">
                                         <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" >
                                             @csrf
-                                            <input type="text" name="picture" placeholder="Profile Picture" />
+                                            <input type="text" name="picture" placeholder="Profile Picture" required />
                                             <input type="text" name="fname" placeholder="First Name" required />
                                             <input type="text" name="lname" placeholder="Last Name" required />
                                             <input type="hidden" name="role_id" value="2">
-                                            <input type="text" name="brand_name" placeholder="Brand Name" />
+                                            <input type="text" name="brand_name" placeholder="Brand Name" required/>
                                             <input name="email" placeholder="Email" type="email" required />
                                             <input name="phone_1" placeholder="phone Number 1" type="text" required />
                                             <input name="phone_2" placeholder="phone Number 2" type="text" />
