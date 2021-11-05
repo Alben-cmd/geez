@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cloth; 
-use Illuminate\Http\Request;
-use App\cloth; 
+use Illuminate\Http\Request; 
 
 class ClothController extends Controller
 {
