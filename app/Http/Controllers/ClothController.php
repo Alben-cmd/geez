@@ -33,10 +33,6 @@ class ClothController extends Controller
         return view ('front.clothes.single-cloth', compact('cloth', 'alsoLike'));
     }
 
-   
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
