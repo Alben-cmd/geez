@@ -72,11 +72,12 @@
                                         <td class="product-remove">
                                             {{-- <a href="#"><i class="pe-7s-like"></i></a> --}}
                                             {{-- <a href=""><i class="fa fa-times"></i></a> --}}
-                                            <form action="{{ route('cart.destroy', $item->rowId) }} " method="POST">
+                                            {{-- <form action="{{ route('cart.destroy', $item->rowId) }} " method="POST">
                                                 @csrf
                                                 {{ method_field('DELETE') }}
                                                 <button type="submit"><i class="fa fa-times"></i></button> 
-                                            </form>
+                                            </form> --}}
+                                            <a href="{{ route('cart.destroy', ['id' => $item->rowId]) }}"><i class="fa fa-times"></i></a>
                                         </td>
                                     </tr>
                                     

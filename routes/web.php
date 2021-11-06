@@ -31,7 +31,7 @@ Route::view('/single-cloth', 'front.clothes.single-cloth');
 //cart section
 Route::get('/cart', 'CartController@index')->name('cart.index');
 Route::post('/cart', 'CartController@store')->name('cart.store');
-Route::delete('/cart/{cloth}', 'CartController@destroy')->name('cart.destroy');
+Route::get('/cart/{id}', 'CartController@destroy')->name('cart.destroy');
 Route::get('cart/empty', 'CartController@emptycart')->name('cart.empty');
 
 //wish list 

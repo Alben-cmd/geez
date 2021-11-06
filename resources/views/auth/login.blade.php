@@ -31,10 +31,10 @@
                                 <h4>login</h4>
                             </a>
                             <a data-bs-toggle="tab" href="#user">
-                                <h4>User register</h4>
+                                <h4>Register as User</h4>
                             </a>
                             <a data-bs-toggle="tab" href="#ruser">
-                                <h4>Tailor register</h4>
+                                <h4>Register as Tailor</h4>
                             </a>
                         </div>
 
@@ -129,15 +129,50 @@
                                     <div class="login-register-form">
                                         <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" >
                                             @csrf
-                                            <input type="text" name="picture" placeholder="Profile Picture" required />
+                                            <input type="hidden" name="picture" placeholder="Profile Picture" />
                                             <input type="text" name="fname" placeholder="First Name" required />
+                                                @if ($errors->has('fname'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $errors->first('fname') }}</strong>
+                                                    </span>
+                                                @endif
                                             <input type="text" name="lname" placeholder="Last Name" required />
+                                                @if ($errors->has('lname'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $errors->first('lname') }}</strong>
+                                                    </span>
+                                                @endif
                                             <input type="hidden" name="role_id" value="2">
                                             <input type="text" name="brand_name" placeholder="Brand Name" required/>
+                                                @if ($errors->has('brand_name'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $errors->first('brand_name') }}</strong>
+                                                    </span>
+                                                @endif
                                             <input name="email" placeholder="Email" type="email" required />
+                                                @if ($errors->has('email'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $errors->first('email') }}</strong>
+                                                    </span>
+                                                @endif
                                             <input name="phone_1" placeholder="phone Number 1" type="text" required />
+                                                @if ($errors->has('phone_1'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $errors->first('phone_1') }}</strong>
+                                                    </span>
+                                                @endif
                                             <input name="phone_2" placeholder="phone Number 2" type="text" />
+                                                @if ($errors->has('phone_2'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $errors->first('phone_2') }}</strong>
+                                                    </span>
+                                                @endif
                                             <input name="location" placeholder="Location" type="text" required />
+                                                @if ($errors->has('location'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $errors->first('location') }}</strong>
+                                                    </span>
+                                                @endif
                                             <input type="password" name="password" placeholder="Password" required/>
                                             <input type="password" name="password_confirmation" placeholder="Confirm Password" required/>
                                             <div class="button-box">
