@@ -17,9 +17,9 @@ class ProfileController extends Controller
      */
     public function index()
     {
-         $profile = User::where('id' , Auth::id())->first();
-        // dd($profile);
-        return view('admin.profile', compact('profile'));
+        //  $profile = User::where('id' , Auth::id())->first();
+     
+        // return view('admin.profile', compact('profile'));
     }
 
     /**

@@ -16,18 +16,23 @@
                         {{-- error and success messages --}}
                         @include('partials.messaging')
                         <div class="tab-pane fade show active" id="dashboard">
-                            <h4>Edit Cloth </h4>
+                            <h4>Edit Tailor </h4>
                            <div class="login">
     <div class="login_form_container">
         <div class="account_login_form">
             <div class="row">
                 <div class="col-6"> 
-                <form method="POST" action="{{ route('admin.cloth.update', ['id' => $cloth->id]) }} " enctype="multipart/form-data" class="form-horizontal">
+                <form method="POST" action="{{ route('admin.tailor.update', ['id' => $tailor->id]) }} " enctype="multipart/form-data" class="form-horizontal">
                         @csrf
                     
                         <div class="default-form-box mb-20">
-                            <label>Name</label>
-                            <input type="text" name="name" value="{{$cloth->name}}">
+                            <label>first Name</label>
+                            <input type="text" name="name" value="{{$tailor->fname}}">
+                        </div>
+
+                        <div class="default-form-box mb-20">
+                            <label>Last Name</label>
+                            <input type="text" name="name" value="{{$tailor-lname}}">
                         </div>
                         
                          <div class="default-form-box mb-20">

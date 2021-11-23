@@ -78,6 +78,8 @@
 
     <!-- Main Js -->
     <script src="{!! asset('assets/js/main.js') !!}"></script>
+    @yield('extra-js')
+
 </body>
 
 </html>

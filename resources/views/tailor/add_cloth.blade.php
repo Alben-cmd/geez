@@ -1,6 +1,8 @@
 <div class="tab-pane fade" id="add_cloth">
 <h3>Add Cloth</h3>
 <hr>
+{{-- error and success messages --}}
+@include('partials.messaging')
 <div class="login">
     <div class="login_form_container">
         <div class="account_login_form">

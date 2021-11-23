@@ -18,5 +18,10 @@ class Cloth extends Model
         return $this->belongsTo('App\Tailor');
     }
 
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment'); 
+    }
     
 }

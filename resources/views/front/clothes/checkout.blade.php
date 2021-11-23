@@ -21,8 +21,8 @@
     </div>
 
     <!-- breadcrumb-area end -->
-
-
+    {{-- error and success messages --}}
+    @include('partials.messaging')
     <!-- checkout area start -->
     <div class="checkout-area pt-100px pb-100px">
         <div class="container">

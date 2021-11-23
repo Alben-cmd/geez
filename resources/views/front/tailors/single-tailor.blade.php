@@ -23,6 +23,8 @@
     <!-- breadcrumb-area end -->
 
     <!-- Product Details Area Start -->
+    {{-- error and success messages --}}
+    @include('partials.messaging')
     <div class="product-details-area pt-100px pb-100px">
         <div class="container">
             <div class="row">

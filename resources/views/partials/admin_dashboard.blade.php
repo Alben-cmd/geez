@@ -2,13 +2,14 @@
     <!-- Nav tabs -->
     <div class="dashboard_tab_button" data-aos="fade-up" data-aos-delay="0">
         <ul role="tablist" class="nav flex-column dashboard-list">
-            <li><a href="#dashboard" data-bs-toggle="tab" class="nav-link active">Dashboard</a></li>
-            <li> <a href="#cloths" data-bs-toggle="tab" class="nav-link">My Cloths</a></li>
-            <li><a href="#tailor" data-bs-toggle="tab" class="nav-link">My Tailors</a></li>
-            <li><a href="#items" data-bs-toggle="tab" class="nav-link">Saved Items</a></li>
-            <li><a href="#profile" data-bs-toggle="tab" class="nav-link">My profile</a>
+            <li><a href="{{ route('admin.dashboard') }}#dashboard" data-bs-toggle="tab" class="nav-link active">Dashboard</a></li>
+            <li> <a href="{{ route('admin.dashboard') }}#clothes" data-bs-toggle="tab" class="nav-link">My Clothes</a></li>
+            <li><a href="{{ route('admin.dashboard') }}#add_cloth" data-bs-toggle="tab" class="nav-link">Add Cloth</a></li>
+            <li> <a href="{{ route('admin.dashboard') }}#tailors" data-bs-toggle="tab" class="nav-link">Tailors</a></li>
+            <li><a href="{{ route('admin.dashboard') }}#items" data-bs-toggle="tab" class="nav-link">Saved Items</a></li>
+            <li><a href="{{ route('admin.dashboard') }}#profile" data-bs-toggle="tab" class="nav-link">My profile</a>
             </li>
-            <li><a class="dropdown-item" href="{{ route('logout') }}"
+            <li><a class="nav-link" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}

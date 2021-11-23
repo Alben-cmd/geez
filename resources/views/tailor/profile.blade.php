@@ -1,5 +1,7 @@
 <div class="tab-pane fade" id="profile">
     <h3>My Profile </h3>
+    {{-- error and success messages --}}
+    @include('partials.messaging')
     <div class="login">
         <div class="login_form_container">
             <div class="account_login_form">

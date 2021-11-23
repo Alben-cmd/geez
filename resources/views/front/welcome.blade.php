@@ -9,6 +9,8 @@
                 <!-- Single slider item -->
                 <div class="hero-slide-item-2 slider-height swiper-slide d-flex bg-color1">
                     <div class="container align-self-center">
+                        {{-- error and success messages --}}
+                        @include('partials.messaging')
                         <div class="row">
                             <div class="col-xl-6 col-lg-5 col-md-5 col-sm-5 align-self-center sm-center-view">
                                 <div class="hero-slide-content hero-slide-content-2 slider-animated-1">
@@ -101,13 +103,19 @@
                                                 {{-- <span class="new">New</span> --}}
                                             </span>
                                             <div class="actions">
-                                                {{-- <a href="wishlist.html" class="action wishlist" title="Wishlist"><i
-                                                        class="pe-7s-like"></i></a> --}}
-                                                <a href="{{ route('cloth.show', ['slug' => $item['slug']  ]) }}" class="action quickview" data-link-action="quickview"
-                                                    title="Quick view" data-bs-toggle="modal"
-                                                    data-bs-target="#exampleModal"><i class="pe-7s-search"></i></a>
-                                               {{--  <a href="compare.html" class="action compare" title="Compare"><i
-                                                        class="pe-7s-refresh-2"></i></a> --}}
+                                                <a href="{{ route('cloth.show', ['slug' => $item['slug']  ]) }}" class="action wishlist" title="Wishlist"><i class="pe-7s-like"></i>
+                                                </a>
+                                                @if(Auth::user())
+                                                @if(Auth::user()->role_id == 3)
+                                                @if($item['trending'] == '0')
+                                                <a href="{{ route('admin.enable.trending', ['id' => $item->id]) }}" class="action wishlist"
+                                                title="Not Trending"><i class="pe-7s-cloud-download"></i></a>
+                                                @elseif($item['trending'] == '1')
+                                                <a href="{{ route('admin.disable.trending', ['id' => $item->id]) }}" class="action wishlist"
+                                                title="Trending"><i class="pe-7s-cloud-upload"></i></a>
+                                                @endif
+                                                @endif
+                                                @endif
                                             </div>
                                            <a href="{{ route('cloth.show', ['slug' => $item['slug']  ]) }}"><button title="Add To Cart" class=" add-to-cart">{{ $item['name'] }}</button></a> 
                                         </div>

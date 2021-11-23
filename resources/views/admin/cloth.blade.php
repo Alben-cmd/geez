@@ -1,4 +1,4 @@
-<div class="tab-pane fade" id="cloths">
+<div class="tab-pane fade" id="clothes">
     <h4>My Cloths</h4>
     {{-- error and success messages --}}
     @include('partials.messaging')
@@ -15,10 +15,10 @@
                             <div class="thumb">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <a href="{{ route('tailor.cloth.edit', ['id' => $item['id'] ]) }} " class="btn btn-outline-dark ">Edit </a>
+                                        <a href="{{ route('admin.cloth.edit', ['id' => $item['id'] ]) }} " class="btn btn-outline-dark ">Edit </a>
                                     </div>
                                     <div class="col-md-6">
-                                        <a href="{{ route('tailor.cloth.delete', ['id' => $item['id']]) }}" class="btn btn-outline-dark ">Delete</a>
+                                        <a href="{{ route('admin.cloth.delete', ['id' => $item['id']]) }}" class="btn btn-outline-dark ">Delete</a>
                                     </div>
                                 </div>
                                 <a href="#" class="image">

@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Tailor;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Tailor;
+use App\User;
 use App\Cloth;
-use Image;
-use Illuminate\Support\Str;
 
-
-class ClothController extends Controller
+class TailorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -39,36 +38,7 @@ class ClothController extends Controller
      */
     public function store(Request $request)
     {
-         $validatedData = $request->validate([
-
-             'name' => 'required',
-             'category' => 'required',
-             'image'  => 'required',
-             'details'  => 'required',
-             'price'  => 'required',
-             'brand_name'  => 'required',
-
-             ]);
-
-            $path = public_path().'/assets/images/clothes/';      
-            $originalImage = $request->file('image');
-            $name = time().$originalImage->getClientOriginalName();
-            $image = Image::make($originalImage);
-            $image->resize(270, 310);
-            $image->save($path.$name); 
-            
-            $cloth = new Cloth();
-
-            $cloth->image=$name;
-            $cloth->name =$request->name; 
-            $cloth->category = $request->category;
-            $cloth->slug = Str::slug($cloth->name);
-            $cloth->details = $request->details;
-            $cloth->price = $request->price;
-            $cloth->brand_name = $request->brand_name;
-            $cloth->save();
-
-            return redirect()->back()->with('success', 'Cloth Added!');
+        //
     }
 
     /**
@@ -79,7 +49,11 @@ class ClothController extends Controller
      */
     public function show($id)
     {
-        //
+        $tailor_data = User::find($id);  
+        $cloths = Cloth::where('brand_name' , $tailor_data->brand_name)->get();
+       
+        // dd($tailor_data); 
+        return view('admin.single-tailor', compact('tailor_data', 'cloths'));
     }
 
     /**
@@ -90,8 +64,8 @@ class ClothController extends Controller
      */
     public function edit($id)
     {
-        $cloth = Cloth::find($id);
-        return view('tailor.edit_cloth', compact('cloth'));
+        $tailor = Tailor::find($id);
+        return view('admin.edit_tailor', compact('tailor'));
     }
 
     /**
@@ -103,7 +77,7 @@ class ClothController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $cloth = Cloth::find($id);
+        $cloth = Tailor::find($id);
 
         $validatedData = $request->validate([
 
@@ -135,7 +109,7 @@ class ClothController extends Controller
 
         $cloth->save(); 
 
-        return redirect()->route('tailor.dashboard')->with('success', 'Cloth Updated!');  
+        return redirect()->route('admin.dashboard')->with('success', 'Cloth Updated!');
     }
 
     /**
@@ -146,7 +120,7 @@ class ClothController extends Controller
      */
     public function destroy($id)
     {
-        Cloth::where('id', $id)->delete();   
-        return redirect()->route('tailor.dashboard')->with('success', 'Cloth Deleted!');  
+        Tailor::where('id', $id)->delete();   
+        return redirect()->route('admin.dashboard')->with('success', 'Tailor Deleted!');
     }
 }

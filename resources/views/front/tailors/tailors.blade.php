@@ -24,13 +24,10 @@
     <!-- Shop Page Start  -->
     <div class="shop-category-area pt-100px pb-100px">
         <div class="container">
+            {{-- error and success messages --}}
+            @include('partials.messaging')
             <div class="row">
                 <div class="col-12">
-                    <!-- Shop Top Area Start -->
-                    
-                    <!-- Shop Top Area End -->
-
-                    <!-- Shop Bottom Area Start -->
                     <div class="shop-bottom-area">
 
                         <!-- Tab Content Area Start -->
@@ -39,11 +36,7 @@
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active" id="shop-grid">
                                         <div class="row mb-n-30px">
-                                            @if(Session::has('status'))
-                                                <div class="alert alert-primary">
-                                                    {{ Session::get('status') }}
-                                                </div>
-                                            @endif
+                                            
                                             @foreach ($tailors as $key => $item)
                                             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-30px" data-aos="fade-up"
                                                 data-aos-delay="200">

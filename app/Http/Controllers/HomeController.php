@@ -13,7 +13,7 @@ class HomeController extends Controller
   
     public function index()
     {
-        $clothes = Cloth::take(6)->inRandomOrder()->get();
+        $clothes = Cloth::where( 'trending', '1')->take(6)->inRandomOrder()->get();
         // $tailors = Tailor::take(6)->inRandomOrder()->get();
         $tailors = User::where('role_id', '=', '2')->inRandomOrder()->take(6)->get();
         return view('front.welcome', compact('clothes', 'tailors'));

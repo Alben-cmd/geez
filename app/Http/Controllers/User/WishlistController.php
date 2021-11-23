@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Cloth;
-use Gloudemans\Shoppingcart\Facades\Cart;
+use App\Wishlist;
+use Auth;
 
-class CartController extends Controller
+class WishlistController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +18,9 @@ class CartController extends Controller
     public function index()
     {
         $alsoLike = Cloth::mightAlsoLike()->get();
-        return view('front.clothes.cart', compact('alsoLike'));
+        $wishlist = Wishlist::where('user_id', Auth::id())->get();
+        $cloth = Cloth::get();
+        return view('user.wishlist', compact('alsoLike', 'wishlist', 'cloth'));
     }
 
     /**
@@ -37,18 +41,14 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        // Cart::add('293ad', 'Product 1', 1, 9.99);
-        $duplicates = Cart::search(function ($cartItem, $rowId) use ($request){
-            return $cartItem->id === $request->id;
-        });
+        $wishlist = new Wishlist();
 
-        if ($duplicates->isNotEmpty()){
-            return redirect()->route('cart.index')->with('success', 'Item is already in your cart');
-        }
-        Cart::add($request->id, $request->name, 1, $request->price)
-            ->associate('App\Cloth');
+        $wishlist->user_id = $request->user_id;
+        $wishlist->cloth_id = $request->cloth_id;
 
-        return redirect()->back()->with('success', 'Item was Added to Your Cart!');
+        $wishlist->save(); 
+
+        return redirect()->back()->with('success', 'Cloth added to wishlist');
     }
 
     /**
@@ -57,9 +57,6 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
- 
-
     public function show($id)
     {
         //
@@ -96,28 +93,7 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        Cart::remove($id);
-
-        return back()->with('success', 'Item has been removed!');
-    }
-
-    public function emptycart()
-    {
-        cart::destroy();
-
-         return back()->with('success', 'Cart Emptied!');
-    }
-
-    public function wishList($id)
-    {
-        $item = Cart::get($id);
-
-        Cart::remove($id);
-
-        Cart::instance('wishlist')->add($item->id, $item->name, 1, $item->price)
-            ->associate('App\Cloth');
-
-        return redirect()->route('cart.index')->with('success', 'Item was Added to Your Wish List!');
+        Wishlist::where('id', $id)->delete();   
+        return redirect()->back()->with('success', 'Item Deleted!');
     }
 }
-

@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Tailor;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Cloth;
 use Image;
 use Illuminate\Support\Str;
-
 
 class ClothController extends Controller
 {
@@ -39,7 +38,7 @@ class ClothController extends Controller
      */
     public function store(Request $request)
     {
-         $validatedData = $request->validate([
+        $validatedData = $request->validate([
 
              'name' => 'required',
              'category' => 'required',
@@ -69,6 +68,7 @@ class ClothController extends Controller
             $cloth->save();
 
             return redirect()->back()->with('success', 'Cloth Added!');
+
     }
 
     /**
@@ -91,7 +91,7 @@ class ClothController extends Controller
     public function edit($id)
     {
         $cloth = Cloth::find($id);
-        return view('tailor.edit_cloth', compact('cloth'));
+        return view('admin.edit_cloth', compact('cloth'));
     }
 
     /**
@@ -135,7 +135,7 @@ class ClothController extends Controller
 
         $cloth->save(); 
 
-        return redirect()->route('tailor.dashboard')->with('success', 'Cloth Updated!');  
+        return redirect()->route('admin.dashboard')->with('success', 'Cloth Updated!');
     }
 
     /**
@@ -147,6 +147,22 @@ class ClothController extends Controller
     public function destroy($id)
     {
         Cloth::where('id', $id)->delete();   
-        return redirect()->route('tailor.dashboard')->with('success', 'Cloth Deleted!');  
+        return redirect()->route('admin.dashboard')->with('success', 'Cloth Deleted!');
+    }
+
+    public function enable_trending($id)
+    {
+        $trending = Cloth::find($id);
+        $trending->trending = 1;
+        $trending->save();
+        return redirect()->back()->with('success', 'Cloth is now Trending!');
+    }
+
+    public function disable_trending($id)
+    {
+        $trending = Cloth::find($id);
+        $trending->trending = 0;
+        $trending->save();
+        return redirect()->back()->with('success', 'Cloth No Longer Trending!');
     }
 }

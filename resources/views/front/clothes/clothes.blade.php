@@ -24,20 +24,12 @@
     <!-- Shop Page Start  -->
     <div class="shop-category-area pt-100px pb-100px">
         <div class="container">
+        {{-- error and success messages --}}
+        @include('partials.messaging')
+
             <div class="row">
                 <div class="col-12">
-                    <div class="section-title text-left mb-0">
-                        <h2 class="title">Clothes</h2>
-
-                        <!-- Tab Start -->
-                        
-                        <!-- Tab End -->
-                    </div>
-                    <!-- Shop Top Area Start -->
-                    
-                    <!-- Shop Top Area End -->
-
-                    <!-- Shop Bottom Area Start -->
+                                    
                     <div class="shop-bottom-area">
 
                         <!-- Tab Content Area Start -->
@@ -58,17 +50,41 @@
                                                             <img class="hover-image"
                                                                 src="{{ asset('/assets/images/clothes/' .$item['image']) }}" alt="Product" />
                                                         </a>
-                                                        
-                                                        
-                                                        <a href="{{ route('cloth.show', ['slug' => $item['slug']  ]) }}"><button title="Add To Cart" class=" add-to-cart">{{ $item['name'] }} </button></a> 
+                                                        <div class="actions">
+                                                            <a href="wishlist.html" class="action wishlist"
+                                                                title="Wishlist"><i class="pe-7s-like"></i></a>
+                                                                @if(Auth::user())
+                                                                @if(Auth::user()->role_id == 3)
+                                                                @if($item['trending'] == '0')
+                                                                <a href="{{ route('admin.enable.trending', ['id' => $item->id]) }}" class="action wishlist"
+                                                                title="Not Trending"><i class="pe-7s-cloud-download"></i></a>
+                                                                @elseif($item['trending'] == '1')
+                                                                <a href="{{ route('admin.disable.trending', ['id' => $item->id]) }}" class="action wishlist"
+                                                                title="Trending"><i class="pe-7s-cloud-upload"></i></a>
+                                                                @endif
+                                                                @endif
+                                                                @endif
+                                                                
+                                                        </div>
+                                                       
+                                                        <form action="{{ route('cart.store') }}" method="POST">
+                                                            @csrf
+                                                            <input type="hidden" name="id" value="{{ $item->id}} ">
+                                                            <input type="hidden" name="name" value="{{ $item->name}} ">
+                                                            <input type="hidden" name="price" value="{{ $item->price}} ">
+                                                            <button  title="Add To Cart" class=" add-to-cart"> Add To Cart</button>
+                                                        </form>
                                                     </div>
                                                     <div class="content">
                                                         
-                                                        <h5 class="title"><a href="{{ route('cloth.show', ['slug' => $item['slug']  ]) }}">Brand: {{ $item['brand_name'] }}
+                                                        <h5 class="title"><a href="{{ route('cloth.show', ['slug' => $item['slug']  ]) }}">{{ $item['name'] }}
+                                                            </a>
+                                                        </h5>
+                                                        <h5 class="title"><a href="{{ route('cloth.show', ['slug' => $item['slug']  ]) }}"><strong>Brand: </strong> {{ $item['brand_name'] }}
                                                             </a>
                                                         </h5>
                                                         <span class="price">
-                                                            <span class="new">Price: {{ $item['price'] }}</span>
+                                                            <span class="new">{{ $item['price'] }}</span>
 
                                                         </span>
                                                     </div>

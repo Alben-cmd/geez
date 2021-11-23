@@ -23,6 +23,8 @@
     <!-- breadcrumb-area end -->
 
     <!-- Product Details Area Start -->
+   {{-- error and success messages --}}
+    @include('partials.messaging')
     <div class="product-details-area pt-100px pb-100px">
         <div class="container">
             <div class="row">
@@ -85,7 +87,13 @@
                                 </form>
                             </div>
                             <div class="pro-details-compare-wishlist pro-details-wishlist ">
-                                <a href="wishlist.html"><i class="pe-7s-like"></i></a>
+                                <form action="{{ route('user.add.wishlist') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
+                                    <input type="hidden" name="cloth_id" value="{{ $cloth->id}} ">
+                                    <button><i class="pe-7s-like"></i> </button>
+                                </form>
+                                
                             </div>
                             {{-- <div class="pro-details-compare-wishlist pro-details-compare">
                                 <a href="compare.html"><i class="pe-7s-refresh-2"></i></a>
@@ -137,16 +145,18 @@
     </div>
 
 
+    
     <!-- product details description area start -->
-   {{--  <div class="description-review-area pb-100px" data-aos="fade-up" data-aos-delay="200">
+    <div class="description-review-area pb-100px" data-aos="fade-up" data-aos-delay="200">
         <div class="container">
             <div class="description-review-wrapper">
                 <div class="description-review-topbar nav">
-                    <a data-bs-toggle="tab" href="#des-details2">Information</a>
-                    <a class="active" data-bs-toggle="tab" href="#des-details1">Description</a>
+                    {{-- <a data-bs-toggle="tab" href="#des-details2">Information</a> --}}
+                    <a class="active" data-bs-toggle="tab" href="#des-details1">Details</a>
+                    <a data-bs-toggle="tab" href="#des-details3">Reviews (02)</a>
                 </div>
                 <div class="tab-content description-review-bottom">
-                    <div id="des-details2" class="tab-pane">
+                    {{-- <div id="des-details2" class="tab-pane">
                         <div class="product-anotherinfo-wrapper text-start">
                             <ul>
                                 <li><span>Weight</span> 400 g</li>
@@ -155,30 +165,128 @@
                                 <li><span>Other Info</span> American heirloom jean shorts pug seitan letterpress</li>
                             </ul>
                         </div>
-                    </div>
+                    </div> --}}
                     <div id="des-details1" class="tab-pane active">
                         <div class="product-description-wrapper">
                             <p>
-
-                                Lorem ipsum dolor sit amet, consectetur adipisi elit, incididunt ut labore et. Ut enim
-                                ad minim veniam, quis nostrud exercita ullamco laboris nisi ut aliquip ex ea commol
-                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                                eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-                                qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste
-                                natus error sit voluptatem accusantiulo doloremque laudantium, totam rem aperiam, eaque
-                                ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-                                explicabo. Nemo enim ipsam voluptat quia voluptas sit aspernatur aut odit aut fugit, sed
-                                quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro
-                                quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
-                                quia non numquam eius modi tempora incidunt ut labore
+                                {{ $cloth->details}}
 
                             </p>
+                        </div>
+                    </div>
+                    <div id="des-details3" class="tab-pane">
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <div class="review-wrapper">
+                                    <div class="single-review">
+                                        <div class="review-img">
+                                            <img src="assets/images/review-image/1.png" alt="" />
+                                        </div>
+                                        <div class="review-content">
+                                            <div class="review-top-wrap">
+                                                <div class="review-left">
+                                                    <div class="review-name">
+                                                        <h4>White Lewis</h4>
+                                                    </div>
+                                                    <div class="rating-product">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="review-left">
+                                                    <a href="#">Reply</a>
+                                                </div>
+                                            </div>
+                                            <div class="review-bottom">
+                                                <p>
+                                                    Vestibulum ante ipsum primis aucibus orci luctustrices posuere
+                                                    cubilia Curae Suspendisse viverra ed viverra. Mauris ullarper
+                                                    euismod vehicula. Phasellus quam nisi, congue id nulla.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="single-review child-review">
+                                        <div class="review-img">
+                                            <img src="assets/images/review-image/2.png" alt="" />
+                                        </div>
+                                        <div class="review-content">
+                                            <div class="review-top-wrap">
+                                                <div class="review-left">
+                                                    <div class="review-name">
+                                                        <h4>White Lewis</h4>
+                                                    </div>
+                                                    <div class="rating-product">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="review-left">
+                                                    <a href="#">Reply</a>
+                                                </div>
+                                            </div>
+                                            <div class="review-bottom">
+                                                <p>Vestibulum ante ipsum primis aucibus orci luctustrices posuere
+                                                    cubilia Curae Sus pen disse viverra ed viverra. Mauris ullarper
+                                                    euismod vehicula.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="ratting-form-wrapper pl-50">
+                                    <h3>Add a Review</h3>
+                                    <div class="ratting-form">
+                                        <formmethod="POST" action="{{ route('tailor.cloth.add') }}" class="form-horizontal">
+                                        @csrf
+
+                                        
+                                            <div class="star-box">
+                                                <span>Your rating:</span>
+                                                <div class="rating-product">
+                                                    <input type="radio" name=""><i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="rating-form-style">
+                                                        <input placeholder="Name" name="name" type="text" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="rating-form-style">
+                                                        <input placeholder="Email" name="email" type="email" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="rating-form-style form-submit">
+                                                        <textarea name="message" placeholder="Message"></textarea>
+                                                        <button class="btn btn-primary btn-hover-color-primary "
+                                                            type="submit" value="Submit">Submit</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
     <!-- product details description area end -->
 
     <!-- Related product Area Start -->

@@ -54,7 +54,7 @@
                             </a>
                             <!-- Single Wedge End -->
                             <!-- Single Wedge Start -->
-                            <a href="#offcanvas-wishlist" class="header-action-btn offcanvas-toggle">
+                            <a href="{{ route('user.wishlist.index') }} " class="header-action-btn offcanvas-toggle">
                                 <i class="pe-7s-like"></i>
                             </a>
                             <!-- Single Wedge End -->

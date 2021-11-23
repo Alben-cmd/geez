@@ -32,7 +32,7 @@ class ProfileController extends Controller
     public function update(Request $request, $id)
     {
         
-           $user = User::find($id);
+        $user = User::find($id);
 
         if ($request->filled('current_password')) {
 

@@ -10,7 +10,7 @@
                     <h2 class="breadcrumb-title">Cart</h2>
                     <!-- breadcrumb-list start -->
                     <ul class="breadcrumb-list">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="home">Home</a></li>
                         <li class="breadcrumb-item active">Cart</li>
                     </ul>
                     <!-- breadcrumb-list end -->
@@ -25,17 +25,8 @@
     <div class="cart-main-area pt-100px pb-100px">
         <div class="container">
             <h3 class="cart-page-title">Your Cart Items</h3>
-            @if(Session::has('success'))
-                <div class="alert alert-success">
-                    {{ Session::get('success') }}
-                </div>
-            @endif
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-
+            {{-- error and success messages --}}
+            @include('partials.messaging')
             @if (Cart::count() > 0)
 
             <div class="row">
@@ -64,7 +55,7 @@
                                         <td class="product-price-cart"><span class="amount">{{$item->model->price}}</span></td>
                                         <td class="product-quantity">
                                             <div class="cart-plus-minus">
-                                                <input class="cart-plus-minus-box" type="text" name="qtybutton"
+                                                <input class="cart" type="text" name="qtybutton"
                                                     value="1" />
                                             </div>
                                         </td>
@@ -146,3 +137,20 @@
     @include('layouts.might-like')
     @endsection
     <!-- Cart Area End -->
+   {{--  @section('extra-js')
+    <script src="{{ asset('js.app.js') }} "></script>
+
+    <script>
+        (function(){
+           const classname = document.querySelectorAll('.cart')
+
+           Array.from(classname).forEach(function(element){
+
+            element.addEventListener('change', function(){
+                alert('changed');
+            })
+           })
+       })();
+    </script> --}}
+
+    {{-- @endsection  --}}

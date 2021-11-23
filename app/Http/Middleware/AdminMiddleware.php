@@ -20,7 +20,7 @@ class AdminMiddleware
             return $next($request);
         }
         else {
-            return redirect()->back()->with('opps!, Access Denied!!');
+            return redirect()->back()->with('info','opps!, Access Denied!!');
         }
         
     }

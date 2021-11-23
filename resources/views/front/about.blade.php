@@ -23,7 +23,8 @@
     <!-- breadcrumb-area end -->
 
 
-
+    {{-- error and success messages --}}
+    @include('partials.messaging')
     <!-- About Intro Area start-->
     <div class="about-intro-area">
         <div class="container position-relative h-100 d-flex align-items-center">

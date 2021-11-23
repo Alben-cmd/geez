@@ -21,7 +21,8 @@
     </div>
 
     <!-- breadcrumb-area end -->
-
+    {{-- error and success messages --}}
+    @include('partials.messaging')
     <!-- Contact Area Start -->
     <div class="contact-area pt-100px pb-100px">
         <div class="container">

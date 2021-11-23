@@ -129,7 +129,7 @@
                                     <div class="login-register-form">
                                         <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" >
                                             @csrf
-                                            <input type="hidden" name="picture" placeholder="Profile Picture" />
+                                            <input type="file" name="picture" placeholder="Profile Picture" />
                                             <input type="text" name="fname" placeholder="First Name" required />
                                                 @if ($errors->has('fname'))
                                                     <span class="invalid-feedback" role="alert">
