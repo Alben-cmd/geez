@@ -10,7 +10,6 @@
                 <div class="hero-slide-item-2 slider-height swiper-slide d-flex bg-color1">
                     <div class="container align-self-center">
                         {{-- error and success messages --}}
-                        @include('partials.messaging')
                         <div class="row">
                             <div class="col-xl-6 col-lg-5 col-md-5 col-sm-5 align-self-center sm-center-view">
                                 <div class="hero-slide-content hero-slide-content-2 slider-animated-1">
@@ -80,7 +79,7 @@
                 </div>
                 <!-- Section Title End -->
             </div>
-
+            @include('partials.messaging')
             <div class="row">
                 <div class="col">
                     <div class="tab-content mb-30px0px">
@@ -117,10 +116,19 @@
                                                 @endif
                                                 @endif
                                             </div>
-                                           <a href="{{ route('cloth.show', ['slug' => $item['slug']  ]) }}"><button title="Add To Cart" class=" add-to-cart">{{ $item['name'] }}</button></a> 
+                                            <div class="pro-details-cart">
+                                                {{-- <button class="add-cart" href=""> Add To Cart</button> --}}
+                                                <form action="{{ route('cart.store') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{ $item->id}} ">
+                                                    <input type="hidden" name="name" value="{{ $item->name}} ">
+                                                    <input type="hidden" name="price" value="{{ $item->price}} ">
+                                                    <button  class="add-to-cart"> Add To Cart</button>
+                                                </form>
+                                            </div>
                                         </div>
                                         <div class="content">
-                                            
+                                            <h5 class="title"><a href="{{ route('cloth.show', ['slug' => $item['slug']  ]) }}">{{ $item['name'] }}</a></h5>
                                             <h5 class="title"><a href="#">Designer:{{ $item['brand_name'] }}
                                                 </a>
                                             </h5>
@@ -185,8 +193,8 @@
                                     <div class="product">
                                         <div class="thumb">
                                             <a href="{{ route('tailor.show', ['id' => $key ]) }}" class="image">
-                                                <img src="{!! asset('assets/images/product-image/6.jpg') !!}" alt="Product" />
-                                                <img class="hover-image" src="{!! asset('assets/images/product-image/6.jpg') !!}"
+                                                <img src="{{ asset('/assets/images/tailors/' .$item['picture']) }}" alt="Product" />
+                                                <img class="hover-image" src="{{ asset('/assets/images/tailors/' .$item['picture']) }}"
                                                     alt="Product" />
                                             </a>
                                             {{-- <span class="badges">
@@ -194,16 +202,17 @@
                                             </span> --}}
                                             <div class="actions">
                                                 
-                                                <a href="{{ route('tailor.show', ['id' => $key ]) }}" class="action quickview" data-link-action="quickview"
+                                               {{--  <a href="{{ route('tailor.show', ['id' => $key ]) }}" class="action quickview" data-link-action="quickview"
                                                     title="Quick view" data-bs-toggle="modal"
-                                                    data-bs-target="#exampleModal"><i class="pe-7s-search"></i></a>
+                                                    data-bs-target="#exampleModal"><i class="pe-7s-search"></i></a> --}}
                                                 
                                             </div>
-                                            <a href="#"><button title="Add To Cart" class=" add-to-cart">{{ $item['name'] }}</button></a> 
+                                            <a href="#"><button title="Add To Cart" class=" add-to-cart">Subscribe</button></a> 
                                         </div>
                                         <div class="content">
                                            
-                                            <h5 class="title">Location:{{ $item['address'] }}
+                                           <h5>{{ $item['fname'] }} {{ $item['lname'] }}</h5>
+                                            <h5 class="title">Location:{{ $item['location'] }}
                                                 
                                             </h5>
                                             <span class="price">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cloth; 
+use App\Comment;
 use Illuminate\Http\Request; 
 
 class ClothController extends Controller
@@ -28,9 +29,13 @@ class ClothController extends Controller
     public function show($slug)
     {
         $cloth = Cloth::where('slug', $slug)->firstOrFail();
+        $comment = Comment::where('cloth_id' , $cloth->id)
+                            ->where('approved', '1')->get();
+        $unapproved_comments = Comment::where('cloth_id', $cloth->id)
+                            ->where('approved', '0')->get();
         $alsoLike = Cloth::where('slug', '!=', $slug)->mightAlsoLike()->get();
 
-        return view ('front.clothes.single-cloth', compact('cloth', 'alsoLike'));
+        return view ('front.clothes.single-cloth', compact('cloth', 'alsoLike', 'comment', 'unapproved_comments'));
     }
 
     public function edit($id)

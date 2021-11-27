@@ -4,11 +4,8 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Cloth;
-use App\Wishlist;
-use Auth;
 
-class WishlistController extends Controller
+class SubscribeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +14,8 @@ class WishlistController extends Controller
      */
     public function index()
     {
-        $alsoLike = Cloth::mightAlsoLike()->get();
-        $wishlist = Wishlist::where('user_id', Auth::id())->get();
-        // $cloth = Cloth::get();
-        return view('user.wishlist', compact('alsoLike', 'wishlist'));
+        $Subscribe = Subscribe::where('user_id', Auth::id())->get();
+        return view('user.subscribe', compact('subscribe'));
     }
 
     /**
@@ -41,14 +36,7 @@ class WishlistController extends Controller
      */
     public function store(Request $request)
     {
-        $wishlist = new Wishlist();
-
-        $wishlist->user_id = $request->user_id;
-        $wishlist->cloth_id = $request->cloth_id;
-
-        $wishlist->save(); 
-
-        return redirect()->back()->with('success', 'Cloth added to wishlist');
+        //
     }
 
     /**
@@ -93,7 +81,6 @@ class WishlistController extends Controller
      */
     public function destroy($id)
     {
-        Wishlist::where('id', $id)->delete();   
-        return redirect()->back()->with('success', 'Item Deleted!');
+        //
     }
 }

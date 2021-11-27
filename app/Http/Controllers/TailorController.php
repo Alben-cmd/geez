@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tailor;
+use App\User;
 
 class TailorController extends Controller
 {
@@ -14,14 +15,15 @@ class TailorController extends Controller
      */
     public function index()
     {
-        $tailors = Tailor::inRandomOrder()->paginate(20);
+        // $tailors = Tailor::inRandomOrder()->paginate(20);
+        $tailors = User::where('role_id', '=', '2')->inRandomOrder()->paginate(20);
         return view('front.tailors.tailors', compact('tailors'));
     }
 
 
     public function show($id)
     {
-        $tailor = Tailor::find($id);
+        $tailor = User::find($id);
         return view('front.tailors.single-tailor', compact('tailor'));
     }
 

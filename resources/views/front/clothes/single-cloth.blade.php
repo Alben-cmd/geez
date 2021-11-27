@@ -87,9 +87,12 @@
                                 </form>
                             </div>
                             <div class="pro-details-compare-wishlist pro-details-wishlist ">
+
                                 <form action="{{ route('user.add.wishlist') }}" method="POST">
                                     @csrf
+                                    @if(Auth::user())
                                     <input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
+                                    @endif
                                     <input type="hidden" name="cloth_id" value="{{ $cloth->id}} ">
                                     <button><i class="pe-7s-like"></i> </button>
                                 </form>
@@ -118,7 +121,7 @@
                                 </li> --}}
                             </ul>
                         </div>
-                        <div class="pro-details-social-info pro-details-same-style d-flex">
+                       {{--  <div class="pro-details-social-info pro-details-same-style d-flex">
                             <span>Share: </span>
                             <ul class="d-flex">
                                 <li>
@@ -137,13 +140,14 @@
                                     <a href="#"><i class="fa fa-instagram"></i></a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    
 
     
     <!-- product details description area start -->
@@ -153,7 +157,7 @@
                 <div class="description-review-topbar nav">
                     {{-- <a data-bs-toggle="tab" href="#des-details2">Information</a> --}}
                     <a class="active" data-bs-toggle="tab" href="#des-details1">Details</a>
-                    <a data-bs-toggle="tab" href="#des-details3">Reviews (02)</a>
+                    <a data-bs-toggle="tab" href="#des-details3">Comments ({{ $comment->count() }})</a>
                 </div>
                 <div class="tab-content description-review-bottom">
                     {{-- <div id="des-details2" class="tab-pane">
@@ -178,86 +182,46 @@
                         <div class="row">
                             <div class="col-lg-7">
                                 <div class="review-wrapper">
+                                    @forelse ($comment as $key => $item)
                                     <div class="single-review">
-                                        <div class="review-img">
-                                            <img src="assets/images/review-image/1.png" alt="" />
-                                        </div>
+                                        
                                         <div class="review-content">
                                             <div class="review-top-wrap">
                                                 <div class="review-left">
                                                     <div class="review-name">
-                                                        <h4>White Lewis</h4>
+                                                        
                                                     </div>
-                                                    <div class="rating-product">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div>
+                                                   
                                                 </div>
-                                                <div class="review-left">
-                                                    <a href="#">Reply</a>
-                                                </div>
+                                                
                                             </div>
                                             <div class="review-bottom">
-                                                <p>
-                                                    Vestibulum ante ipsum primis aucibus orci luctustrices posuere
-                                                    cubilia Curae Suspendisse viverra ed viverra. Mauris ullarper
-                                                    euismod vehicula. Phasellus quam nisi, congue id nulla.
+                                                <p align="justify">
+                                                    {{$item->comment}}
                                                 </p>
+                                                <small>{{$item->name}}. <em>{{ \Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</em> </small> 
                                             </div>
                                         </div>
+
                                     </div>
-                                    <div class="single-review child-review">
-                                        <div class="review-img">
-                                            <img src="assets/images/review-image/2.png" alt="" />
-                                        </div>
-                                        <div class="review-content">
-                                            <div class="review-top-wrap">
-                                                <div class="review-left">
-                                                    <div class="review-name">
-                                                        <h4>White Lewis</h4>
-                                                    </div>
-                                                    <div class="rating-product">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="review-left">
-                                                    <a href="#">Reply</a>
-                                                </div>
-                                            </div>
-                                            <div class="review-bottom">
-                                                <p>Vestibulum ante ipsum primis aucibus orci luctustrices posuere
-                                                    cubilia Curae Sus pen disse viverra ed viverra. Mauris ullarper
-                                                    euismod vehicula.</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <hr>
+                                    {{-- single end --}}
+                                   @empty
+                                        <p> No Comments!</p>
+                                    @endforelse
                                 </div>
                             </div>
+                            
                             <div class="col-lg-5">
                                 <div class="ratting-form-wrapper pl-50">
-                                    <h3>Add a Review</h3>
+                                    <h3>Add a Comment</h3>
+                                    <br>
                                     <div class="ratting-form">
-                                        <formmethod="POST" action="{{ route('tailor.cloth.add') }}" class="form-horizontal">
+                                        <form method="POST" action="{{ route('user.store.comment') }}" class="form-horizontal">
                                         @csrf
 
                                         
-                                            <div class="star-box">
-                                                <span>Your rating:</span>
-                                                <div class="rating-product">
-                                                    <input type="radio" name=""><i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                            </div>
+                                           
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="rating-form-style">
@@ -269,11 +233,33 @@
                                                         <input placeholder="Email" name="email" type="email" />
                                                     </div>
                                                 </div>
+                                                <input type="hidden" name="cloth_id" value="{{ $cloth->id}}">
                                                 <div class="col-md-12">
                                                     <div class="rating-form-style form-submit">
-                                                        <textarea name="message" placeholder="Message"></textarea>
-                                                        <button class="btn btn-primary btn-hover-color-primary "
-                                                            type="submit" value="Submit">Submit</button>
+                                                        <textarea name="comment" placeholder="Message"></textarea>
+                                                        {{-- @if(Auth::user())
+                                                            @if(Auth::user()->role_id == '1')
+                                                                <button class="btn btn-primary btn-hover-color-primary "
+                                                                    type="submit" value="Submit">Submit
+                                                                </button>
+                                                        @endif
+                                                                @else
+                                                                <button class="btn btn-primary btn-hover-color-primary "
+                                                                    type="submit" value="Submit" disabled>Submit</button>
+                                                                    <p class="text-success">To Comment, login as user!</p>
+                                                                
+                                                                @endif --}}
+
+                                                        @if(Auth::check() && Auth::user()->role_id == '1')
+                                                            <button class="btn btn-primary btn-hover-color-primary "
+                                                                type="submit" value="Submit">Submit
+                                                            </button>
+                                                        @else
+                                                            <button class="btn btn-primary btn-hover-color-primary "
+                                                                type="submit" value="Submit" disabled>Submit
+                                                            </button>
+                                                            <p class="text-success">To Comment, login as user!</p>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
@@ -281,6 +267,8 @@
                                     </div>
                                 </div>
                             </div>
+                            
+                            
                         </div>
                     </div>
                 </div>

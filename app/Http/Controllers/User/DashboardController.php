@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
 use Auth; 
+use App\Comment;
 
 class DashboardController extends Controller
 {
@@ -15,8 +16,28 @@ class DashboardController extends Controller
         return view('user.index', compact('profile'));
     }
 
-    public function storereview($id)
+    public function storecomment(Request $request)
     {
-        // code...
+
+
+        $validatedData = $request->validate([
+
+            'name' => 'required',
+            'email' => 'required',
+            'comment'  => 'required',
+
+            ]);
+           
+            $comment = new Comment();
+
+            $comment->name =$request->name; 
+            $comment->email = $request->email;
+            $comment->comment = $request->comment;
+            $comment->cloth_id = $request->cloth_id;
+            $comment->approved = 1;
+
+            $comment->save();
+
+            return redirect()->back()->with('success', 'Thanks for Sharing!');
     }
 }

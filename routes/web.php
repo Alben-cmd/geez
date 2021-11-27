@@ -69,6 +69,10 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     Route::get('/cloth/trend_enable/{id}', 'ClothController@enable_trending')->name('enable.trending');
     //disable Trending
     Route::get('/cloth/trend_disable/{id}', 'ClothController@disable_trending')->name('disable.trending');
+    //comments  
+    Route::get('comment/unapprove/{id}', 'ClothController@unapprove_comment')->name('unapprove.comment');
+    Route::get('comment/approve/{id}', 'ClothController@approve_comment')->name('approve.comment');
+    Route::get('comment/delete/{id}', 'ClothController@destroy_comment')->name('comment.delete');
 });
 
 //Tailor section 
@@ -94,6 +98,6 @@ Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middl
     Route::post('add_wishlist', 'WishlistController@store')->name('add.wishlist');
     Route::post('remove_wishlist/{id}', 'WishlistController@destroy')->name('delete.wishlist');
 
-    // reviews
-    Route::post('comments/{id}', 'DashboardController@storereview')->name('store.review');
+    // comments
+    Route::post('comments/', 'DashboardController@storecomment')->name('store.comment');
 });

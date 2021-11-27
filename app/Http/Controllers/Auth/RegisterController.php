@@ -96,22 +96,22 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-        dd($data);
+        // dd($data);
         $request = request();
 
         if ($request->has('picture')) {
-        $path = public_path().'/assets/images/clothes/';      
+        $path = public_path().'/assets/images/tailors/';      
         $originalImage = $request->file('picture');
         $name = time().$originalImage->getClientOriginalName();
         $image = Image::make($originalImage);
         $image->resize(270, 310);
         $image->save($path.$name); 
-        $cloth->image = $name; 
-        }        
+        
+        }     
+
     else{
         $name = null;
     }
-
         return User::create([
             'fname' => $data['fname'],
             'lname' => $data['lname'],

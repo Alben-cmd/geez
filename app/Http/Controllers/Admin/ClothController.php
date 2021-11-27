@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Cloth;
 use Image;
+use App\Comment;
 use Illuminate\Support\Str;
 
 class ClothController extends Controller
@@ -164,5 +165,27 @@ class ClothController extends Controller
         $trending->trending = 0;
         $trending->save();
         return redirect()->back()->with('success', 'Cloth No Longer Trending!');
+    }
+
+    public function unapprove_comment($id)
+    {
+        $comment = Comment::find($id);
+        $comment->approved = 0;
+        $comment->save();
+        return redirect()->back()->with('success', 'Comment removed');
+    }
+
+    public function approve_comment($id)
+    {
+        $comment = Comment::find($id);
+        $comment->approved = 1;
+        $comment->save();
+        return redirect()->back()->with('success', 'Comment Approved');
+    }
+
+    public function dstroy_comment($id)
+    {
+        Comment::where('id', $id)->delete();   
+        return redirect()->back()->with('success', 'Comment Deleted');
     }
 }

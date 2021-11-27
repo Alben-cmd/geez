@@ -36,8 +36,16 @@
                         <!-- tailors -->
                         @include('admin.tailors')
                         <!-- Tailors ends  -->
+
+                        <!-- approved comments -->
+                        @include('admin.approved_comments')
+                        <!-- approved comments ends  -->
+
+                        <!-- Unapproved comments -->
+                        @include('admin.unapproved_comments')
+                        <!-- inapproved comments ends  -->
                         
-                        <div class="tab-pane" id="items">
+                        {{-- <div class="tab-pane" id="items">
                             <h4>My Saved Items</h4>
                             <div class="row">
                             <div class="col">
@@ -160,7 +168,7 @@
                                 </div>
                             </div>
                         </div>
-                        </div>
+                        </div> --}}
 
                         <!-- profile -->
                        @include('admin.profile')

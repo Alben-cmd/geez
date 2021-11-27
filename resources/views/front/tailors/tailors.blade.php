@@ -44,18 +44,21 @@
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="{{ route('tailor.show', ['id' => $item['id'] ]) }}" class="image">
-                                                            <img src="assets/images/product-image/1.jpg"
+                                                            <img src="{{ asset('/assets/images/tailors/' .$item['picture']) }}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="{{ $item['profilepicture'] }}" alt="Product" />
+                                                                src="{{ asset('/assets/images/tailors/' .$item['picture']) }}" alt="Product" />
                                                         </a>
                                                         
                                                         
-                                                        <button title="Add To Cart" class=" add-to-cart">{{ $item['name'] }}</button>
+                                                        <button title="Add To Cart" class=" add-to-cart">Subscribe</button>
                                                     </div>
                                                     <div class="content">
                                                         
-                                                        <h5 class="title"><a href="single-product.html">Location:{{ $item['address'] }}
+                                                        <h5 class="title"><a href="single-product.html">{{ $item['fname'] }} {{ $item['lname'] }}
+                                                            </a>
+                                                        </h5>
+                                                        <h5 class="title"><a href="single-product.html">Location:{{ $item['location'] }}
                                                             </a>
                                                         </h5>
                                                         <span class="price">

@@ -10,4 +10,9 @@ class Tailor extends Model
     {
         return $this->hasMany('App\Product');
     }
+
+    public function subscribes()
+    {
+        return $this->hasMany('App\Subscribe'); 
+    }
 }

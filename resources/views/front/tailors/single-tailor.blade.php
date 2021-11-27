@@ -12,7 +12,7 @@
                     <ul class="breadcrumb-list">
                         <li class="breadcrumb-item"><a href="{{route('home') }} ">Home</a></li>
                         <li class="breadcrumb-item "><a href="{{ route('tailors') }}"></a> Tailor</li>
-                        <li class="breadcrumb-item active">{{ $tailor['name'] }}</li>
+                        <li class="breadcrumb-item active">{{ $tailor['fname'] }} {{ $tailor['lname'] }}</li>
                     </ul>
                     <!-- breadcrumb-list end -->
                 </div>
@@ -33,13 +33,13 @@
                     <div class="swiper-container zoom-top">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide zoom-image-hover">
-                                <img class="img-responsive m-auto" src="{!! asset('assets/images/product-image/small-image/1.jpg') !!}"
+                                <img class="img-responsive m-auto" src="{{ asset('/assets/images/tailors/' .$tailor['picture']) }}"
                                     alt="">
                             </div>
                             
                         </div>
                     </div>
-                    <div class="swiper-container zoom-thumbs mt-3 mb-3">
+                    {{-- <div class="swiper-container zoom-thumbs mt-3 mb-3">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <img class="img-responsive m-auto" src="{!! asset('assets/images/product-image/small-image/1.jpg') !!}"
@@ -58,7 +58,7 @@
                                     alt="">
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-lg-6 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="200">
                     <div class="product-details-content quickview-content">
@@ -69,9 +69,7 @@
                             </ul>
                         </div>
                         
-                        <p class="mt-30px mb-0">Lorem ipsum dolor sit amet, consect adipisicing elit, sed do eiusmod tempor incidi ut labore
-                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercita ullamco laboris nisi
-                            ut aliquip ex ea commodo </p>
+                       <h2>{{ $tailor->fname }} {{ $tailor->lname }}</h2>
                         <div class="pro-details-quality">
                             
                             <div class="pro-details-cart">
@@ -83,6 +81,15 @@
                             <div class="pro-details-compare-wishlist pro-details-compare">
                                 <a href="compare.html"><i class="pe-7s-refresh-2"></i></a>
                             </div> --}}
+                        </div>
+                         <div class="pro-details-social-info pro-details-same-style d-flex">
+                            <span>Brand Name:</span>
+                            <ul class="d-flex">
+                                <li>
+                                    <a href="">{{ $tailor['brand_name'] }}</a>
+                                </li>
+                                
+                            </ul>
                         </div>
                         <div class="pro-details-sku-info pro-details-same-style  d-flex">
                             <span>Email: </span>
@@ -102,26 +109,7 @@
                                 
                             </ul>
                         </div>
-                        <div class="pro-details-social-info pro-details-same-style d-flex">
-                            <span>Share: </span>
-                            <ul class="d-flex">
-                                <li>
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-google"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-youtube"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                </li>
-                            </ul>
-                        </div>
+                       
                     </div>
                 </div>
             </div>
