@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Subscribe;
 
 class SubscribeController extends Controller
 {
@@ -14,8 +15,8 @@ class SubscribeController extends Controller
      */
     public function index()
     {
-        $Subscribe = Subscribe::where('user_id', Auth::id())->get();
-        return view('user.subscribe', compact('subscribe'));
+        // $Subscribe = Subscribe::where('user_id', Auth::id())->get();
+        // return view('user.subscribe', compact('subscribe'));
     }
 
     /**
@@ -36,7 +37,14 @@ class SubscribeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $subscribe = new Subscribe();
+
+        $subscribe->user_id = $request->user_id;
+        $subscribe->tailor_id = $request->tailor_id;
+
+        $subscribe->save(); 
+
+        return redirect()->back()->with('success', 'Tailor Subscribed to!');
     }
 
     /**

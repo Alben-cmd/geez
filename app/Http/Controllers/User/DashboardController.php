@@ -7,13 +7,17 @@ use Illuminate\Http\Request;
 use App\User;
 use Auth; 
 use App\Comment;
+use App\Subscribe;
+use App\Wishlist;
 
 class DashboardController extends Controller
 {
     public function index()
     {
         $profile = User::where('id' , Auth::id())->first();
-        return view('user.index', compact('profile'));
+        $subscribe = Subscribe::where('user_id', Auth::id())->get();
+        $wishlist = Wishlist::where('user_id', Auth::id())->get();
+        return view('user.index', compact('profile', 'subscribe', 'wishlist'));
     }
 
     public function storecomment(Request $request)

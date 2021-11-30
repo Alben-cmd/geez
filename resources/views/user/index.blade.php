@@ -13,9 +13,9 @@
                     <div class="dashboard_tab_button" data-aos="fade-up" data-aos-delay="0">
                         <ul role="tablist" class="nav flex-column dashboard-list">
                             <li><a href="#dashboard" data-bs-toggle="tab" class="nav-link active">Dashboard</a></li>
-                            <li> <a href="#cloths" data-bs-toggle="tab" class="nav-link">My Cloths</a></li>
+                            <li> <a href="#cloths" data-bs-toggle="tab" class="nav-link">My Saved Clothes</a></li>
                             <li><a href="#tailor" data-bs-toggle="tab" class="nav-link">My Tailors</a></li>
-                            <li><a href="#items" data-bs-toggle="tab" class="nav-link">Saved Items</a></li>
+                           {{--  <li><a href="#items" data-bs-toggle="tab" class="nav-link">Saved Items</a></li> --}}
                             <li><a href="#profile" data-bs-toggle="tab" class="nav-link">My profile</a>
                             </li>
                             <li><a href="login.html" class="nav-link">logout</a></li>
@@ -33,120 +33,41 @@
                             <p>From your account dashboard. you can easily check &amp; view your <a href="#">Cloths</a>,<a href="">Tailors</a>, <a href=""> Saved Cloths</a> and <a href="#">Edit your Password and Account Details.</a></p>
                         </div>
                         <div class="tab-pane fade" id="cloths">
-                            <h4>My Cloths</h4>
+                            <h4>My Saved Cloths</h4>
                             <div class="row">
                             <div class="col">
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active" id="shop-grid">
                                         <div class="row mb-n-30px">
+                                            @forelse ($wishlist as $key => $item)
                                             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-30px" data-aos="fade-up"
                                                 data-aos-delay="200">
                                                 <!-- Single Prodect -->
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="single-product.html" class="image">
-                                                            <img src="{{asset('assets/images/product-image/1.jpg')}}"
+                                                            <img src="{{ asset('/assets/images/clothes/' .$item->cloth->image) }}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="{{asset('assets/images/product-image/1.jpg')}}" alt="Product" />
+                                                                src="{{ asset('/assets/images/clothes/' .$item->cloth->image) }}" alt="Product" />
                                                         </a>
 
                                                     </div>
                                                     <div class="content">
                                                         
-                                                        <h5 class="title"><a href="single-product.html">Women's
-                                                                Elizabeth Coat
+                                                        <h5 class="title"><a href="single-product.html">{{$item->cloth->name}}
                                                             </a>
                                                         </h5>
                                                         <span class="price">
-                                                            <span class="new">$38.50</span>
+                                                            <span class="new">{{ $item->cloth->price}}</span>
                                                         </span>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-30px" data-aos="fade-up"
-                                                data-aos-delay="400">
-                                                <!-- Single Prodect -->
-                                                <div class="product">
-                                                    <div class="thumb">
-                                                        <a href="single-product.html" class="image">
-                                                            <img src="{{asset('assets/images/product-image/2.jpg')}}"
-                                                                alt="Product" />
-                                                            <img class="hover-image"
-                                                                src="{{asset('assets/images/product-image/2.jpg')}}" alt="Product" />
-                                                        </a>
-                                                       
-                                                       
-                                                         
-                                                    </div>
-                                                    <div class="content">
-                                                        
-                                                        <h5 class="title"><a href="single-product.html">Ardene
-                                                                Microfiber
-                                                                Tights</a>
-                                                        </h5>
-                                                        <span class="price">
-                                                            <span class="new">$30.50</span>
-                                                            
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <!-- Single Prodect -->
-                                            </div>
-                                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-30px" data-aos="fade-up"
-                                                data-aos-delay="600">
-                                                <!-- Single Prodect -->
-                                                <div class="product">
-                                                    <div class="thumb">
-                                                        <a href="single-product.html" class="image">
-                                                            <img src="{{asset('assets/images/product-image/3.jpg')}}"
-                                                                alt="Product" />
-                                                            <img class="hover-image"
-                                                                src="{{asset('assets/images/product-image/3.jpg')}}" alt="Product" />
-                                                        </a>
-                                                        
-                                                       
-                                                         
-                                                    </div>
-                                                    <div class="content">
-                                                        
-                                                        <h5 class="title"><a href="single-product.html">Women's Long
-                                                                Sleeve
-                                                                Shirts</a></h5>
-                                                        <span class="price">
-                                                            <span class="new">$30.50</span>
-                                                            
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-30px" data-aos="fade-up"
-                                                data-aos-delay="800">
-                                                <!-- Single Prodect -->
-                                                <div class="product">
-                                                    <div class="thumb">
-                                                        <a href="single-product.html" class="image">
-                                                            <img src="{{asset('assets/images/product-image/4.jpg')}}"
-                                                                alt="Product" />
-                                                            <img class="hover-image"
-                                                                src="{{asset('assets/images/product-image/4.jpg')}}" alt="Product" />
-                                                        </a>
-                                                        
-                                                        
-                                                         
-                                                    </div>
-                                                    <div class="content">
-                                                       
-                                                        <h5 class="title"><a href="single-product.html">Parrera Sunglasses - Lomashop</a></h5>
-                                                        <span class="price">
-                                                            <span class="new">$38.50</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <!-- Single Prodect -->
-                                            </div>
-                                          
-                                                   
+                                            @empty
+                                                <h3> No Items found!</h3>
+                                            @endforelse
+                                           
                                         </div>
                                     </div>
                                     
@@ -163,16 +84,17 @@
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active" id="shop-grid">
                                         <div class="row mb-n-30px">
+                                            @forelse ($subscribe as $key => $item)
                                             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-30px" data-aos="fade-up"
                                                 data-aos-delay="200">
                                                 <!-- Single Prodect -->
                                                 <div class="product">
                                                     <div class="thumb">
                                                         <a href="single-product.html" class="image">
-                                                            <img src="{{asset('assets/images/product-image/1.jpg')}}"
+                                                            <img src="{{ asset('/assets/images/tailors/'.$item->user->picture) }}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="{{asset('assets/images/product-image/1.jpg')}}" alt="Product" />
+                                                                src="{{ asset('/assets/images/tailors/'.$item->user->picture) }}" alt="Product" />
                                                         </a>
                                                         
                                                         
@@ -180,99 +102,25 @@
                                                     </div>
                                                     <div class="content">
                                                         
-                                                        <h5 class="title"><a href="single-product.html">Women's
-                                                                Elizabeth Coat
+                                                        <h5 class="title"><a href="single-product.html">
+                                                            {{ $item->user->fname }} {{ $item->user->lname }}
+
                                                             </a>
                                                         </h5>
                                                         <span class="price">
-                                                            <span class="new">$38.50</span>
+                                                            <span class="new">{{ $item->user->location }}</span>
+                                                            <span class="new">{{ $item->user->email }}</span>
+                                                            {{ $item->user->id }}
                                                         </span>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-30px" data-aos="fade-up"
-                                                data-aos-delay="400">
-                                                <!-- Single Prodect -->
-                                                <div class="product">
-                                                    <div class="thumb">
-                                                        <a href="single-product.html" class="image">
-                                                            <img src="{{asset('assets/images/product-image/2.jpg')}}"
-                                                                alt="Product" />
-                                                            <img class="hover-image"
-                                                                src="{{asset('assets/images/product-image/2.jpg')}}" alt="Product" />
-                                                        </a>
-                                                       
-                                                       
-                                                         
-                                                    </div>
-                                                    <div class="content">
-                                                        
-                                                        <h5 class="title"><a href="single-product.html">Ardene
-                                                                Microfiber
-                                                                Tights</a>
-                                                        </h5>
-                                                        <span class="price">
-                                                            <span class="new">$30.50</span>
-                                                            
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <!-- Single Prodect -->
-                                            </div>
-                                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-30px" data-aos="fade-up"
-                                                data-aos-delay="600">
-                                                <!-- Single Prodect -->
-                                                <div class="product">
-                                                    <div class="thumb">
-                                                        <a href="single-product.html" class="image">
-                                                            <img src="{{asset('assets/images/product-image/3.jpg')}}"
-                                                                alt="Product" />
-                                                            <img class="hover-image"
-                                                                src="{{asset('assets/images/product-image/3.jpg')}}" alt="Product" />
-                                                        </a>
-                                                        
-                                                       
-                                                         
-                                                    </div>
-                                                    <div class="content">
-                                                        
-                                                        <h5 class="title"><a href="single-product.html">Women's Long
-                                                                Sleeve
-                                                                Shirts</a></h5>
-                                                        <span class="price">
-                                                            <span class="new">$30.50</span>
-                                                            
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-30px" data-aos="fade-up"
-                                                data-aos-delay="800">
-                                                <!-- Single Prodect -->
-                                                <div class="product">
-                                                    <div class="thumb">
-                                                        <a href="single-product.html" class="image">
-                                                            <img src="{{asset('assets/images/product-image/4.jpg')}}"
-                                                                alt="Product" />
-                                                            <img class="hover-image"
-                                                                src="{{asset('assets/images/product-image/4.jpg')}}" alt="Product" />
-                                                        </a>
-                                                        
-                                                        
-                                                         
-                                                    </div>
-                                                    <div class="content">
-                                                       
-                                                        <h5 class="title"><a href="single-product.html">Parrera Sunglasses - Lomashop</a></h5>
-                                                        <span class="price">
-                                                            <span class="new">$38.50</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <!-- Single Prodect -->
-                                            </div>
-                                          
-                                                   
+                                            @empty
+                                            <tr>
+                                                <td colspan="7">No Tailor Subscribed to! </td>
+                                            </tr>
+                                            @endforelse
+                                                                                            
                                         </div>
                                     </div>
                                     
@@ -280,7 +128,7 @@
                             </div>
                         </div>
                         </div>
-                        <div class="tab-pane" id="items">
+                        {{-- <div class="tab-pane" id="items">
                             <h4>My Saved Items</h4>
                             <div class="row">
                             <div class="col">
@@ -403,7 +251,7 @@
                                 </div>
                             </div>
                         </div>
-                        </div>
+                        </div> --}}
 
                         <!-- profile -->
                         <div class="tab-pane fade" id="profile">

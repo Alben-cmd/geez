@@ -50,8 +50,15 @@
                                                                 src="{{ asset('/assets/images/tailors/' .$item['picture']) }}" alt="Product" />
                                                         </a>
                                                         
+                                                        <form action="{{ route('user.add.subscribe') }}" method="POST">
+                                                            @csrf
+                                                            @if(Auth::user())
+                                                            <input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
+                                                            @endif
+                                                            <input type="hidden" name="tailor_id" value="{{ $item->id}} ">
+                                                            <button class="add-to-cart">Subscribe </button>
+                                                        </form>
                                                         
-                                                        <button title="Add To Cart" class=" add-to-cart">Subscribe</button>
                                                     </div>
                                                     <div class="content">
                                                         

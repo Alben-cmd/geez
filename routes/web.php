@@ -100,4 +100,8 @@ Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middl
 
     // comments
     Route::post('comments/', 'DashboardController@storecomment')->name('store.comment');
+
+    //subscribe 
+    Route::post('subscribe', 'SubscribeController@store')->name('add.subscribe');
+    Route::post('remove_subscription/{id}', 'SubscribeController@destroy')->name('delete.subscribe');
 });
