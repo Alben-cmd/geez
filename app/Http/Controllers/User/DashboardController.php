@@ -16,6 +16,9 @@ class DashboardController extends Controller
     {
         $profile = User::where('id' , Auth::id())->first();
         $subscribe = Subscribe::where('user_id', Auth::id())->get();
+        // foreach ($subscribe as $sub) {
+        //     dd($sub->tailor);
+        // }
         $wishlist = Wishlist::where('user_id', Auth::id())->get();
         return view('user.index', compact('profile', 'subscribe', 'wishlist'));
     }

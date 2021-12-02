@@ -1,5 +1,5 @@
 @extends ('layouts.master')
-@section('title', '| about')
+@section('title', '| tailor')
 @section('content')
 
     <!-- breadcrumb-area start -->
@@ -39,26 +39,23 @@
                             
                         </div>
                     </div>
-                    {{-- <div class="swiper-container zoom-thumbs mt-3 mb-3">
+
+                    @forelse ($clothes as $key => $item)
+                    <div class="swiper-container zoom-thumbs mt-3 mb-3">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <img class="img-responsive m-auto" src="{!! asset('assets/images/product-image/small-image/1.jpg') !!}"
-                                    alt="">
+                                <a href="{{ route('cloth.show', ['slug' => $item['slug']  ]) }}"><img class="img-responsive m-auto" src="{{ asset('/assets/images/clothes/'.$item['image'] ) }}"
+                                    alt=""></a>
+                                    {{ $item['price'] }}
                             </div>
-                            <div class="swiper-slide">
-                                <img class="img-responsive m-auto" src="{!! asset('assets/images/product-image/small-image/2.jpg') !!}"
-                                    alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img class="img-responsive m-auto" src="{!! asset('assets/images/product-image/small-image/3.jpg') !!}"
-                                    alt="">
-                            </div>
-                            <div class="swiper-slide">
-                                <img class="img-responsive m-auto" src="{!! asset('assets/images/product-image/small-image/4.jpg') !!}"
-                                    alt="">
-                            </div>
+                            
                         </div>
-                    </div> --}}
+                    </div>
+                    @empty
+                    <tr>
+                        <td colspan="7">No Clothes posted </td>
+                    </tr>
+                    @endforelse
                 </div>
                 <div class="col-lg-6 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="200">
                     <div class="product-details-content quickview-content">

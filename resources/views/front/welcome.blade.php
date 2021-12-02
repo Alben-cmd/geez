@@ -192,7 +192,7 @@
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="{{ route('tailor.show', ['id' => $key ]) }}" class="image">
+                                            <a href="{{ route('tailor.show', ['id' => $item->id ]) }}" class="image">
                                                 <img src="{{ asset('/assets/images/tailors/' .$item['picture']) }}" alt="Product" />
                                                 <img class="hover-image" src="{{ asset('/assets/images/tailors/' .$item['picture']) }}"
                                                     alt="Product" />

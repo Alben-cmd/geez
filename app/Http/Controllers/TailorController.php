@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Tailor;
 use App\User;
+use App\Cloth;
 
 class TailorController extends Controller
 {
@@ -24,7 +25,8 @@ class TailorController extends Controller
     public function show($id)
     {
         $tailor = User::find($id);
-        return view('front.tailors.single-tailor', compact('tailor'));
+        $clothes = Cloth::where('brand_name' , $tailor->brand_name)->get();
+        return view('front.tailors.single-tailor', compact('tailor', 'clothes'));
     }
 
     /**

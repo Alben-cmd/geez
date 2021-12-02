@@ -17,7 +17,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 //front page
 //home
 
-
+ Route::get('sub', 'user\SubscribeController@index')->name('subscribe');
 Route::get('/', 'HomeController@index')->name('home');
 //about
 Route::get('/about', 'HomeController@about')->name('about');
@@ -73,6 +73,8 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     Route::get('comment/unapprove/{id}', 'ClothController@unapprove_comment')->name('unapprove.comment');
     Route::get('comment/approve/{id}', 'ClothController@approve_comment')->name('approve.comment');
     Route::get('comment/delete/{id}', 'ClothController@destroy_comment')->name('comment.delete');
+    //profile section
+    Route::post('/update-profile/{id}', 'ProfileController@update')->name('profile.update');
 });
 
 //Tailor section 
@@ -80,6 +82,9 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
 Route::group(['as' => 'tailor.', 'prefix' => 'tailor', 'namespace' => 'Tailor', 'middleware' => ['auth', 'tailor']], function () 
 {
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+
+    //profile 
+    Route::post('/update-profile/{id}', 'ProfileController@update')->name('profile.update');
     // tailor clothes section
     Route::post('cloth/add', 'ClothController@store')->name('cloth.add');
     Route::get('cloth/edit/{id}', 'ClothController@edit')->name('cloth.edit');
@@ -102,6 +107,7 @@ Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middl
     Route::post('comments/', 'DashboardController@storecomment')->name('store.comment');
 
     //subscribe 
+
     Route::post('subscribe', 'SubscribeController@store')->name('add.subscribe');
     Route::post('remove_subscription/{id}', 'SubscribeController@destroy')->name('delete.subscribe');
 });

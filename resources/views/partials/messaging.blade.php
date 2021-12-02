@@ -15,7 +15,10 @@
             @endif
             <ul>
                 @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+                <div class="alert alert-danger">
+                    <li>{{ $error }}</li>
+                </div>
+                
                 @endforeach
             </ul>
         </div>

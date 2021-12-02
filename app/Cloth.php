@@ -15,7 +15,7 @@ class Cloth extends Model
 
     public function tailor()
     {
-        return $this->belongsTo('App\Tailor');
+        return $this->belongsTo('App\User');
     }
 
     public function comments()

@@ -82,7 +82,6 @@
                                     <div class="login-register-form">
                                         <form method="POST" action="{{ route('register') }}">
                                             @csrf
-                                            <input type="hidden" name="picture" />
                                             <input name="location" placeholder="Location" type="hidden"/>
                                             <input name="phone_2" placeholder="phone Number 2" type="hidden" />
                                             <input type="hidden" name="brand_name" placeholder="Brand Name" />

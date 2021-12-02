@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User; 
 use Hash;
 use Auth;
+use Image;
 
 class ProfileController extends Controller
 {
@@ -30,16 +31,21 @@ class ProfileController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        
+    {      
+    // dd($request);  
         $user = User::find($id);
 
-        if ($request->filled('current_password')) {
+        $validateData = $request->validate([
 
-            // $validateData = $request->validate([
-            // 'current_password' => 'required',
-            // 'new_password' => 'required|string|min:6|confirmed',
-            // ]);
+            'fname' => 'required|string|max:255',
+            'lname' => 'required|string|max:255',
+            'phone_1' => 'required|string|max:255',
+            'location' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:users,email,'.$id,
+
+            ]);
+
+        if ($request->filled('current_password')) {
 
         if (!(Hash::check($request->get('current_password'), Auth::user()->password)))
         {
@@ -50,23 +56,31 @@ class ProfileController extends Controller
         {
             return redirect()->back()->with("error", "New Password Cannot be same as your Current password!");
         }
-
+        
         $user->password = bcrypt($request->get('new_password'));
 
         }
-            
-           $validateData = $request->validate([
 
-            'fname' => 'required|string|max:255',
-            'lname' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:users,email,'.$id,
+        if ($request->has('picture')) {
+        $path = public_path().'/assets/images/tailors/';      
+        $originalImage = $request->file('picture');
+        $name = time().$originalImage->getClientOriginalName();
+        $image = Image::make($originalImage);
+        $image->resize(270, 310);
+        $image->save($path.$name); 
 
-            ]);
+        $user->picture = $name;
+        
+        }
 
         $user->fname = $request->fname;
         $user->lname = $request->lname;
         $user->brand_name = $request->brand_name;
+        $user->phone_1 = $request->phone_1;
+        $user->phone_2 = $request->phone_2;
+        $user->location = $request->location;
         $user->email = $request->email;
+
         $user->save();
 
         return redirect()->back()->with('success', 'Profile Updated!');

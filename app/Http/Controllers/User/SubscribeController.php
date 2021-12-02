@@ -15,7 +15,7 @@ class SubscribeController extends Controller
      */
     public function index()
     {
-        // $Subscribe = Subscribe::where('user_id', Auth::id())->get();
+        $Subscribe = Subscribe::where('user_id', Auth::id())->get();
         // return view('user.subscribe', compact('subscribe'));
     }
 

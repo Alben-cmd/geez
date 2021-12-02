@@ -90,11 +90,11 @@
                                                 <!-- Single Prodect -->
                                                 <div class="product">
                                                     <div class="thumb">
-                                                        <a href="single-product.html" class="image">
-                                                            <img src="{{ asset('/assets/images/tailors/'.$item->user->picture) }}"
+                                                        <a href="{{ route('tailor.show', ['id' => $item->tailor->id ]) }}" class="image">
+                                                            <img src="{{ asset('/assets/images/tailors/'.$item->tailor->picture) }}"
                                                                 alt="Product" />
                                                             <img class="hover-image"
-                                                                src="{{ asset('/assets/images/tailors/'.$item->user->picture) }}" alt="Product" />
+                                                                src="{{ asset('/assets/images/tailors/'.$item->tailor->picture) }}" alt="Product" />
                                                         </a>
                                                         
                                                         
@@ -103,14 +103,14 @@
                                                     <div class="content">
                                                         
                                                         <h5 class="title"><a href="single-product.html">
-                                                            {{ $item->user->fname }} {{ $item->user->lname }}
+                                                            {{ $item->tailor->fname }} {{ $item->tailor->lname }}
 
                                                             </a>
                                                         </h5>
                                                         <span class="price">
-                                                            <span class="new">{{ $item->user->location }}</span>
-                                                            <span class="new">{{ $item->user->email }}</span>
-                                                            {{ $item->user->id }}
+                                                            <span class="new">{{ $item->tailor->location }}</span>
+                                                            <span class="new">{{ $item->tailor->email }}</span>
+                                                           
                                                         </span>
                                                     </div>
                                                 </div>

@@ -7,7 +7,15 @@
             <div class="account_login_form">
                 <div class="row">
                      <div class="col-6"> 
-                    <form method="POST" action="{{ route('profile.update', ['id' => $profile->id]) }} " class="form-horizontal">
+                        <ul>
+                @foreach ($errors->all() as $error)
+                <div class="alert alert-danger">
+                    <li>{{ $error }}</li>
+                </div>
+                
+                @endforeach
+            </ul>
+                    <form method="POST" action="{{ route('tailor.profile.update', ['id' => $profile->id]) }}" enctype="multipart/form-data" class="form-horizontal">
                             @csrf
                        
                             <div class="default-form-box mb-20">
@@ -17,7 +25,7 @@
                             
                             <div class="default-form-box mb-20">
                             <label>Picture</label>
-                            <input type="file" name="image">
+                            <input type="file" name="picture">
                             <span style="color: green;"> Optional</span>
                             </div>
 
@@ -27,7 +35,7 @@
                             </div>
                              <div class="default-form-box mb-20">
                                 <label>Brand Name</label>
-                                <input type="text" name="email" value="{{ $profile->brand_name }}">
+                                <input type="text" name="brand_name" value="{{ $profile->brand_name }}">
                             </div>
 
                             <div class="default-form-box mb-20">
@@ -65,7 +73,7 @@
 
                              <div class="default-form-box mb-20">
                                 <label>Location</label>
-                                <input type="text" name="email" value="{{ $profile->location }}">
+                                <input type="text" name="location" value="{{ $profile->location }}">
                             </div>
                             
                             <div class="default-form-box mb-20">
