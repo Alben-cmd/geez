@@ -8,7 +8,7 @@
     <div class="account-dashboard pt-100px pb-100px">
         <div class="container">
             <div class="row">
-                @include('partials.tailor_dashboard')
+                @include('partials.admin_dashboard')
                 <div class="col-sm-12 col-md-9 col-lg-9">
                     <!-- Tab panes -->
                     <div class="tab-content dashboard_content" data-aos="fade-up" data-aos-delay="200">
@@ -32,7 +32,7 @@
 
                         <div class="default-form-box mb-20">
                             <label>Last Name</label>
-                            <input type="text" name="name" value="{{$tailor-lname}}">
+                            <input type="text" name="name" value="{{$tailor->lname}}">
                         </div>
                         
                          <div class="default-form-box mb-20">
