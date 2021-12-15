@@ -1,7 +1,7 @@
 <div class="tab-pane fade" id="clothes">
     <h4>My Cloths</h4>
     {{-- error and success messages --}}
-    @include('partials.messaging')
+    {{-- @include('partials.messaging') --}}
     <div class="row">
     <div class="col">
         <div class="tab-content">
@@ -31,7 +31,7 @@
                             </div>
                             <div class="content">
                                 
-                                <h5 class="title">{{ $item['price'] }}
+                                <h5 class="title">₦{{ $item['price'] }}
                                 </h5>
                                 <span class="price">
                                     <span class="new">{{ $item['details'] }}</span>

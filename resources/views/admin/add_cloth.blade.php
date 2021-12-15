@@ -2,7 +2,8 @@
 <h3>Add Cloth</h3>
 <hr>
 {{-- error and success messages --}}
-@include('partials.messaging')<div class="login">
+{{-- @include('partials.messaging') --}}
+<div class="login">
     <div class="login_form_container">
         <div class="account_login_form">
             <div class="row">
@@ -53,14 +54,14 @@
                         </div>
                         <div class="default-form-box mb-20">
                             <label>Price</label>
-                            <input type="text" name="price" value="{{ old('price') }}">
+                            <input type="text" name="price" value="₦{{ old('price') }}">
                         </div>
 
                     </div>
                     </div>
                 </form>
                     
-            
+            <br>
             
         </div>
     </div>

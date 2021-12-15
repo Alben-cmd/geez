@@ -52,7 +52,7 @@
                                                     src="{{ asset('/assets/images/clothes/' .$item->model->image) }} " alt="" /></a>
                                         </td>
                                         <td class="product-name"><a href="{{ route('cloth.show', $item->model->slug) }}">{{$item->model->name}}</a></td>
-                                        <td class="product-price-cart"><span class="amount">{{$item->model->price}}</span></td>
+                                        <td class="product-price-cart"><span class="amount">&#8358{{$item->model->price}}</span></td>
                                         <td class="product-quantity">
                                             <div class="cart-plus-minus">
                                                 <input class="cart" type="text" name="qtybutton"

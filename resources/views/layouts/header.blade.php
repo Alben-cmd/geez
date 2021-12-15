@@ -4,7 +4,7 @@
                 <div class="row">
                     <div class="col-auto align-self-center">
                         <div class="header-logo">
-                            <a href="{{ route('home') }}">Geez{{-- <img src="{!! asset('assets/images/logo/logo.png') !!}" alt="Site Logo" /> --}}</a>
+                            <a href="{{ route('home') }}"><img src="{!! asset('assets/images/logo/logo.png') !!}" alt="Site Logo" /></a>
                         </div>
                     </div>
                     <div class="col align-self-center d-none d-lg-block">
@@ -18,9 +18,14 @@
                                 @guest
                                 <li><a href="{{ route('login') }} ">Sign In/Register</a></li>
                                 @else
-                                <li class="dropdown "><a href="#">{{ Auth::user()->fname }} <i class="pe-7s-angle-down"></i></a>
+                                @if(Auth::user()->role_id == 1)
+                                    <li class="dropdown "><a href="#">{{ Auth::user()->fname }}<i class="pe-7s-angle-down"></i></a>
                                     <ul class="sub-menu">
-                                      
+                                @else
+                                <li class="dropdown "><a href="#"><img src="{{ asset('/assets/images/tailors/' . Auth::user()->picture )}}" style="width: 35px;" alt="{{ Auth::user()->fname }}" /><i class="pe-7s-angle-down"></i></a>
+                                    <ul class="sub-menu">
+                                @endif
+                                        
                                         @if(Auth::user()->role_id == 1)
                                         <li><a href="{{ route('user.dashboard') }} ">Dashboard</a></li>
                                         @elseif(Auth::user()->role_id == 2)

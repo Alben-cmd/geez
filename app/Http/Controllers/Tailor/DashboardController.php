@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Tailor;
 use App\User;
 use Auth;
 use App\Cloth;
+use App\Category;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -15,7 +16,8 @@ class DashboardController extends Controller
 
         $profile = User::where('id' , Auth::id())->first();
         $my_clothes = Cloth::where('brand_name', '=',  Auth::user()->brand_name)->get();
+        $categories = Category::get();
 
-        return view('tailor.index', compact('profile', 'my_clothes'));
+        return view('tailor.index', compact('profile', 'my_clothes', 'categories'));
     }
 }

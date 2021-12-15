@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Cloth; 
 use App\Comment;
+use App\Category;
 use Illuminate\Http\Request; 
 
 class ClothController extends Controller
@@ -11,8 +12,22 @@ class ClothController extends Controller
 
      public function index()
     {
-        $clothes = Cloth::inRandomOrder()->paginate(20);
-        return view('front.clothes.clothes', compact('clothes'));
+        if (request()->category) {
+            $clothes = Cloth::with('categories')->whereHas('categories', function($query){
+
+                $query->where('slug', request()->category);
+            })->get();
+            $categories = Category::get();
+            $Category_name = optional($categories->where('slug', request()->category)->first())->name;
+        } else{
+
+            $clothes = Cloth::inRandomOrder()->paginate(20);
+            $categories = Category::get();
+            $Category_name = 'Featured';
+
+        }
+        
+        return view('front.clothes.clothes', compact('clothes', 'categories', 'Category_name'));
     }
 
     public function store(Request $request)

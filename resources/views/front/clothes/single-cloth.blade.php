@@ -67,7 +67,7 @@
                         <h2>{{ $cloth->name }}</h2>
                         <div class="pricing-meta">
                             <ul>
-                                <li class="old-price not-cut">{{ $cloth->price }}</li>
+                                <li class="old-price not-cut">₦{{ $cloth->price }}</li>
                             </ul>
                         </div>
                         

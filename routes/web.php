@@ -40,7 +40,7 @@ Route::view('/checkout', 'front.clothes.checkout');
 Route::get('/tailors', 'TailorController@index')->name('tailors');
 Route::get('/tailors/{id}', 'TailorController@show')->name('tailor.show');
 //user dashborad 
-Route::get('/dashboard', 'ProfileController@index')->name('dashboard');
+// Route::get('/dashboard', 'ProfileController@index')->name('dashboard');
 //editing profile 
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
@@ -75,6 +75,9 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     Route::get('comment/delete/{id}', 'ClothController@destroy_comment')->name('comment.delete');
     //profile section
     Route::post('/update-profile/{id}', 'ProfileController@update')->name('profile.update');
+    //categories 
+    Route::post('categories/add', 'CategoryController@store')->name('category.add');
+     Route::get('category/delete/{id}', 'CategoryController@destroy')->name('category.delete');
 });
 
 //Tailor section 

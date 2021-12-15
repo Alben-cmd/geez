@@ -5,6 +5,8 @@
             <li><a href="{{ route('admin.dashboard') }}#dashboard" data-bs-toggle="tab" class="nav-link active">Dashboard</a></li>
             <li> <a href="{{ route('admin.dashboard') }}#clothes" data-bs-toggle="tab" class="nav-link">My Clothes</a></li>
             <li><a href="{{ route('admin.dashboard') }}#add_cloth" data-bs-toggle="tab" class="nav-link">Add Cloth</a></li>
+            <li><a href="#category" data-bs-toggle="tab" class="nav-link">Category</a></li>
+            <li><a href="#add_category" data-bs-toggle="tab" class="nav-link">Add Category</a></li>
             <li> <a href="{{ route('admin.dashboard') }}#tailors" data-bs-toggle="tab" class="nav-link">Tailors</a></li>
             <li> <a href="{{ route('admin.dashboard') }}#approved_comments" data-bs-toggle="tab" class="nav-link">Approved Comments</a></li>
             <li> <a href="{{ route('admin.dashboard') }}#unapproved_comments" data-bs-toggle="tab" class="nav-link">Unapproved Comments</a></li>

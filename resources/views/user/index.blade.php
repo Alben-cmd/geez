@@ -18,7 +18,17 @@
                            {{--  <li><a href="#items" data-bs-toggle="tab" class="nav-link">Saved Items</a></li> --}}
                             <li><a href="#profile" data-bs-toggle="tab" class="nav-link">My profile</a>
                             </li>
-                            <li><a href="login.html" class="nav-link">logout</a></li>
+                            <li>
+                                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); 
+                                    document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+
+                              
                         </ul>
                     </div>
                 </div>
@@ -59,7 +69,7 @@
                                                             </a>
                                                         </h5>
                                                         <span class="price">
-                                                            <span class="new">{{ $item->cloth->price}}</span>
+                                                            <span class="new">₦{{ $item->cloth->price}}</span>
                                                         </span>
                                                     </div>
                                                 </div>

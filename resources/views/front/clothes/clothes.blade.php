@@ -29,6 +29,72 @@
 
             <div class="row">
                 <div class="col-12">
+                    <!-- Shop Top Area Start -->
+                    <div class="shop-top-bar d-flex">
+                        <!-- Left Side start -->
+                        <div class="select-shoing-wrap d-flex align-items-center">
+                            <div class="shot-product">
+                                <p>Sort By: &nbsp</p>
+                            </div>
+                            <div class="shop-select">
+                                {{-- <ul>
+                                    <li><a href="">All</a></li>
+                                    @forelse ($categories as $category)
+                                        <li><a href="{{ route('clothes', ['category' => $category->slug ]) }} ">{{ $category->name }}</a>  </li>
+                                    @empty
+                                        <tr>
+                                           No Record Found
+                                        </tr>
+                                    @endforelse
+                                
+                                </ul> --}}
+
+                                <div class="col align-self-center d-none d-lg-block">
+                        <div class="main-menu">
+                            <ul>
+                                <li class="dropdown "><a href="#"> Preference <i class="pe-7s-angle-down"></i></a>
+                                    <ul class="sub-menu">
+                                        <li><a href="{{ route('clothes') }}">All</a></li>
+                                        @forelse ($categories as $category)
+                                        <li><a href="{{ route('clothes', ['category' => $category->slug ]) }}">{{ $category->name }}</a></li>
+                                   
+                                    @empty
+                                        <tr>
+                                           No Record Found
+                                        </tr>
+                                    @endforelse
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                                {{-- <select class="shop-sort">
+                                    <option data-display="Relevance">Relevance</option>
+                                    @forelse ($categories as $category)
+                                        <a href="#"><option value="1"> {{ $category->name }} </option></a>
+                                    @empty
+                                        <tr>
+                                           No Record Found
+                                        </tr>
+                                    @endforelse
+                                </select> --}}
+
+                            </div>
+
+                            
+                            
+                        </div>
+                        <div><p><h3> <strong>{{ $Category_name }} Clothes</strong> </h3> </p></div>
+                        <!-- Left Side End -->
+                        <div class="shop-tab nav">
+                            .
+                        </div>
+                        <!-- Right Side Start -->
+                        
+                        <!-- Right Side End -->
+                    </div>
+                    <!-- Shop Top Area End -->
                                     
                     <div class="shop-bottom-area">
 
@@ -71,7 +137,7 @@
                                                             @csrf
                                                             <input type="hidden" name="id" value="{{ $item->id}} ">
                                                             <input type="hidden" name="name" value="{{ $item->name}} ">
-                                                            <input type="hidden" name="price" value="{{ $item->price}} ">
+                                                            <input type="hidden" name="price" value= "{{ $item->price}} ">
                                                             <button  title="Add To Cart" class=" add-to-cart"> Add To Cart</button>
                                                         </form>
                                                     </div>
@@ -84,7 +150,7 @@
                                                             </a>
                                                         </h5>
                                                         <span class="price">
-                                                            <span class="new">{{ $item['price'] }}</span>
+                                                            <span class="new">₦{{ $item['price'] }}</span>
 
                                                         </span>
                                                     </div>
@@ -92,7 +158,7 @@
                                             </div>
                                             @empty
                                             <tr>
-                                                <td colspan="7">No Record Found </td>
+                                                <td colspan="7">No Cloth Found </td>
                                             </tr>
                                             @endforelse
                                         </div>
