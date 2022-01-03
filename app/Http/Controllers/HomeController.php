@@ -28,4 +28,20 @@ class HomeController extends Controller
     {
         return view('front.contact');
     }
+
+    public function search(Request $request)
+    {
+
+        $request ->validate([
+            'query' => 'required|min:3',
+        ]);
+
+        $query = $request->input('query');
+
+        $cloth = Cloth::where('name', 'like', "%$query%")
+                        ->orWhere('brand_name', 'like', "%$query%")
+                        ->get();
+
+        return view('front.search_results', compact('cloth'));
+    }
 }

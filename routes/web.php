@@ -17,7 +17,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 //front page
 //home
 
- Route::get('sub', 'user\SubscribeController@index')->name('subscribe');
+Route::get('sub', 'user\SubscribeController@index')->name('subscribe');
 Route::get('/', 'HomeController@index')->name('home');
 //about
 Route::get('/about', 'HomeController@about')->name('about');
@@ -33,9 +33,11 @@ Route::get('/cart', 'CartController@index')->name('cart.index');
 Route::post('/cart', 'CartController@store')->name('cart.store');
 Route::get('/cart/{id}', 'CartController@destroy')->name('cart.destroy');
 Route::get('cart/empty', 'CartController@emptycart')->name('cart.empty');
+//search 
+Route::get('search', 'HomeController@search')->name('search');
 
 //Checkout section
-Route::view('/checkout', 'front.clothes.checkout');
+Route::view('/checkout', 'front.search_results');
 //tailors
 Route::get('/tailors', 'TailorController@index')->name('tailors');
 Route::get('/tailors/{id}', 'TailorController@show')->name('tailor.show');

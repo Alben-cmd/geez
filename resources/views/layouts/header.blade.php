@@ -15,11 +15,21 @@
                                 <li class="{{ (Request()->is('tailors' )) ? 'active':"" }}"><a href="{{ route('tailors') }} ">Tailors</a></li>
                                 <li class="{{ (Request()->is('about' )) ? 'active':"" }}"><a href="{{ route('about') }} ">About</a></li>
                                 <li class="{{ (Request()->is('contact' )) ? 'active':"" }}"><a href="{{ route('contact') }} ">Contact us</a></li>
-                                @guest
-                                <li><a href="{{ route('login') }} ">Sign In/Register</a></li>
-                                @else
-                                @if(Auth::user()->role_id == 1)
-                                    <li class="dropdown "><a href="#">{{ Auth::user()->fname }}<i class="pe-7s-angle-down"></i></a>
+                               
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Header Action Start -->
+                    <div class="col col-lg-auto align-self-center pl-0">
+                        <div class="header-actions">
+                            <!-- Single Wedge Start -->
+                            @guest
+                            <a href="{{ route('login') }}" class="header-action-btn login-btn">Sign In/Register</a>
+                            @else
+                            <div class="header-actions">
+                                <ul>
+                            @if(Auth::user()->role_id == 1)
+                                    <li class="dropdown "><a href="#" style="color: #fb5d5d; font-weight: 600;">{{ Auth::user()->fname }}<i class="pe-7s-angle-down"></i></a>
                                     <ul class="sub-menu">
                                 @else
                                 <li class="dropdown "><a href="#"><img src="{{ asset('/assets/images/tailors/' . Auth::user()->picture )}}" style="width: 35px;" alt="{{ Auth::user()->fname }}" /><i class="pe-7s-angle-down"></i></a>
@@ -46,14 +56,12 @@
                                 </li>
                                     </ul>
                                 </li>
-                                @endguest 
                             </ul>
-                        </div>
+                        </li>
+                    </ul>
                     </div>
-                    <!-- Header Action Start -->
-                    <div class="col col-lg-auto align-self-center pl-0">
-                        <div class="header-actions">
-                            <!-- Single Wedge Start -->
+                            
+                            @endguest 
                             <a href="#" class="header-action-btn" data-bs-toggle="modal" data-bs-target="#searchActive">
                                 <i class="pe-7s-search"></i>
                             </a>
