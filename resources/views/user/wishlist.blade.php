@@ -53,7 +53,7 @@
                                             <a href="#"><img class="img-responsive ml-15px" src="{{ asset('/assets/images/clothes/' .$item->cloth->image) }}" alt="" /></a>
                                         </td>
                                         <td class="product-name"><a href="#">{{$item->cloth->name}}</a></td>
-                                        <td class="product-price-cart"><span class="amount">₦{{ $item->cloth->price}}</span></td>
+                                        <td class="product-price-cart"><span class="amount">{{ $item->cloth->presentPrice()}}</span></td>
                                         <td class="product-quantity">
                                             <div class="cart-plus-minus">
                                                 <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1" />

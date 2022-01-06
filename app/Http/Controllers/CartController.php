@@ -101,11 +101,11 @@ class CartController extends Controller
         return back()->with('success', 'Item has been removed!');
     }
 
-    public function emptycart()
+    public function empty_cart()
     {
-        cart::destroy();
+        Cart::destroy();
 
-         return back()->with('success', 'Cart Emptied!');
+        return back()->with('success', 'Cart Emptied!');
     }
 
     public function wishList($id)

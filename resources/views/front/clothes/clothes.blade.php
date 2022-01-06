@@ -150,7 +150,7 @@
                                                             </a>
                                                         </h5>
                                                         <span class="price">
-                                                            <span class="new">₦{{ $item['price'] }}</span>
+                                                            <span class="new">{{ $item->presentPrice()}}</span>
 
                                                         </span>
                                                     </div>

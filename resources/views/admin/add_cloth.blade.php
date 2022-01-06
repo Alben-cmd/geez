@@ -54,7 +54,7 @@
                         </div>
                         <div class="default-form-box mb-20">
                             <label>Price</label>
-                            <input type="text" name="price" value="₦{{ old('price') }}">
+                            <input type="text" name="price" value="{{ old('price') }}">
                         </div>
 
                     </div>

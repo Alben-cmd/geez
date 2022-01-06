@@ -32,7 +32,15 @@ Route::view('/single-cloth', 'front.clothes.single-cloth');
 Route::get('/cart', 'CartController@index')->name('cart.index');
 Route::post('/cart', 'CartController@store')->name('cart.store');
 Route::get('/cart/{id}', 'CartController@destroy')->name('cart.destroy');
-Route::get('cart/empty', 'CartController@emptycart')->name('cart.empty');
+
+
+Route::get('/empty_cart', 'CartController@empty_cart')->name('empty_cart');
+
+// Route::get('/empty', function() {
+//     Cart::destroy();
+//     return back()->with('success', 'Cart Emptied!');
+// })->name('empty');
+
 //search 
 Route::get('search', 'HomeController@search')->name('search');
 
@@ -106,7 +114,7 @@ Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middl
     //wishlist 
     Route::get('wishlist', 'WishlistController@index')->name('wishlist.index');
     Route::post('add_wishlist', 'WishlistController@store')->name('add.wishlist');
-    Route::post('remove_wishlist/{id}', 'WishlistController@destroy')->name('delete.wishlist');
+    Route::get('remove_wishlist/{id}', 'WishlistController@destroy')->name('delete.wishlist');
 
     // comments
     Route::post('comments/', 'DashboardController@storecomment')->name('store.comment');
@@ -114,5 +122,5 @@ Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middl
     //subscribe 
 
     Route::post('subscribe', 'SubscribeController@store')->name('add.subscribe');
-    Route::post('remove_subscription/{id}', 'SubscribeController@destroy')->name('delete.subscribe');
+    Route::get('remove_subscription/{id}', 'SubscribeController@destroy')->name('delete.subscribe');
 });

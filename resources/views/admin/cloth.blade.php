@@ -31,7 +31,7 @@
                             </div>
                             <div class="content">
                                 
-                                <h5 class="title">₦{{ $item['price'] }}
+                                <h5 class="title">{{ $item->presentPrice()}}
                                 </h5>
                                 <span class="price">
                                     <span class="new">{{ $item['details'] }}</span>

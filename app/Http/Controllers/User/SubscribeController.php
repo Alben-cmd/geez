@@ -89,6 +89,7 @@ class SubscribeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        subscribe::where('id', $id)->delete();   
+        return redirect()->back()->with('success', 'Tailor Removed!');  
     }
 }

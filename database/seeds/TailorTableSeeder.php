@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Tailor;
+use App\User;
 
 class TailorTableSeeder extends Seeder
 {
@@ -12,58 +12,67 @@ class TailorTableSeeder extends Seeder
      */
     public function run()
     {
-         Tailor::create([
-            'name' => 'tailor 1',
-            'address' => 'Abuja',
-            'phone_1' => '0943495340',
-            'phone_2' => '1943495340',
-            'email' => 'tailor1@x.com',
-            'profile_pic' =>'djadnpiadvn',
+         User::create([
+            'fname' => 'Tailor',
+            'lname' => 'One',
+            'picture' => 'tailor_1.jpg',
+            'brand_name' => 'Tailor One',
+            'phone_1' => '39834872983',
+            'phone_2' => '0943495340',
+            'location' => 'Abuja',
+            'role_id' => '2',
+            'email' => 'tailor1@gmail.com',
+            'password' => bcrypt('password'),
         ]);
 
-         Tailor::create([
-            'name' => 'tailor 2',
-            'address' => 'Lagos',
-            'phone_1' => '2943495340',
-            'phone_2' => '2943495340',
-            'email' => 'tailor2@x.com',
-            'profile_pic' =>'djadnpiadvn',
+         User::create([
+            'fname' => 'Tailor',
+            'lname' => 'Two',
+            'picture' => 'tailor_2.jpg',
+            'brand_name' => 'Tailor Two',
+            'phone_1' => '39834872983',
+            'phone_2' => '0943495340',
+            'location' => 'Jos',
+            'role_id' => '2',
+            'email' => 'tailor2@gmail.com',
+            'password' => bcrypt('password'),
+        ]);
+         User::create([
+            'fname' => 'Tailor',
+            'lname' => 'Three',
+            'picture' => 'tailor_3.jpg',
+            'brand_name' => 'Tailor Three',
+            'phone_1' => '39834872983',
+            'phone_2' => '0943495340',
+            'location' => 'Lagos',
+            'role_id' => '2',
+            'email' => 'tailor3@gmail.com',
+            'password' => bcrypt('password'),
+        ]);
+         User::create([
+            'fname' => 'Tailor',
+            'lname' => 'Four',
+            'picture' => 'tailor_4.jpg',
+            'brand_name' => 'Tailor Four',
+            'phone_1' => '39834872983',
+            'phone_2' => '0943495340',
+            'location' => 'Kano',
+            'role_id' => '2',
+            'email' => 'tailor4@gmail.com',
+            'password' => bcrypt('password'),
+        ]);
+         User::create([
+            'fname' => 'Tailor',
+            'lname' => 'Five',
+            'picture' => 'tailor_5.jpg',
+            'brand_name' => 'Tailor Five',
+            'phone_1' => '39834872983',
+            'phone_2' => '0943495340',
+            'location' => 'Kaduna',
+            'role_id' => '2',
+            'email' => 'tailor5@gmail.com',
+            'password' => bcrypt('password'),
         ]);
 
-          Tailor::create([
-            'name' => 'tailor 3',
-            'address' => 'Abuja 3',
-            'phone_1' => '3943495340',
-            'phone_2' => '3943495340',
-            'email' => 'tailor3@x.com',
-            'profile_pic' =>'3djadnpiadvn',
-        ]);
-
-           Tailor::create([
-            'name' => 'tailor 4',
-            'address' => '4 Abuja',
-            'phone_1' => '4943495340',
-            'phone_2' => '4943495340',
-            'email' => 'tailor4@x.com',
-            'profile_pic' =>'4djadnpiadvn',
-        ]);
-
-            Tailor::create([
-            'name' => 'tailor 5',
-            'address' => '5 Abuja',
-            'phone_1' => '5943495340',
-            'phone_2' => '5943495340',
-            'email' => 'tailor5@x.com',
-            'profile_pic' =>'5djadnpiadvn',
-        ]);
-
-            Tailor::create([
-            'name' => 'tailor 6',
-            'address' => '6 Abuja',
-            'phone_1' => '6943495340',
-            'phone_2' => '6943495340',
-            'email' => 'tailor6@x.com',
-            'profile_pic' =>'6djadnpiadvn',
-        ]);
     }
 }

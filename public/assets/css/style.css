@@ -4266,6 +4266,9 @@ Pages - My Account
   border-radius: 0px;
   font-family: "Nunito Sans", sans-serif;
 }
+.benbutton button:hover{
+  color: #fb5d5d;
+}
 .login-register-wrapper .login-form-container .login-register-form .button-box button:hover {
   background-color: #fb5d5d;
   color: #fff;

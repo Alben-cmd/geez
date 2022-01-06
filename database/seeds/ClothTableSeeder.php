@@ -15,55 +15,111 @@ class ClothTableSeeder extends Seeder
         Cloth::create([
             'name' => 'cloth 1',
             'trending' => '0',
-            'category' => 'Men Top',
-            'image' => '0943495340',
-            'slug' => 'cloth 1',
-            'price' => 149999,
-        ]);
+            'category' => 'Ankara',
+            'image' => 'cloth_1.jpg',
+            'slug' => 'cloth_1',
+            'details' =>'good clothes',
+            'brand_name' =>'Tailor One',
+            'price' => 3000000,
+        ])->categories()->attach(7);
 
          Cloth::create([
             'name' => 'cloth 2',
             'trending' => '0',
-            'category' => 'Men Top 2',
-            'image' => 'sddvsdvvvs',
-            'slug' => 'cloth 2',
-            'price' => 1343232,
-        ]);
+            'category' => 'Women',
+            'image' => 'cloth_2.jpg',
+            'slug' => 'cloth_2',
+            'details' =>'good clothes',
+            'brand_name' =>'Tailor one',
+            'price' => 4000099,
+        ])->categories()->attach(3);
 
           Cloth::create([
             'name' => 'cloth 3',
             'trending' => '0',
-            'category' => 'Men Top 3',
-            'image' => 'fwfwefwe',
-            'slug' => 'cloth 3',
-            'price' => 123231,
-        ]);
+            'category' => 'Men Top',
+            'image' => 'cloth_3.jpg',
+            'slug' => 'cloth_3',
+            'details' =>'good clothes',
+            'brand_name' =>'Tailor Two',
+            'price' => 5000099,
+        ])->categories()->attach(1);
 
            Cloth::create([
             'name' => 'cloth 4',
             'trending' => '0',
-            'category' => 'Men Top 4',
-            'image' => '0sdvsdsv',
-            'slug' => 'cloth 4',
-            'price' => 12321,
-        ]);
+            'category' => 'Women',
+            'image' => 'cloth_4.jpg',
+            'slug' => 'cloth_4',
+            'details' =>'good clothes',
+            'brand_name' =>'Tailor Two',
+            'price' => 6000099,
+        ])->categories()->attach(3);
 
             Cloth::create([
             'name' => 'cloth 5',
             'trending' => '0',
-            'category' => 'Men Top 5',
-            'image' => '09dvsdvsdv',
-            'slug' => 'cloth 5',
-            'price' => 134323,
-        ]);
+            'category' => 'Men Top',
+            'image' => 'cloth_5.jpg',
+            'slug' => 'cloth_5',
+            'details' =>'good clothes',
+            'brand_name' =>'Tailor Three',
+            'price' => 2000099,
+        ])->categories()->attach(1);
 
-             Cloth::create([
+            Cloth::create([
             'name' => 'cloth 6',
             'trending' => '0',
-            'category' => 'Men Top 6',
-            'image' => '0wwfawvwe',
-            'slug' => 'cloth 6',
-            'price' => 1454223,
-        ]);
+            'category' => 'Others',
+            'image' => 'cloth_6.jpg',
+            'slug' => 'cloth_6',
+            'details' =>'good clothes',
+            'brand_name' =>'Tailor Four',
+            'price' => 1000099,
+        ])->categories()->attach(9);
+
+             Cloth::create([
+            'name' => 'cloth 7',
+            'trending' => '0',
+            'category' => 'Ankara',
+            'image' => 'cloth_7.jpg',
+            'slug' => 'cloth_7',
+            'details' =>'good clothes',
+            'brand_name' =>'Tailor Three',
+            'price' => 1499999,
+        ])->categories()->attach(7);
+
+              Cloth::create([
+            'name' => 'cloth 8',
+            'trending' => '0',
+            'category' => 'Ankara',
+            'image' => 'cloth_8.jpg',
+            'slug' => 'cloth_8',
+            'details' =>'good clothes',
+            'brand_name' =>'Tailor Four',
+            'price' => 2999999,
+        ])->categories()->attach(7);
+
+               Cloth::create([
+            'name' => 'cloth 9',
+            'trending' => '0',
+            'category' => 'Ankara',
+            'image' => 'cloth_9.jpg',
+            'slug' => 'cloth_9',
+            'details' =>'good clothes',
+            'brand_name' =>'Tailor Five',
+            'price' => 1699999,
+        ])->categories()->attach(7);
+
+                Cloth::create([
+            'name' => 'cloth 10',
+            'trending' => '0',
+            'category' => 'Ankara',
+            'image' => 'cloth_10.jpg',
+            'slug' => 'cloth_10',
+            'details' =>'good clothes',
+            'brand_name' =>'Tailor Five',
+            'price' => 1200000,
+        ])->categories()->attach(7);
     }
 }

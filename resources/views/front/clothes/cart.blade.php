@@ -52,14 +52,14 @@
                                                     src="{{ asset('/assets/images/clothes/' .$item->model->image) }} " alt="" /></a>
                                         </td>
                                         <td class="product-name"><a href="{{ route('cloth.show', $item->model->slug) }}">{{$item->model->name}}</a></td>
-                                        <td class="product-price-cart"><span class="amount">&#8358{{$item->model->price}}</span></td>
+                                        <td class="product-price-cart"><span class="amount">{{ $item->model->presentPrice()}}</span></td>
                                         <td class="product-quantity">
                                             <div class="cart-plus-minus">
-                                                <input class="cart" type="text" name="qtybutton"
+                                                <input class="cart-plus-minus-box" type="text" name="qtybutton"
                                                     value="1" />
                                             </div>
                                         </td>
-                                        <td class="product-subtotal">{{Cart::subtotal() }}</td>
+                                        <td class="product-subtotal">{{Cart::subtotal() / 100 }}</td>
                                         <td class="product-remove">
                                             {{-- <a href="#"><i class="pe-7s-like"></i></a> --}}
                                             {{-- <a href=""><i class="fa fa-times"></i></a> --}}
@@ -86,8 +86,12 @@
                                         <a href="{{ route('clothes') }} ">Continue Shopping</a>
                                     </div>
                                     <div class="cart-clear">
+                                        @if(Cart:: content()->count() > 0)
+                                        <a href="{{ route('empty_cart') }} ">Clear Shopping Cart</a>
+                                        @else
+                                        <a href="" onclick="event.preventDefault()">Clear Shopping Cart</a>
                                         
-                                        <a href="{{ route('cart.empty') }} ">Clear Shopping Cart</a>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -116,7 +120,7 @@
                                 <div class="title-wrap">
                                     <h4 class="cart-bottom-title section-bg-gary-cart">Cart Total</h4>
                                 </div>
-                                <h5>Sub Total products <span>{{Cart::subtotal() }} </span></h5>
+                                <h5>Sub Total products <span>{{Cart::subtotal() / 100}} </span></h5>
                                 <h5>Tax <span>{{Cart::tax() }}</span></h5>
                                {{--  <div class="total-shipping">
                                     <h5>Total shipping</h5>
@@ -125,7 +129,7 @@
                                         <li><input type="checkbox" /> Express <span>$30.00</span></li>
                                     </ul>
                                 </div> --}}
-                                <h4 class="grand-totall-title">Grand Total <span>{{Cart::total() }}</span></h4>
+                                <h4 class="grand-totall-title">Grand Total <span>{{Cart::total() / 100 }}</span></h4>
                                 <a href="checkout.html">Proceed to Checkout</a>
                             </div>
                         </div>
