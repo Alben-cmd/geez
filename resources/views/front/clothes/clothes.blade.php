@@ -117,8 +117,18 @@
                                                                 src="{{ asset('/assets/images/clothes/' .$item['image']) }}" alt="Product" />
                                                         </a>
                                                         <div class="actions">
-                                                            <a href="wishlist.html" class="action wishlist"
-                                                                title="Wishlist"><i class="pe-7s-like"></i></a>
+                                                            {{-- <a href="wishlist.html" class="action"
+                                                                title="Wishlist"><i class="pe-7s-like"></i></a> --}}
+                                                                <div class="action">
+                                                                <form action="{{ route('user.add.wishlist') }}" method="POST">
+                                                                    @csrf
+                                                                    @if(Auth::user())
+                                                                    <input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
+                                                                    @endif
+                                                                    <input type="hidden" name="cloth_id" value="{{ $item->id}} ">
+                                                                    <button><i class="pe-7s-like"></i> </button>
+                                                                </form>
+                                                            </div>
                                                                 @if(Auth::user())
                                                                 @if(Auth::user()->role_id == 3)
                                                                 @if($item['trending'] == '0')

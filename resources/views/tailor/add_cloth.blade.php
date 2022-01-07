@@ -48,7 +48,7 @@
                         </div>
                         <div class="default-form-box mb-20">
                             <label>Price</label>
-                            <input type="text" name="price" value="{{ old('price') }}" required>
+                            <input type="number" name="price" value="{{ old('price') }}" required>
                         </div>
 
                     </div>

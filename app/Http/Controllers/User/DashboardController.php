@@ -20,6 +20,7 @@ class DashboardController extends Controller
         //     dd($sub->tailor);
         // }
         $wishlist = Wishlist::where('user_id', Auth::id())->get();
+        // dd($wishlist->cloth);
         return view('user.index', compact('profile', 'subscribe', 'wishlist'));
     }
 

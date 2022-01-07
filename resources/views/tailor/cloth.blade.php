@@ -21,7 +21,7 @@
                                         <a href="{{ route('tailor.cloth.delete', ['id' => $item['id']]) }}" class="btn btn-outline-dark ">Delete</a>
                                     </div>
                                 </div>
-                                <a href="#" class="image">
+                                <a href="{{ route('cloth.show', ['slug' => $item['slug']  ]) }}" class="image">
                                     <img src="{{ asset('/assets/images/clothes/'.$item['image'] ) }}">
                                         
                                     <img class="hover-image"
@@ -31,8 +31,7 @@
                             </div>
                             <div class="content">
                                 
-                                <h5 class="title">₦{{ $item['price'] }}
-                                </h5>
+                                <h5 class="title">{{ $item['name'] }}</h5>
                                 <span class="price">
                                     <span class="new">{{ $item->presentPrice()}}</span>
                                 </span>

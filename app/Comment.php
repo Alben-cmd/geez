@@ -8,6 +8,6 @@ class Comment extends Model
 {
     public function cloth()
     {
-        return $this->belongsTo('App\cloth');
+        return $this->belongsTo('App\Cloth');
     }
 }

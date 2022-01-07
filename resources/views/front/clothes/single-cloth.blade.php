@@ -67,15 +67,15 @@
                         <h2>{{ $cloth->name }}</h2>
                         <div class="pricing-meta">
                             <ul>
-                                <li class="old-price not-cut">₦{{ $cloth->price }}</li>
+                                <li class="old-price not-cut">{{ $cloth->presentPrice()}}</li>
                             </ul>
                         </div>
                         
                         <p class="mt-30px mb-0">{{ $cloth->details }}</p>
                         <div class="pro-details-quality">
-                            <div class="cart-plus-minus">
+                            {{-- <div class="cart-plus-minus">
                                 <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1" />
-                            </div>
+                            </div> --}}
                             <div class="pro-details-cart">
                                 {{-- <button class="add-cart" href=""> Add To Cart</button> --}}
                                 <form action="{{ route('cart.store') }}" method="POST">

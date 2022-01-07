@@ -1,20 +1,10 @@
 <div class="tab-pane fade" id="profile">
     <h3>My Profile </h3>
-    {{-- error and success messages --}}
-    @include('partials.messaging')
     <div class="login">
         <div class="login_form_container">
             <div class="account_login_form">
                 <div class="row">
                      <div class="col-6"> 
-                        <ul>
-                @foreach ($errors->all() as $error)
-                <div class="alert alert-danger">
-                    <li>{{ $error }}</li>
-                </div>
-                
-                @endforeach
-            </ul>
                     <form method="POST" action="{{ route('tailor.profile.update', ['id' => $profile->id]) }}" enctype="multipart/form-data" class="form-horizontal">
                             @csrf
                        

@@ -51,15 +51,19 @@
                                             <a href="{{ route('cloth.show', $item->model->slug) }} "><img class="img-responsive ml-15px"
                                                     src="{{ asset('/assets/images/clothes/' .$item->model->image) }} " alt="" /></a>
                                         </td>
-                                        <td class="product-name"><a href="{{ route('cloth.show', $item->model->slug) }}">{{$item->model->name}}</a></td>
+                                        <td class="product-name"><a href="{{ route('cloth.show', $item->model->slug) }}">{{$item->model->name}}  </a></td>
                                         <td class="product-price-cart"><span class="amount">{{ $item->model->presentPrice()}}</span></td>
                                         <td class="product-quantity">
                                             <div class="cart-plus-minus">
+                                                
+                                                    <a class="dec qtybutton" href="{{ route('cart.sub_quanity', $item->rowId) }}"><div >-</a>
+                                              
                                                 <input class="cart-plus-minus-box" type="text" name="qtybutton"
-                                                    value="1" />
+                                                    value="{{ $item->qty }}" />
+                                                        <a class="inc qtybutton" href="{{ route('cart.add_quantity', $item->rowId) }}">+</a>                                                    
                                             </div>
                                         </td>
-                                        <td class="product-subtotal">{{Cart::subtotal() / 100 }}</td>
+                                        <td class="product-subtotal">&#8358;{{$item->subtotal() / 100 }}</td>
                                         <td class="product-remove">
                                             {{-- <a href="#"><i class="pe-7s-like"></i></a> --}}
                                             {{-- <a href=""><i class="fa fa-times"></i></a> --}}
@@ -120,7 +124,7 @@
                                 <div class="title-wrap">
                                     <h4 class="cart-bottom-title section-bg-gary-cart">Cart Total</h4>
                                 </div>
-                                <h5>Sub Total products <span>{{Cart::subtotal() / 100}} </span></h5>
+                                <h5>Sub Total products <span>&#8358;{{Cart::subtotal() / 100}} </span></h5>
                                 <h5>Tax <span>{{Cart::tax() }}</span></h5>
                                {{--  <div class="total-shipping">
                                     <h5>Total shipping</h5>

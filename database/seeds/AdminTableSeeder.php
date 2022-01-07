@@ -18,6 +18,7 @@ class AdminTableSeeder extends Seeder
             'brand_name' => 'AdminBrand',
             'phone_1' => '39834872983',
             'phone_2' => '0943495340',
+            'picture' => 'admin.jpg'
             'location' => 'Abuja',
             'role_id' => '3',
             'email' => 'admin@gmail.com',

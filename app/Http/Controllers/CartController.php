@@ -48,7 +48,7 @@ class CartController extends Controller
         Cart::add($request->id, $request->name, 1, $request->price)
             ->associate('App\Cloth');
 
-        return redirect()->back()->with('success', 'Item was Added to Your Cart!');
+        return redirect()->back()->with('success', 'Item Added to Your Cart!');
     }
 
     /**
@@ -119,5 +119,30 @@ class CartController extends Controller
 
         return redirect()->route('cart.index')->with('success', 'Item was Added to Your Wish List!');
     }
+
+    public function update_plus(Request $request, $rowId)
+    {
+        $cloth = Cart::get($rowId);
+        $qty = $cloth->qty + 1;
+        Cart::update($rowId,$qty);
+
+        return back()->with('success', 'Quantity increased!');
+    }
+
+    public function update_minus(Request $request, $rowId)
+    {   
+        $cloth = Cart::get($rowId);
+        if ($cloth->qty > 1){
+        $qty = $cloth->qty - 1;
+        Cart::update($rowId,$qty);
+            return back()->with('success', 'Quantity Reduced!');
+        }
+        
+        else{
+            return back()->with('info', 'Quantity already 1!');
+        }
+
+    }
+
 }
 

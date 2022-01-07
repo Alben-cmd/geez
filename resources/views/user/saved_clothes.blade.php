@@ -25,7 +25,7 @@
                                         </a>
                                     </h5>
                                     <span class="price">
-                                        <span class="new">{{ $item->presentPrice()}}</span>
+                                        <span class="new">{{ $item->cloth->presentPrice()}}</span>
                                     </span>
                                     <div class="save_button">
                                         <a href="{{ route('user.delete.wishlist', ['id' => $item['id']]) }}"> <button class="btn" type="submit">Remove</button></a>

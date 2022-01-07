@@ -31,6 +31,10 @@ Route::view('/single-cloth', 'front.clothes.single-cloth');
 //cart section
 Route::get('/cart', 'CartController@index')->name('cart.index');
 Route::post('/cart', 'CartController@store')->name('cart.store');
+
+Route::get('/cart/add_quantity/{rowID}', 'CartController@update_plus')->name('cart.add_quantity');
+Route::get('/cart/sub_quantity/{rowID}', 'CartController@update_minus')->name('cart.sub_quanity');
+
 Route::get('/cart/{id}', 'CartController@destroy')->name('cart.destroy');
 
 
