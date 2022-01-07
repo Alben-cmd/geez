@@ -3,8 +3,6 @@
 /public/storage
 /storage/*.key
 /vendor
-/public/assets/images/clothes
-/public/assets/images/tailors
 .env
 .env.backup
 .phpunit.result.cache

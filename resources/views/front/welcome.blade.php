@@ -141,7 +141,7 @@
                                 </div>
                                 @empty
                                 <tr>
-                                    <td colspan="7">No Record Found </td>
+                                    <td><font color="#fb5d5d">No Clothe(s) Found! </td>
                                 </tr>
                                 @endforelse
                                 {{-- ending of single cloth --}}
@@ -225,7 +225,7 @@
                                 </div>
                                @empty
                                 <tr>
-                                    <td colspan="7">No Record Found </td>
+                                    <td><font color="#fb5d5d">No Tailor Found!</font> </td>
                                 </tr>
                                 @endforelse
                               

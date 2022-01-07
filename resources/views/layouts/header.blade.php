@@ -67,11 +67,11 @@
                             </a>
                             <!-- Single Wedge End -->
                             <!-- Single Wedge Start -->
-                            <a href="{{ route('user.wishlist.index') }} " class="header-action-btn offcanvas-toggle">
+                            <a href="{{ route('user.wishlist.index') }}" class="header-action-btn">
                                 <i class="pe-7s-like"></i>
                             </a>
                             <!-- Single Wedge End -->
-                            <a href="{{ route('cart.index') }} "
+                            <a href="{{ route('cart.index') }}"
                                 class="header-action-btn header-action-btn-cart">
                                 <i class="pe-7s-shopbag"></i>
                                 @if( Cart::instance('default')->count() > 0)

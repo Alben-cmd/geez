@@ -207,7 +207,7 @@
                                     <hr>
                                     {{-- single end --}}
                                    @empty
-                                        <p> No Comments!</p>
+                                        <p>No Comments!</p>
                                     @endforelse
                                 </div>
                             </div>

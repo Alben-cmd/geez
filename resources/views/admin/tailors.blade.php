@@ -31,7 +31,7 @@
             </tbody>
             @empty
             <tr>
-                <td colspan="7">No Record Found </td>
+                <td><font color="#fb5d5d">No Tailor(S) Found! </font></td>
             </tr>
             @endforelse
         </table>

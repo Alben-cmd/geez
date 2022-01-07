@@ -81,7 +81,7 @@
                             </table>
                         </div>
                         @else
-                            <h3> No Items in Cart!</h3>
+                            <h3> <font color="#fb5d5d">No Item(s) in Cart!</font></h3>
                         @endif
                         <div class="row">
                             <div class="col-lg-12">

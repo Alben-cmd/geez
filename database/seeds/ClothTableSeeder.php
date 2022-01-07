@@ -14,7 +14,7 @@ class ClothTableSeeder extends Seeder
     {
         Cloth::create([
             'name' => 'cloth 1',
-            'trending' => '0',
+            'trending' => '1',
             'category' => 'Ankara',
             'image' => 'cloth_1.jpg',
             'slug' => 'cloth_1',
@@ -36,7 +36,7 @@ class ClothTableSeeder extends Seeder
 
           Cloth::create([
             'name' => 'cloth 3',
-            'trending' => '0',
+            'trending' => '1',
             'category' => 'Men Top',
             'image' => 'cloth_3.jpg',
             'slug' => 'cloth_3',
@@ -58,7 +58,7 @@ class ClothTableSeeder extends Seeder
 
             Cloth::create([
             'name' => 'cloth 5',
-            'trending' => '0',
+            'trending' => '1',
             'category' => 'Men Top',
             'image' => 'cloth_5.jpg',
             'slug' => 'cloth_5',
@@ -80,7 +80,7 @@ class ClothTableSeeder extends Seeder
 
              Cloth::create([
             'name' => 'cloth 7',
-            'trending' => '0',
+            'trending' => '1',
             'category' => 'Ankara',
             'image' => 'cloth_7.jpg',
             'slug' => 'cloth_7',
@@ -102,7 +102,7 @@ class ClothTableSeeder extends Seeder
 
                Cloth::create([
             'name' => 'cloth 9',
-            'trending' => '0',
+            'trending' => '1',
             'category' => 'Ankara',
             'image' => 'cloth_9.jpg',
             'slug' => 'cloth_9',

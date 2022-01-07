@@ -34,7 +34,7 @@
                             </div>
                         </div>
                         @empty
-                            <h3> No Items found!</h3>
+                            <h3> <font color="#fb5d5d">No Saved Clothes!</font></h3>
                         @endforelse
                        
                     </div>

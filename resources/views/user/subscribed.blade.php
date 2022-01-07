@@ -43,7 +43,7 @@
                         </div>
                         @empty
                         <tr>
-                            <td colspan="7">No Tailor Subscribed to! </td>
+                            <td><font color="#fb5d5d">No Tailor Subscribed To! </font></td>
                         </tr>
                         @endforelse
                                                                         

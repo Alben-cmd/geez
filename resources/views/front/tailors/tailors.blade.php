@@ -37,7 +37,7 @@
                                     <div class="tab-pane fade show active" id="shop-grid">
                                         <div class="row mb-n-30px">
                                             
-                                            @foreach ($tailors as $key => $item)
+                                            @forelse ($tailors as $key => $item)
                                             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-30px" data-aos="fade-up"
                                                 data-aos-delay="200">
                                                 <!-- Single Prodect -->
@@ -74,7 +74,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            @endforeach
+                                            @empty
+                                            <font color="#fb5d5d">No Tailor(s) Found! </font></td>
+
+                                            @endforelse
                                         
                                            
                                         </div>

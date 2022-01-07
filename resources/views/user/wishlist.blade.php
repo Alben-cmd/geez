@@ -34,19 +34,20 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                     <form action="#">
                         <div class="table-content table-responsive cart-table-content">
+                            @if($wishlist->count() > 0)
                             <table>
                                 <thead>
                                     <tr>
                                         <th>Image</th>
                                         <th>Product Name</th>
                                         <th>Price</th>
-                                        <th>Qty</th>
                                        {{--  <th>Subtotal</th> --}}
                                         <th>Add To Cart</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @endif
                                     @forelse ($wishlist as $key => $item)
                                     <tr>
                                         <td class="product-thumbnail">
@@ -54,11 +55,7 @@
                                         </td>
                                         <td class="product-name"><a href="#">{{$item->cloth->name}}</a></td>
                                         <td class="product-price-cart"><span class="amount">{{ $item->cloth->presentPrice()}}</span></td>
-                                        <td class="product-quantity">
-                                            <div class="cart-plus-minus">
-                                                <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1" />
-                                            </div>
-                                        </td>
+                                        
                                         {{-- <td class="product-subtotal">$70.00</td> --}}
                                         <td class="product-wishlist-cart">
                                             <form action="{{ route('cart.store') }}" method="POST">
@@ -73,7 +70,7 @@
                                         <td><a href="{{ route('user.delete.wishlist', ['id' =>$item->id ]) }} "><i class="fa fa-times"></i></a></td>
                                     </tr>
                                     @empty
-                                        <h3> No Items in Wishlist!</h3>
+                                        <h5><font color="#fb5d5d"> No Items in Wishlist!</font></h5>
                                     @endforelse
                                 </tbody>
                             </table>

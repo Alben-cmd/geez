@@ -60,7 +60,7 @@
                                    
                                     @empty
                                         <tr>
-                                           No Record Found
+                                           <font color="#fb5d5d">No Clothe(s) Found!</font>
                                         </tr>
                                     @endforelse
                                     </ul>
@@ -168,7 +168,7 @@
                                             </div>
                                             @empty
                                             <tr>
-                                                <td colspan="7">No Cloth Found </td>
+                                                <td><font color="#fb5d5d">No Cloth(s) Found! </font></td>
                                             </tr>
                                             @endforelse
                                         </div>
