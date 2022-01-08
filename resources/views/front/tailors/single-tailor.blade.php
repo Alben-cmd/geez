@@ -46,7 +46,7 @@
                             <div class="swiper-slide">
                                 <a href="{{ route('cloth.show', ['slug' => $item['slug']  ]) }}"><img class="img-responsive m-auto" src="{{ asset('/assets/images/clothes/'.$item['image'] ) }}"
                                     alt=""></a>
-                                    {{ $item['price'] }}
+                                    {{ $item->presentPrice()}}
                             </div>
                             
                         </div>
@@ -70,7 +70,15 @@
                         <div class="pro-details-quality">
                             
                             <div class="pro-details-cart">
-                                <button class="add-cart" href="#"> Subscribe</button>
+                                <form action="{{ route('user.add.subscribe') }}" method="POST">
+                                    @csrf
+                                    @if(Auth::user())
+                                    <input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
+                                    @endif
+                                    <input type="hidden" name="tailor_id" value="{{ $item->id}} ">
+                                    <button class="add-cart">Subscribe </button>
+                                </form>
+                                
                             </div>
                             {{-- <div class="pro-details-compare-wishlist pro-details-wishlist ">
                                 <a href="wishlist.html"><i class="pe-7s-like"></i></a>

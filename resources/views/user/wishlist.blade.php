@@ -51,7 +51,7 @@
                                     @forelse ($wishlist as $key => $item)
                                     <tr>
                                         <td class="product-thumbnail">
-                                            <a href="#"><img class="img-responsive ml-15px" src="{{ asset('/assets/images/clothes/' .$item->cloth->image) }}" alt="" /></a>
+                                            <a href="{{ route('cloth.show', ['slug' => $item->cloth->slug  ]) }}"><img class="img-responsive ml-15px" src="{{ asset('/assets/images/clothes/' .$item->cloth->image) }}" alt="" /></a>
                                         </td>
                                         <td class="product-name"><a href="#">{{$item->cloth->name}}</a></td>
                                         <td class="product-price-cart"><span class="amount">{{ $item->cloth->presentPrice()}}</span></td>
