@@ -19,7 +19,7 @@ class ClothTableSeeder extends Seeder
             'image' => 'cloth_1.jpg',
             'slug' => 'cloth_1',
             'details' =>'good clothes',
-            'brand_name' =>'Tailor One',
+            'tailor_id' =>'1',
             'price' => 3000000,
         ])->categories()->attach(7);
 
@@ -30,7 +30,7 @@ class ClothTableSeeder extends Seeder
             'image' => 'cloth_2.jpg',
             'slug' => 'cloth_2',
             'details' =>'good clothes',
-            'brand_name' =>'Tailor one',
+            'tailor_id' =>'1',
             'price' => 4000099,
         ])->categories()->attach(3);
 
@@ -41,7 +41,7 @@ class ClothTableSeeder extends Seeder
             'image' => 'cloth_3.jpg',
             'slug' => 'cloth_3',
             'details' =>'good clothes',
-            'brand_name' =>'Tailor Two',
+            'tailor_id' =>'2',
             'price' => 5000099,
         ])->categories()->attach(1);
 
@@ -52,7 +52,7 @@ class ClothTableSeeder extends Seeder
             'image' => 'cloth_4.jpg',
             'slug' => 'cloth_4',
             'details' =>'good clothes',
-            'brand_name' =>'Tailor Two',
+            'tailor_id' =>'2',
             'price' => 6000099,
         ])->categories()->attach(3);
 
@@ -63,7 +63,7 @@ class ClothTableSeeder extends Seeder
             'image' => 'cloth_5.jpg',
             'slug' => 'cloth_5',
             'details' =>'good clothes',
-            'brand_name' =>'Tailor Three',
+            'tailor_id' =>'3',
             'price' => 2000099,
         ])->categories()->attach(1);
 
@@ -74,7 +74,7 @@ class ClothTableSeeder extends Seeder
             'image' => 'cloth_6.jpg',
             'slug' => 'cloth_6',
             'details' =>'good clothes',
-            'brand_name' =>'Tailor Four',
+            'tailor_id' =>'3',
             'price' => 1000099,
         ])->categories()->attach(9);
 
@@ -85,7 +85,7 @@ class ClothTableSeeder extends Seeder
             'image' => 'cloth_7.jpg',
             'slug' => 'cloth_7',
             'details' =>'good clothes',
-            'brand_name' =>'Tailor Three',
+            'tailor_id' =>'4',
             'price' => 1499999,
         ])->categories()->attach(7);
 
@@ -96,7 +96,7 @@ class ClothTableSeeder extends Seeder
             'image' => 'cloth_8.jpg',
             'slug' => 'cloth_8',
             'details' =>'good clothes',
-            'brand_name' =>'Tailor Four',
+            'tailor_id' =>'4',
             'price' => 2999999,
         ])->categories()->attach(7);
 
@@ -107,7 +107,7 @@ class ClothTableSeeder extends Seeder
             'image' => 'cloth_9.jpg',
             'slug' => 'cloth_9',
             'details' =>'good clothes',
-            'brand_name' =>'Tailor Five',
+            'tailor_id' =>'5',
             'price' => 1699999,
         ])->categories()->attach(7);
 
@@ -118,7 +118,7 @@ class ClothTableSeeder extends Seeder
             'image' => 'cloth_10.jpg',
             'slug' => 'cloth_10',
             'details' =>'good clothes',
-            'brand_name' =>'Tailor Five',
+            'tailor_id' =>'5',
             'price' => 1200000,
         ])->categories()->attach(7);
     }

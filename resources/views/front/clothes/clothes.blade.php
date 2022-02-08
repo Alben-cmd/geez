@@ -56,7 +56,7 @@
                                     <ul class="sub-menu">
                                         <li><a href="{{ route('clothes') }}">All</a></li>
                                         @forelse ($categories as $category)
-                                        <li><a href="{{ route('clothes', ['category' => $category->slug ]) }}">{{ $category->name }}</a></li>
+                                        <li><a href="{{ route('clothes', ['category' => $category->name ]) }}">{{ $category->name }}</a></li>
                                    
                                     @empty
                                         <tr>
@@ -156,7 +156,7 @@
                                                         <h5 class="title"><a href="{{ route('cloth.show', ['slug' => $item['slug']  ]) }}">{{ $item['name'] }}
                                                             </a>
                                                         </h5>
-                                                        <h5 class="title"><a href="{{ route('cloth.show', ['slug' => $item['slug']  ]) }}"><strong>Brand: </strong> {{ $item['brand_name'] }}
+                                                        <h5 class="title"><a href="{{ route('cloth.show', ['slug' => $item['slug']  ]) }}"><strong>Brand: </strong> {{ $item->tailor->brand_name }}
                                                             </a>
                                                         </h5>
                                                         <span class="price">

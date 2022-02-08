@@ -24,7 +24,7 @@
     <!-- Cart Area Start -->
     <div class="cart-main-area pt-100px pb-100px">
         <div class="container">
-            <h5 class="cart-page-title">{{ $cloth->count() }} Result(s) for '{{ request()->input('query') }}'</h5>
+            <h5 class="cart-page-title">{{ $cloth->count() }} Result(s) for '{{ request()->input('query') }}' in Clothes</h5>
             {{-- error and success messages --}}
             @include('partials.messaging')
 
@@ -44,6 +44,7 @@
                                 </thead>
                                 <tbody>
                                     @foreach($cloth as $clothes)
+                                    
                                     <tr>
                                         <td class="product-thumbnail">
                                             <a href="{{ route('cloth.show', $clothes->slug) }} "><img class="img-responsive ml-15px"
@@ -51,8 +52,53 @@
                                         </td>
                                         <td class="product-name"><a href="{{ route('cloth.show', $clothes->slug) }} ">{{$clothes->name}}</a></td>
                                         <td>{{$clothes->category}}</td>
-                                        <td>{{$clothes->brand_name}}</td>
+                                        <td>{{$clothes->tailor->brand_name}}</td>
                                         <td class="product-price-cart"><span class="amount">&#8358{{$clothes->price}}</span></td>
+                                       
+                                    </tr>
+                                    
+                                   @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                       
+                    </form>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-main-area pt-100px pb-100px">
+        <div class="container">
+            <h5 class="cart-page-title">{{ $tailor->count() }} Result(s) for '{{ request()->input('query') }}' in Tailor</h5>
+            {{-- error and success messages --}}
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                    <form action="#">
+                        <div class="table-content table-responsive cart-table-content">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Tailor Name</th>
+                                        <th>email</th>
+                                        <th>Brand</th>
+                                        <th>Location</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($tailor as $tailors)
+                                    
+                                    <tr>
+                                        <td class="product-thumbnail">
+                                            <a href="{{ route('tailor.show', $tailors->id) }}"><img class="img-responsive ml-15px"
+                                                    src="{{ asset('/assets/images/tailors/' .$tailors->picture) }} " alt="" /></a>
+                                        </td>
+                                        <td class="product-name"><a href="{{ route('tailor.show', $tailors->id) }}">{{$tailors->fname}} {{$tailors->lname}}</a></td>
+                                        <td>{{$tailors->email}}</td>
+                                        <td>{{$tailors->brand_name}}</td>
+                                        <td>{{$tailors->location}}</td>
                                        
                                     </tr>
                                     

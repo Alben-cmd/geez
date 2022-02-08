@@ -1,7 +1,5 @@
 <div class="tab-pane fade" id="approved_comments">
     <h3>Comments </h3>
-    {{-- error and success messages --}}
-    @include('partials.messaging')
     
     <div class="table_page table-responsive">
         <table>

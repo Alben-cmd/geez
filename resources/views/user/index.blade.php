@@ -17,6 +17,7 @@
                             <li><a href="#tailor" data-bs-toggle="tab" class="nav-link">My Tailors</a></li>
                             {{--  <li><a href="#items" data-bs-toggle="tab" class="nav-link">Saved Items</a></li> --}}
                             <li><a href="#profile" data-bs-toggle="tab" class="nav-link">My profile</a></li>
+                            <li><a href="#become_tailor" data-bs-toggle="tab" class="nav-link">Become a Tailor</a></li>
                             <li>
                                 <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); 
                                     document.getElementById('logout-form').submit();">
@@ -53,6 +54,11 @@
 
                         <!-- profile -->
                         @include('user.profile')
+                        {{-- profile end --}}
+
+                        <!-- user to tailor -->
+                        @include('user.become_tailor')
+                        {{-- user to tailor end --}}
                     </div>
                 </div>
             </div>

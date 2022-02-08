@@ -22,7 +22,7 @@ class CreateClothsTable extends Migration
             $table->string('slug')->unique();
             $table->string('details')->nullable();
             $table->string('price');
-            $table->string('brand_name');
+            $table->string('tailor_id');
 
             $table->timestamps();
         });

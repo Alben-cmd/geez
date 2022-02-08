@@ -32,7 +32,7 @@
                             <input type="text" name="details" value="{{ old('details') }}" required>
                         </div>
 
-                        <input type="hidden" name="brand_name" value="{{ Auth::user()->brand_name }}">
+                        <input type="hidden" name="tailor_id" value="{{ Auth::user()->id }}">
 
                         
                         <div class="save_button mt-3">

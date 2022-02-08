@@ -17,7 +17,6 @@ class Cloth extends Model
         return $query->inRandomOrder()->take(4);
     }
 
-
     public function tailor()
     {
         return $this->belongsTo('App\User');

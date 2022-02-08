@@ -89,6 +89,7 @@
                                 {{-- begining of single cloth  --}}
                                 @forelse ($clothes as $key => $item)
                                 <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-30px" data-aos="fade-up"
+           
                                     data-aos-delay="200">
                                     <!-- Single Prodect -->
                                     <div class="product">
@@ -102,8 +103,18 @@
                                                 {{-- <span class="new">New</span> --}}
                                             </span>
                                             <div class="actions">
-                                                <a href="{{ route('cloth.show', ['slug' => $item['slug']  ]) }}" class="action wishlist" title="Wishlist"><i class="pe-7s-like"></i>
-                                                </a>
+                                                <div class="action wishlist">
+                                                <form action="{{ route('user.add.wishlist') }}" method="POST">
+                                                    @csrf
+                                                    @if(Auth::user())
+                                                    <input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
+                                                    @endif
+                                                    <input type="hidden" name="cloth_id" value="{{ $item->id}} ">
+                                                    <button><i class="pe-7s-like"></i> </button>
+                                                </form>
+                                            </div>
+                                               {{--  <a href="#" class="action wishlist" title="Wishlist"><i class="pe-7s-like"></i>
+                                                </a> --}}
                                                 @if(Auth::user())
                                                 @if(Auth::user()->role_id == 3)
                                                 @if($item['trending'] == '0')
@@ -128,8 +139,8 @@
                                             </div>
                                         </div>
                                         <div class="content">
-                                            <h5 class="title"><a href="{{ route('cloth.show', ['slug' => $item['slug']  ]) }}">{{ $item['name'] }}</a></h5>
-                                            <h5 class="title"><a href="#">Designer:{{ $item['brand_name'] }}
+                                            <h5 class="title"><a href="{{ route('cloth.show', ['slug' => $item['slug']  ]) }}">{{ $item->name }}</a></h5>
+                                            <h5 class="title"><a href="#">Designer:{{ $item->tailor->brand_name }}
                                                 </a>
                                             </h5>
                                             <span class="price">
@@ -208,7 +219,17 @@
                                                     data-bs-target="#exampleModal"><i class="pe-7s-search"></i></a> --}}
                                                 
                                             </div>
-                                            <a href="#"><button title="Add To Cart" class=" add-to-cart">Subscribe</button></a> 
+                                            <div class=" pro-details-cart">
+                                                <form action="{{ route('user.add.subscribe') }}" method="POST">
+                                                    @csrf
+                                                    @if(Auth::user())
+                                                    <input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
+                                                    @endif
+                                                    <input type="hidden" name="tailor_id" value="{{ $item->id}} ">
+                                                    <button class="add-to-cart">Subscribe </button>
+                                                </form>
+                                            </div>
+                                            {{-- <a href="#"><button title="Add To Cart" class=" add-to-cart">Subscribe</button></a>  --}}
                                         </div>
                                         <div class="content">
                                            

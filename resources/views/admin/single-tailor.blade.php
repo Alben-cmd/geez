@@ -8,8 +8,6 @@
     <div class="account-dashboard pt-100px pb-100px">
         <div class="container">
             <div class="row">
-                {{-- dashboard section begins  --}}
-               @include('partials.admin_dashboard')
                {{-- Dashboard section ends --}}
                 <div class="col-sm-12 col-md-9 col-lg-9">
                    {{-- error and success messages --}}
@@ -27,11 +25,11 @@
                             <address>
                                 <span class="mb-1 d-inline-block"><strong>Brand Name:</strong> {{$tailor_data->brand_name}}</span>
                                 <br>
-                                <span class="mb-1 d-inline-block"><strong>email:</strong> {{$tailor_data->email}}</span>,
+                                <span class="mb-1 d-inline-block"><strong>Email:</strong> {{$tailor_data->email}}</span>,
                                 <br>
                                 <span class="mb-1 d-inline-block"><strong>Location:</strong> {{$tailor_data->location}}</span>
                                 <br>
-                                <span class="mb-1 d-inline-block"><strong>Phone Numbers:</strong> {{$tailor_data->phone_1}} {{$tailor_data->phone_2}}</span>,
+                                <span class="mb-1 d-inline-block"><strong>Phone Numbers:</strong> {{$tailor_data->phone_1}} | {{$tailor_data->phone_2}}</span>,
                                 
                             </address>
                        </div>
@@ -60,7 +58,7 @@
                             </div>
                             <div class="content">
                                 
-                                <h5 class="title">{{ $item['price'] }}
+                                <h5 class="title">{{ $item->presentPrice() }}
                                 </h5>
                                 <span class="price">
                                     <span class="new">{{ $item['details'] }}</span>

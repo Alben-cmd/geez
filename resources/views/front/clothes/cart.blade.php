@@ -72,8 +72,10 @@
                                                 {{ method_field('DELETE') }}
                                                 <button type="submit"><i class="fa fa-times"></i></button> 
                                             </form> --}}
-                                            <a href="{{ route('cart.destroy', ['id' => $item->rowId]) }}"><i class="fa fa-times"></i></a>
+                                            <a href="{{ route('cart.destroy', ['id' => $item->rowId]) }}"><i class="fa fa-times"></i></a> <a href="#"><i class="fa fa-phone-square"></i></a>
+
                                         </td>
+
                                     </tr>
                                     
                                    @endforeach
@@ -101,7 +103,7 @@
                             </div>
                         </div>
                     </form>
-                    <div class="row">
+                    {{-- <div class="row">
                         <div class="col-lg-4 col-md-6 mb-lm-30px">
                             <div class="discount-code-wrapper">
                                 <div class="title-wrap">
@@ -126,18 +128,18 @@
                                 </div>
                                 <h5>Sub Total products <span>&#8358;{{Cart::subtotal() / 100}} </span></h5>
                                 <h5>Tax <span>{{Cart::tax() }}</span></h5>
-                               {{--  <div class="total-shipping">
+                              <div class="total-shipping">
                                     <h5>Total shipping</h5>
                                     <ul>
                                         <li><input type="checkbox" /> Standard <span>$20.00</span></li>
                                         <li><input type="checkbox" /> Express <span>$30.00</span></li>
                                     </ul>
-                                </div> --}}
+                                </div>
                                 <h4 class="grand-totall-title">Grand Total <span>{{Cart::total() / 100 }}</span></h4>
                                 <a href="checkout.html">Proceed to Checkout</a>
                             </div>
                         </div>
-                    </div>
+                    </div> --}} 
                 </div>
             </div>
         </div>

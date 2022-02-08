@@ -86,7 +86,7 @@
                                     <button  class="add-cart"> Add To Cart</button>
                                 </form>
                             </div>
-                            <div class="pro-details-compare-wishlist pro-details-wishlist ">
+                            <div class="pro-details-compare-wishlist pro-details-wishlist">
 
                                 <form action="{{ route('user.add.wishlist') }}" method="POST">
                                     @csrf
@@ -106,7 +106,7 @@
                             <span>Designer:  </span>
                             <ul class="d-flex">
                                 <li>
-                                    <a href="#">{{ $cloth->brand_name}}</a>
+                                    <a href="#">{{ $cloth->tailor->brand_name}}</a>
                                 </li>
                             </ul>
                         </div>

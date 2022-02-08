@@ -123,6 +123,12 @@ Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middl
     // comments
     Route::post('comments/', 'DashboardController@storecomment')->name('store.comment');
 
+    //profile update 
+    Route::post('/update-profile/{id}', 'ProfileController@update')->name('profile.update');
+
+    //user to Tailor 
+    Route::post('/to_tailor/{id}', 'ProfileController@user_tailor')->name('user.tailor');
+    
     //subscribe 
 
     Route::post('subscribe', 'SubscribeController@store')->name('add.subscribe');
