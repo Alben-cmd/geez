@@ -25,7 +25,7 @@ class TailorController extends Controller
     public function show($id)
     {
         $tailor = User::find($id);
-        $clothes = Cloth::where('brand_name' , $tailor->brand_name)->get();
+        $clothes = Cloth::where('tailor_id' , $tailor->id)->get();
         return view('front.tailors.single-tailor', compact('tailor', 'clothes'));
     }
 

@@ -39,6 +39,8 @@ class ClothController extends Controller
      */
     public function store(Request $request)
     {
+
+        dd($request);
          $validatedData = $request->validate([
 
              'name' => 'required',
@@ -46,7 +48,7 @@ class ClothController extends Controller
              'image'  => 'required',
              'details'  => 'required',
              'price'  => 'required',
-             'brand_name'  => 'required',
+             'tailor_id'  => 'required',
 
              ]);
 
@@ -65,7 +67,7 @@ class ClothController extends Controller
             $cloth->slug = Str::slug($cloth->name);
             $cloth->details = $request->details;
             $cloth->price = $request->price;
-            $cloth->brand_name = $request->brand_name;
+            $cloth->tailor_id = $request->tailor_id;
             $cloth->save();
 
             return redirect()->back()->with('success', 'Cloth Added!');
@@ -112,7 +114,7 @@ class ClothController extends Controller
              'slug'  => 'required',
              'details'  => 'required',
              'price'  => 'required',
-             'brand_name'  => 'required',
+             'tailor_id'  => 'required',
 
              ]);
 
@@ -131,7 +133,7 @@ class ClothController extends Controller
         $cloth->slug = $request->slug;
         $cloth->details = $request->details;
         $cloth->price = $request->price;
-        $cloth->brand_name = $request->brand_name;
+        $cloth->tailor_id = $request->tailor_id;
 
         $cloth->save(); 
 

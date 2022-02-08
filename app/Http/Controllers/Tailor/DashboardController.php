@@ -15,7 +15,7 @@ class DashboardController extends Controller
     {
 
         $profile = User::where('id' , Auth::id())->first();
-        $my_clothes = Cloth::where('brand_name', '=',  Auth::user()->brand_name)->get();
+        $my_clothes = Cloth::where('tailor_id', '=',  Auth::user()->id)->get();
         $categories = Category::get();
 
         return view('tailor.index', compact('profile', 'my_clothes', 'categories'));

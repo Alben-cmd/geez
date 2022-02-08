@@ -41,14 +41,25 @@ class WishlistController extends Controller
      */
     public function store(Request $request)
     {
-        $wishlist = new Wishlist();
+        $wishlist = Wishlist::where('user_id', $request->user_id)
+                        ->where('cloth_id', $request->cloth_id)
+                        ->first();
 
-        $wishlist->user_id = $request->user_id;
-        $wishlist->cloth_id = $request->cloth_id;
+        if($wishlist != null)
+        {
+            return redirect()->back()->with('info', 'Cloth already in wishlist!');
+        }
+        else{
 
-        $wishlist->save(); 
+            $wishlist = new Wishlist();
 
-        return redirect()->back()->with('success', 'Cloth added to wishlist');
+            $wishlist->user_id = $request->user_id;
+            $wishlist->cloth_id = $request->cloth_id;
+
+            $wishlist->save(); 
+
+            return redirect()->back()->with('success', 'Cloth added to wishlist!');
+        }
     }
 
     /**

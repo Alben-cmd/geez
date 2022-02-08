@@ -16,7 +16,7 @@ class DashboardController extends Controller
     public function index()
     {
         $profile = User::where('id' , Auth::id())->first();
-        $my_clothes = Cloth::where('brand_name', '=',  Auth::user()->brand_name)->orderBy('created_at', 'desc')->get();
+        $my_clothes = Cloth::where('tailor_id', '=',  Auth::user()->id)->orderBy('created_at', 'desc')->get();
         $tailors = User::where('role_id' , 2)->orderBy('created_at', 'desc')->get();
         $approved_comments = Comment::where('approved', '1')->orderBy('created_at', 'desc')->get();
         $categories = Category::get();

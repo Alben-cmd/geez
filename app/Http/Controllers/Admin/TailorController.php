@@ -50,9 +50,9 @@ class TailorController extends Controller
     public function show($id)
     {
         $tailor_data = User::find($id);  
-        $cloths = Cloth::where('brand_name' , $tailor_data->brand_name)->get();
-       
-        // dd($tailor_data); 
+        
+        $cloths = Cloth::where('tailor_id' , $tailor_data->id)->get();
+        
         return view('admin.single-tailor', compact('tailor_data', 'cloths'));
     }
 

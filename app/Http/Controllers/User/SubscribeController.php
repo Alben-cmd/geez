@@ -37,14 +37,25 @@ class SubscribeController extends Controller
      */
     public function store(Request $request)
     {
-        $subscribe = new Subscribe();
+        $subscribe = Subscribe::where('user_id', $request->user_id)
+                        ->where('tailor_id', $request->tailor_id)
+                        ->first();
 
-        $subscribe->user_id = $request->user_id;
-        $subscribe->tailor_id = $request->tailor_id;
+        if($subscribe != null)
+        {
+            return redirect()->back()->with('info', 'Tailor already Subscribed to!');
+        }
+        else{
 
-        $subscribe->save(); 
+            $subscribe = new Subscribe();
 
-        return redirect()->back()->with('success', 'Tailor Subscribed to!');
+            $subscribe->user_id = $request->user_id;
+            $subscribe->tailor_id = $request->tailor_id;
+
+            $subscribe->save(); 
+
+            return redirect()->back()->with('success', 'Tailor Subscribed to!');
+        }
     }
 
     /**

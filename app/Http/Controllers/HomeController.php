@@ -35,13 +35,26 @@ class HomeController extends Controller
         $request ->validate([
             'query' => 'required|min:3',
         ]);
-
         $query = $request->input('query');
 
-        $cloth = Cloth::where('name', 'like', "%$query%")
-                        ->orWhere('brand_name', 'like', "%$query%")
-                        ->get();
+        $cloth = Cloth::where('name', 'like', "%$query%")->get();
 
-        return view('front.search_results', compact('cloth'));
+             
+     $tailor = User::where('role_id', '=',  '2')
+                ->where(function ($query) use ($request) {
+            $query->where('lname', "like", "%" . $request->search . "%");
+            $query->orWhere('fname', "like", "%" . $request->search . "%");
+        })->get();   
+
+
+        // $tailor = User::where('role_id', '=', '2')
+        //                 ->where( 'fname', 'like', "%$query%" )
+        //                 ->orWhere('lname', 'like', "%$query%")
+        //                 ->orWhere('brand_name', 'like', "%$query%")
+        //                 ->orWhere('location', 'like', "%$query%")
+        //                 ->get();
+
+
+        return view('front.search_results', compact('cloth', 'tailor'));
     }
 }
