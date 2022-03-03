@@ -64,5 +64,10 @@ class LoginController extends Controller
         // $this->user = new User;
     }
 
+    public function username()
+    {
+        return 'phone_1';
+    }
+
     
 }

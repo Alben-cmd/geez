@@ -18,8 +18,8 @@
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "2.0",
-        "olimortimer/laravelshoppingcart": "^5.0",
-        "ext-gd": "*" 
+        "livewire/livewire": "^2.10",
+        "olimortimer/laravelshoppingcart": "^5.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

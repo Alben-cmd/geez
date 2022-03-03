@@ -130,7 +130,7 @@ Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middl
     Route::post('/to_tailor/{id}', 'ProfileController@user_tailor')->name('user.tailor');
     
     //subscribe 
-
     Route::post('subscribe', 'SubscribeController@store')->name('add.subscribe');
     Route::get('remove_subscription/{id}', 'SubscribeController@destroy')->name('delete.subscribe');
+
 });

@@ -49,8 +49,8 @@
                                         @endforeach
                                         <form method="POST" action="{{ route('login') }}">
                                             @csrf
-                                            <input type="email" name="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                                            @error('email')
+                                            <input type="phone_1" name="phone_1" placeholder="Phone Number" value="{{ old('phone_1') }}" required autocomplete="phone_1" autofocus>
+                                            @error('phone_1')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>

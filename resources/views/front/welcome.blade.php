@@ -37,7 +37,7 @@
                             <div class="col-xl-6 col-lg-5 col-md-5 col-sm-5 align-self-center sm-center-view">
                                 <div class="hero-slide-content hero-slide-content-2 slider-animated-1">
                                     <span class="category"></span>
-                                    <h2 class="title-1">Meet Tailors Fast,<br> get that dream wears</h2>
+                                    <h2 class="title-1">Meet Designers Fast,<br> get that dream wears</h2>
                                     <a href="{{ route('tailors') }} " class="btn btn-lg btn-primary btn-hover-dark"> visit
                                         Now <i class="fa fa-shopping-basket ml-15px" aria-hidden="true"></i></a>
                                 </div>

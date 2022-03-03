@@ -7,12 +7,13 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="robots" content="index, follow" />
     <title>Geez @yield('title')</title>
-    <meta name="description" content="Jesco - Fashoin eCommerce HTML Template" />
+    <meta name="description" content="geez fashion" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Add site Favicon -->
     <link rel="shortcut icon" href="{!! asset('assets/images/favicon/favicon_i.ico') !!}" type="image/png">
 
+    <link rel="stylesheet" href="{!! asset('css/message.css') !!}" />
 
     <!-- vendor css (Icon Font) -->
     <link rel="stylesheet" href="{!! asset('assets/css/vendor/bootstrap.min.css') !!}" />
@@ -29,6 +30,7 @@
     
     <!-- Main Style -->
     <link rel="stylesheet" href="{!! asset('assets/css/style.css') !!}" />
+     @livewireStyles
 
 </head>
 
@@ -80,6 +82,8 @@
     <script src="{!! asset('assets/js/main.js') !!}"></script>
     @yield('extra-js')
 
+    @livewireScripts
+    
 </body>
 
 </html>
