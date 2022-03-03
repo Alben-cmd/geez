@@ -13,6 +13,9 @@ class ConversationMessages extends Component
 
     public function mount()
     {
+        if(session()->has('selectedConversation')){
+            return $this->selectedConversation = session('selectedConversation');
+        }
         $this->selectedConversation = Conversation::query()
             ->where('sender_id', auth()->id())
             ->orWhere('receiver_id', auth()->id())

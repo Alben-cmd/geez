@@ -14,20 +14,35 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $profile = User::where('id' , Auth::id())->first();
-        $subscribe = Subscribe::where('user_id', Auth::id())->get();
-        // foreach ($subscribe as $sub) {
-        //     dd($sub->tailor);
-        // }
-        $wishlist = Wishlist::where('user_id', Auth::id())->get();
-        // dd($wishlist->cloth);
-        return view('user.index', compact('profile', 'subscribe', 'wishlist'));
+        return view('user.index');
     }
+
+    public function subscribed()
+    {
+        $subscribe = Subscribe::where('user_id', Auth::id())->get();
+        return view('user.subscribed', compact('subscribe'));
+    }
+
+    public function my_clothes()
+    {
+        $my_clothes = Wishlist::where('user_id', Auth::id())->get();
+        return view('user.saved_clothes', compact('my_clothes'));
+    }
+
+    public function messaging()
+    {
+        return view('user.message');
+    }
+
+    public function become_tailor()
+    {
+        $profile = User::where('id' , Auth::id())->first();    
+        return view('user.become_tailor', compact('profile'));
+    }
+
 
     public function storecomment(Request $request)
     {
-
-
         $validatedData = $request->validate([
 
             'name' => 'required',

@@ -17,11 +17,11 @@ class Designers extends Component
 
     public function startConversation($userId)
     {
-        Conversation::firstOrCreate([
+        $conversation = Conversation::firstOrCreate([
             'sender_id' => auth()->id(),
             'receiver_id' => $userId,
 
         ]);
-        return redirect('user/dashboard#messaging');
+        return redirect()->route('user.messaging')->with('selectedConversation', $conversation);
     }
 }

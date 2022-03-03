@@ -22,26 +22,6 @@
                             <h4>Dashboard </h4>
                             <p>From your account dashboard. you can easily check &amp; view your <a href="#">Cloths</a>,<a href="">Tailors</a>, <a href=""> Saved Cloths</a> and <a href="#">Edit your Password and Account Details.</a></p>
                         </div>
-
-                        {{-- my saved clothes start --}}
-                        @include('user.saved_clothes')
-                        {{-- my saved clothes ends --}}
-
-                        <!-- my tailors start -->
-                        @include('user.subscribed')
-                        {{-- my tailors end --}}
-
-                        <!-- my tailors start -->
-                        @include('user.message')
-                        {{-- my tailors end --}}
-
-                        <!-- profile -->
-                        @include('user.profile')
-                        {{-- profile end --}}
-
-                        <!-- user to tailor -->
-                        @include('user.become_tailor')
-                        {{-- user to tailor end --}}
                     </div>
                 </div>
             </div>

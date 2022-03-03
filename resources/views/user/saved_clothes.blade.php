@@ -1,11 +1,27 @@
-<div class="tab-pane fade" id="cloths">
-    <h4>My Saved Cloths</h4>
-    <div class="row">
-        <div class="col">
-            <div class="tab-content">
+@extends ('layouts.master')
+@section('title', '| dashboard')
+@section('content')
+    
+    <!-- breadcrumb-area end -->
+
+    <!-- account area start -->
+    <div class="account-dashboard pt-100px pb-100px">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-3 col-lg-3">
+                    <!-- Nav tabs -->
+                    @include('partials.user_dashboard')
+                </div>
+                <div class="col-sm-12 col-md-9 col-lg-9">
+                    <!-- Tab panes -->
+                    <div class="tab-content dashboard_content" data-aos="fade-up" data-aos-delay="200">
+                        <!-- dashboard  -->
+                        {{-- error and success messages --}}
+                        @include('partials.messaging')
+                        <div class="tab-pane fade show active" id="dashboard">
                 <div class="tab-pane fade show active" id="shop-grid">
                     <div class="row mb-n-30px">
-                        @forelse ($wishlist as $key => $item)
+                        @forelse ($my_clothes as $key => $item)
                         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 mb-30px" data-aos="fade-up"
                             data-aos-delay="200">
                             <!-- Single Prodect -->
@@ -44,3 +60,7 @@
         </div>
     </div>
 </div>
+</div>
+                </div>
+
+@endsection

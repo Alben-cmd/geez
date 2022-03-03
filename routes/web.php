@@ -114,23 +114,30 @@ Route::group(['as' => 'tailor.', 'prefix' => 'tailor', 'namespace' => 'Tailor', 
 
 Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middleware' => ['auth', 'user']], function () 
 {
+
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
     //wishlist 
     Route::get('wishlist', 'WishlistController@index')->name('wishlist.index');
     Route::post('add_wishlist', 'WishlistController@store')->name('add.wishlist');
     Route::get('remove_wishlist/{id}', 'WishlistController@destroy')->name('delete.wishlist');
 
+    //my clothes 
+    Route::get('my_clothes', 'DashboardController@my_clothes')->name('my_clothes');
+
     // comments
     Route::post('comments/', 'DashboardController@storecomment')->name('store.comment');
 
-    //profile update 
+    //profile  
+    Route::get('/profile/', 'ProfileController@index')->name('profile');
     Route::post('/update-profile/{id}', 'ProfileController@update')->name('profile.update');
-
-    //user to Tailor 
-    Route::post('/to_tailor/{id}', 'ProfileController@user_tailor')->name('user.tailor');
     
     //subscribe 
+    Route::get('subscribed', 'DashboardController@subscribed')->name('subscribed');
     Route::post('subscribe', 'SubscribeController@store')->name('add.subscribe');
+    Route::post('/subscribe/{id}', 'ProfileController@user_tailor')->name('user.tailor');
     Route::get('remove_subscription/{id}', 'SubscribeController@destroy')->name('delete.subscribe');
-
+    // become a Tailor
+    Route::get('/become_tailor', 'DashboardController@become_tailor')->name('become_tailor');
+    //messaging
+    Route::get('messaging', 'DashboardController@messaging')->name('messaging');
 });

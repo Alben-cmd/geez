@@ -80,7 +80,7 @@
                             <!-- /.direct-chat-text -->
                         </div>
                         @empty
-                            <font color="#fb5d5d">0 Messages</font>
+                            <font color="#fb5d5d"></font>
                         @endforelse
                         <!-- /.direct-chat-msg -->
                     </div>
