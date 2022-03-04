@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Cloth;
 use Image;
+use Auth;
+use App\Category;
 use Illuminate\Support\Str;
 
 
@@ -18,7 +20,8 @@ class ClothController extends Controller
      */
     public function index()
     {
-        //
+        $my_clothes = Cloth::where('tailor_id', '=',  Auth::user()->id)->get();
+        return view('tailor.cloth', compact('my_clothes'));
     }
 
     /**
@@ -28,7 +31,8 @@ class ClothController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::get();
+        return view('tailor.add_cloth', compact('categories'));
     }
 
     /**

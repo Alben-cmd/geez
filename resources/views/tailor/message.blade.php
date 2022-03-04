@@ -16,8 +16,8 @@
                         {{-- error and success messages --}}
                         @include('partials.messaging')
                         <div class="tab-pane fade show active" id="dashboard">
-                            <h4>Hi Tailor {{ $profile->fname }}</h4>
-                            <p>From your account dashboard. you can easily check &amp; view your <a href="#">Cloths</a>,<a href="">Tailors</a>, <a href=""> Saved Cloths</a> and <a href="#">Edit your Password and Account Details.</a></p>
+                            <h4>Messaging</h4>
+                            @livewire('user.messages.conversation-messages')  
                         </div>               
 
                     </div>

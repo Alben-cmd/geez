@@ -1,4 +1,3 @@
-
 <?php
 
 namespace App\Http\Controllers\Tailor;
@@ -19,8 +18,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-         $profile = User::where('id' , Auth::id())->first();
-        // dd($profile);
+        $profile = User::where('id' , Auth::id())->first();
         return view('tailor.profile', compact('profile'));
     }
 

@@ -23,7 +23,7 @@
                                 class="col-xl-6 col-lg-7 col-md-7 col-sm-7 d-flex justify-content-center position-relative">
                                 <div class="show-case">
                                     <div class="hero-slide-image">
-                                        <img src="{!! asset('assets/images/slider-image/slider2.jpg') !!}" alt="" />
+                                        <img src="{!! asset('assets/images/slider-image/slider2.jpg') !!}" alt="" style="border-radius: 10px;" />
                                     </div>
                                 </div>
                             </div>

@@ -11,13 +11,13 @@
                         @forelse ($conversations as $key => $conversation)
                         <li class="{{ $conversation->id === $selectedConversation->id ? 'bg-warning' : '' }} ">
                             <a href="#" wire:click.prevent="viewMessage({{ $conversation->id }} )">
-                                <img class="contacts-list-img" src="{{$conversation->sender_id === auth()->id() ? asset('/assets/images/tailors/' . $conversation->receiver->picture ) : asset('/assets/images/logo/logo.png' ) }}" alt="">
+                                <img class="contacts-list-img" src="{{$conversation->sender_id === auth()->id() ? asset('/assets/images/tailors/' . $conversation->receiver->picture ) : asset('/assets/images/logo/logo.png') }}" alt="">
                                 <div class="contacts-list-info">
                                     <span class="contacts-list-name text-dark">
                                         @if ($conversation->sender_id === auth()->id())
                                         {{$conversation->receiver->fname}} {{$conversation->receiver->lname}}
                                         @else
-                                        {{ $conversation->sender->fname }} {{ $conversation->sender->lname }}
+                                        {{ $conversation->sender->fname }} {{ $conversation->sender->lname }} 
                                         @endif
                                         <small class="float-right contacts-list-date text-muted">
                                             @if($conversation->messages->last()->created_at ?? null)
@@ -52,7 +52,7 @@
                             @if ($conversation->sender_id === auth()->id())
                             {{ $selectedConversation->receiver->fname }} {{ $selectedConversation->receiver->lname }}
                             @else
-                            {{ $conversation->sender->fname }} {{ $conversation->sender->lname }} 
+                            {{ $conversation->sender->name }} 
                             @endif
                         </span>
                     </h3>
@@ -117,3 +117,6 @@
 </div>
 @endif
 
+<div>
+    {{-- Success is as dangerous as failure. --}}
+</div>

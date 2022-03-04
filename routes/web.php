@@ -101,12 +101,17 @@ Route::group(['as' => 'tailor.', 'prefix' => 'tailor', 'namespace' => 'Tailor', 
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 
     //profile 
+    Route::get('profile', 'ProfileController@index')->name('profile');
     Route::post('/update-profile/{id}', 'ProfileController@update')->name('profile.update');
     // tailor clothes section
+    Route::get('clothes', 'ClothController@index')->name('clothes');
+    Route::get('add_clothes', 'ClothController@create')->name('clothes.create');
     Route::post('cloth/add', 'ClothController@store')->name('cloth.add');
     Route::get('cloth/edit/{id}', 'ClothController@edit')->name('cloth.edit');
     Route::post('cloth/post/{id}', 'ClothController@update')->name('cloth.update');
     Route::get('cloth/delete/{id}', 'ClothController@destroy')->name('cloth.delete');
+    //messaging 
+    Route::get('messaging', 'DashboardController@messaging')->name('messaging');
 
 });
 

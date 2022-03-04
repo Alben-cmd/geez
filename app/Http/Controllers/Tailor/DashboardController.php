@@ -15,9 +15,14 @@ class DashboardController extends Controller
     {
 
         $profile = User::where('id' , Auth::id())->first();
-        $my_clothes = Cloth::where('tailor_id', '=',  Auth::user()->id)->get();
+        
         $categories = Category::get();
 
-        return view('tailor.index', compact('profile', 'my_clothes', 'categories'));
+        return view('tailor.index', compact('profile', 'categories'));
+    }
+
+    public function messaging()
+    {
+        return view('tailor.message');
     }
 }
