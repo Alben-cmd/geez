@@ -8,6 +8,7 @@
     <div class="account-dashboard pt-100px pb-100px">
         <div class="container">
             <div class="row">
+                @include('partials.admin_dashboard')
                {{-- Dashboard section ends --}}
                 <div class="col-sm-12 col-md-9 col-lg-9">
                     <!-- Tab panes -->
@@ -89,6 +90,7 @@
             </div>
         </div>
     </div>
+</div>
     @endsection
 
 

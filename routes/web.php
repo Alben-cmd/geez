@@ -70,11 +70,14 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
 {
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
     //admin clothes section 
+    Route::get('clothes', 'ClothController@index')->name('clothes');
+    Route::get('add_cloth', 'ClothController@create')->name('add_cloth');
     Route::post('cloth/add', 'ClothController@store')->name('cloth.add');
     Route::get('cloth/edit/{id}', 'ClothController@edit')->name('cloth.edit');
     Route::post('cloth/post/{id}', 'ClothController@update')->name('cloth.update');
     Route::get('cloth/delete/{id}', 'ClothController@destroy')->name('cloth.delete');
     //admin tailor section
+    Route::get('tailor', 'TailorController@index')->name('tailor');
     Route::get('tailor/{id}', 'TailorController@show')->name('tailor.show');
     Route::get('tailor/edit/{id}', 'TailorController@edit')->name('tailor.edit');
     Route::post('tailor/post/{id}', 'TailorController@update')->name('tailor.update');
@@ -83,13 +86,18 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     Route::get('/cloth/trend_enable/{id}', 'ClothController@enable_trending')->name('enable.trending');
     //disable Trending
     Route::get('/cloth/trend_disable/{id}', 'ClothController@disable_trending')->name('disable.trending');
-    //comments  
+    //comments 
+    Route::get('approved_comments', 'ClothController@approved_comments')->name('approved_comments'); 
+    Route::get('unapproved_comments', 'ClothController@unapproved_comments')->name('unapproved_comments'); 
     Route::get('comment/unapprove/{id}', 'ClothController@unapprove_comment')->name('unapprove.comment');
     Route::get('comment/approve/{id}', 'ClothController@approve_comment')->name('approve.comment');
     Route::get('comment/delete/{id}', 'ClothController@destroy_comment')->name('comment.delete');
     //profile section
+    Route::get('profile', 'ProfileController@index')->name('profile'); 
     Route::post('/update-profile/{id}', 'ProfileController@update')->name('profile.update');
     //categories 
+    Route::get('category', 'CategoryController@index')->name('category');
+    Route::get('add_category', 'CategoryController@create')->name('add_category');
     Route::post('categories/add', 'CategoryController@store')->name('category.add');
      Route::get('category/delete/{id}', 'CategoryController@destroy')->name('category.delete');
 });

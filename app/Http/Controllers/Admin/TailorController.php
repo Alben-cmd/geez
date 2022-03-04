@@ -17,7 +17,8 @@ class TailorController extends Controller
      */
     public function index()
     {
-        //
+        $tailors = User::where('role_id' , 2)->orderBy('created_at', 'desc')->get();
+        return view('admin.tailors', compact('tailors'));
     }
 
     /**

@@ -24,4 +24,10 @@ class DashboardController extends Controller
 
         return view('admin.index', compact('profile', 'my_clothes', 'tailors', 'approved_comments', 'unapproved_comments', 'categories'));
     }
+
+    public function approved_comments()
+    {
+        $approved_comments = Comment::where('approved', '1')->orderBy('created_at', 'desc')->get();
+        return view('admin.approved_comments', compact('approved_comments'));
+    }
 }

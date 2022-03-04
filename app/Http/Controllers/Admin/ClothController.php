@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Cloth;
 use Image;
+use Auth;
 use App\Comment;
 use Illuminate\Support\Str;
 
@@ -18,7 +19,8 @@ class ClothController extends Controller
      */
     public function index()
     {
-        //
+         $my_clothes = Cloth::where('tailor_id', '=',  Auth::user()->id)->orderBy('created_at', 'desc')->get();
+         return view('admin.cloth', compact('my_clothes'));
     }
 
     /**
@@ -28,7 +30,7 @@ class ClothController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.add_cloth');
     }
 
     /**
@@ -165,6 +167,18 @@ class ClothController extends Controller
         $trending->trending = 0;
         $trending->save();
         return redirect()->back()->with('success', 'Cloth No Longer Trending!');
+    }
+
+    public function approved_comments()
+    {
+        $approved_comments = Comment::where('approved', '1')->orderBy('created_at', 'desc')->get();
+        return view('admin.approved_comments', compact('approved_comments'));
+    }
+
+    public function unapproved_comments()
+    {
+        $unapproved_comments = Comment::where('approved', '0')->orderBy('created_at', 'desc')->get();
+        return view('admin.unapproved_comments', compact('unapproved_comments'));
     }
 
     public function unapprove_comment($id)
