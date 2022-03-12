@@ -16,7 +16,7 @@ class AdminTableSeeder extends Seeder
             'fname' => 'Admin',
             'lname' => 'User',
             'brand_name' => 'AdminBrand',
-            'phone_1' => '39834872983',
+            'phone_1' => '1234567890',
             'phone_2' => '0943495340',
             'picture' => 'admin.jpg',
             'location' => 'Abuja',
