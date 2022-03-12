@@ -24,37 +24,6 @@
                             <p>From your account dashboard. you can easily check &amp; view your <a href="#">Cloths</a>,<a href="">Tailors</a>, <a href=""> Saved Cloths</a> and <a href="#">Edit your Password and Account Details.</a></p>
                         </div>
 
-                        {{-- my cloth section  --}}
-                        @include('admin.cloth')
-                       
-
-                   
-                        {{-- adding clothes start --}}
-                        @include('admin.add_cloth')
-                        {{-- adding clothes ends --}}
-
-                        {{--  category start --}}
-                        @include('admin.category')
-                        {{--  category ends --}}
-
-                        {{-- adding category start --}}
-                        @include('admin.add_category')
-                        {{-- adding category ends --}}
-
-                        <!-- tailors -->
-                        @include('admin.tailors')
-                        <!-- Tailors ends  -->
-
-                        <!-- approved comments -->
-                        @include('admin.approved_comments')
-                        <!-- approved comments ends  -->
-
-                        <!-- Unapproved comments -->
-                        @include('admin.unapproved_comments')
-                        <!-- inapproved comments ends  -->
-
-                        <!-- profile -->
-                       @include('admin.profile')
                     </div>
                 </div>
             </div>

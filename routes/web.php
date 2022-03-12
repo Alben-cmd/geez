@@ -100,6 +100,9 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     Route::get('add_category', 'CategoryController@create')->name('add_category');
     Route::post('categories/add', 'CategoryController@store')->name('category.add');
      Route::get('category/delete/{id}', 'CategoryController@destroy')->name('category.delete');
+     //payment 
+     Route::get('payments', 'DashboardController@payments')->name('payments');
+
 });
 
 //Tailor section 
@@ -120,6 +123,8 @@ Route::group(['as' => 'tailor.', 'prefix' => 'tailor', 'namespace' => 'Tailor', 
     Route::get('cloth/delete/{id}', 'ClothController@destroy')->name('cloth.delete');
     //messaging 
     Route::get('messaging', 'DashboardController@messaging')->name('messaging');
+    //payment History
+    Route::get('payment_history', 'DashboardController@payment_history')->name('payment_history');
 
 });
 
@@ -153,4 +158,6 @@ Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middl
     Route::get('/become_tailor', 'DashboardController@become_tailor')->name('become_tailor');
     //messaging
     Route::get('messaging', 'DashboardController@messaging')->name('messaging');
+    //checkout
+    Route::get('/checkout/{tailor_id}', 'DashboardController@checkout')->name('checkout');
 });

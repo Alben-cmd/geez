@@ -52,6 +52,8 @@
                                                     src="{{ asset('/assets/images/clothes/' .$item->model->image) }} " alt="" /></a>
                                         </td>
                                         <td class="product-name"><a href="{{ route('cloth.show', $item->model->slug) }}">{{$item->model->name}}  </a></td>
+                                        <input type="hidden" name="" value="{{ $item->model->tailor_id }}">
+                                        
                                         <td class="product-price-cart"><span class="amount">{{ $item->model->presentPrice()}}</span></td>
                                         <td class="product-quantity">
                                             <div class="cart-plus-minus">
@@ -72,8 +74,15 @@
                                                 {{ method_field('DELETE') }}
                                                 <button type="submit"><i class="fa fa-times"></i></button> 
                                             </form> --}}
-                                            <a href="{{ route('cart.destroy', ['id' => $item->rowId]) }}"><i class="fa fa-times"></i></a> <a href="#"><i class="fa fa-phone-square"></i></a>
+                                            <a href="{{ route('cart.destroy', ['id' => $item->rowId]) }}"><i class="fa fa-times"></i></a>
+                                            <a href="{{ route('user.checkout', ['tailor_id' => $item->model->tailor_id ]) }} "><i class="fa fa-comments" aria-hidden="true"></i></a>
+                                            {{-- <form method="POST" action="{{ route('user.checkout') }}" enctype="multipart/form-data">
+                                                @csrf
+                                                <input type="hidden" name="body" value="{{ $item->model->name }}, {{ $item->qty }}, {{$item->subtotal() / 100 }} ">
 
+                                                <button type="submit">submit</button>
+                                                
+                                            </form> --}}
                                         </td>
 
                                     </tr>

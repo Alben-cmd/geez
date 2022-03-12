@@ -9,6 +9,7 @@
         <div class="container">
             <div class="row">
                {{-- Dashboard section ends --}}
+               @include('partials.admin_dashboard')
                 <div class="col-sm-12 col-md-9 col-lg-9">
                    {{-- error and success messages --}}
                         @include('partials.messaging')

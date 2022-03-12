@@ -7,6 +7,7 @@
             <li><a href="{{ route('tailor.clothes.create') }}" class="nav-link {{ (Request()->is('tailor/add_clothes')) ? 'active': '' }}">Add Cloth</a></li>
             {{-- <li><a href="#items" data-bs-toggle="tab" class="nav-link">Saved Items</a></li> --}}
             <li><a href="{{ route('tailor.messaging') }}"  class="nav-link {{ (Request()->is('tailor/messaging')) ? 'active': '' }}">Messaging</a></li>
+            <li><a href="{{ route('tailor.payment_history') }}"  class="nav-link {{ (Request()->is('tailor/payment_history')) ? 'active': '' }}">Payment History</a></li>
             <li><a href="{{ route('tailor.profile') }}" class="nav-link {{ (Request()->is('tailor/profile')) ? 'active': '' }}">My profile</a>
             </li>
             <li><a class="nav-link" href="{{ route('logout') }}"

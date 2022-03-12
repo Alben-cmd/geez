@@ -30,4 +30,9 @@ class DashboardController extends Controller
         $approved_comments = Comment::where('approved', '1')->orderBy('created_at', 'desc')->get();
         return view('admin.approved_comments', compact('approved_comments'));
     }
+
+    public function payments()
+    {
+        return view('admin.payments');
+    }
 }

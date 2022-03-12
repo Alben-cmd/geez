@@ -6,9 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
 use Auth; 
+use Session;
 use App\Comment;
 use App\Subscribe;
 use App\Wishlist;
+use App\Conversation;
 
 class DashboardController extends Controller
 {
@@ -62,5 +64,17 @@ class DashboardController extends Controller
             $comment->save();
 
             return redirect()->back()->with('success', 'Thanks for Sharing!');
+    }
+
+    public function checkout($tailor_id)
+    {
+        // dd(auth()->id());
+        $conversation = Conversation:: firstOrCreate([
+            'sender_id' => auth()->id(),
+            'receiver_id' => $tailor_id,
+        ]);
+        Session::flash('success', 'Chat with the tailor');
+        return redirect()->route('user.messaging')->with('selectedConversation', $conversation);
+
     }
 }
