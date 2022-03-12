@@ -28,7 +28,7 @@ class AdminTableSeeder extends Seeder
         User::create([
             'fname' => 'John',
             'lname' => 'Paul',
-            'phone_1' => '09043736383',
+            'phone_1' => '08038049835',
             'role_id' => '1',
             'email' => 'user@gmail.com',
             'password' => bcrypt('password'),

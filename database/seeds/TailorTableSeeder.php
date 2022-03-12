@@ -73,14 +73,5 @@ class TailorTableSeeder extends Seeder
             'email' => 'tailor5@gmail.com',
             'password' => bcrypt('password'),
         ]);
-         User::create([
-            'fname' => 'John',
-            'lname' => 'Doe',
-            'phone_1' => '08038049835',
-            'role_id' => '1',
-            'email' => 'user@gmail.com',
-            'password' => bcrypt('password'),
-        ]);
-
     }
 }
