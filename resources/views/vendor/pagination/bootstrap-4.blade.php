@@ -1,5 +1,4 @@
 @if ($paginator->hasPages())
-
         <div class="pro-pagination-style text-center" data-aos="fade-up" data-aos-delay="200">
         <div class="pages">
         <ul>

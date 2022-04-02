@@ -37,7 +37,7 @@ class HomeController extends Controller
         ]);
         $query = $request->input('query');
 
-        $cloth = Cloth::where('name', 'like', "%$query%")->paginate(20);
+        $cloth = Cloth::where('name', 'like', "%$query%")->paginate(10);
 
              
      // $tailor = User::where('role_id', '=',  '2')
@@ -51,7 +51,7 @@ class HomeController extends Controller
                         ->orWhere('lname', 'like', "%$query%")
                         ->orWhere('brand_name', 'like', "%$query%")
                         ->orWhere('location', 'like', "%$query%")
-                        ->paginate(20);
+                        ->paginate(10);
 
 
         return view('front.search_results', compact('cloth', 'tailor'));
