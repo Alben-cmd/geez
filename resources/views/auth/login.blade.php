@@ -34,7 +34,7 @@
                                 <h4>Register as User</h4>
                             </a>
                             <a data-bs-toggle="tab" href="#ruser">
-                                <h4>Register as Tailor</h4>
+                                <h4>Register as Designer</h4>
                             </a>
                         </div>
 
@@ -122,7 +122,7 @@
                             </div>
 
                         {{-- User register ends --}}
-                        {{-- tailor register starts --}}
+                        {{-- Designer register starts --}}
                         <div id="ruser" class="tab-pane">
                                 <div class="login-form-container">
                                     <div class="login-register-form">
@@ -181,7 +181,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- tailor register ends --}}
+                            {{-- Designer register ends --}}
 
                     </div>
                 </div>

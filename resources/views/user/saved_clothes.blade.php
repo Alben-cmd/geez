@@ -50,7 +50,18 @@
                             </div>
                         </div>
                         @empty
-                            <font color="#fb5d5d">No Saved Clothes!</font>
+                            <div class="container">
+                                <div class="row justify-content-center align-item-center">
+                                    <div class="text-center"><img src="{{ asset('assets/images/icons/cloth.jpg') }} " width="130" height="">
+                                        <h3><strong>You do not have any Saved clothes yet.</strong></h3>
+                                        <h4> Click the button bellow to select from our Clothes</h4>
+                                        <div class="save_button mt-3" align="center">
+                                            <a href="{{ route('clothes') }} "><button class="btn" type="submit">Clothes</button></a>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
                         @endforelse
                        
                     </div>

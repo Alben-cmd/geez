@@ -110,6 +110,12 @@ class ProfileController extends Controller
         return redirect()->back()->with('success', 'Profile Updated!');
     }
 
+    public function become_tailor()
+    {
+        $profile = User::where('id' , Auth::id())->first();    
+        return view('user.become_tailor', compact('profile'));
+    }
+
     public function user_tailor(Request $request, $id)
     {
         $user = User::find($id);
@@ -144,7 +150,7 @@ class ProfileController extends Controller
         $user->role_id = '2';
         $user->save();
 
-        return redirect()->back()->with('success', 'You have been Upgraded to a Tailor!');
+        return redirect()->route('designer.dashboard')->with('success', 'You have been Upgraded to a designer!');
     
     }
 

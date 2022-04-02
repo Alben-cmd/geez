@@ -24,7 +24,7 @@
     <!-- Cart Area Start -->
     <div class="cart-main-area pt-100px pb-100px">
         <div class="container">
-            <h5 class="cart-page-title">{{ $cloth->count() }} Result(s) for '{{ request()->input('query') }}' in Clothes</h5>
+            <h5 class="cart-page-title">Result(s) for '{{ request()->input('query') }}' in Clothes</h5>
             {{-- error and success messages --}}
             @include('partials.messaging')
 
@@ -61,7 +61,8 @@
                                 </tbody>
                             </table>
                         </div>
-                       
+                        <br>
+                       {{ $cloth->withQueryString()->links() }}
                     </form>
                 
                 </div>
@@ -71,7 +72,7 @@
 
     <div class="cart-main-area pt-100px pb-100px">
         <div class="container">
-            <h5 class="cart-page-title">{{ $tailor->count() }} Result(s) for '{{ request()->input('query') }}' in Tailor</h5>
+            <h5 class="cart-page-title">Result(s) for '{{ request()->input('query') }}' in Designers</h5>
             {{-- error and success messages --}}
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
@@ -81,7 +82,7 @@
                                 <thead>
                                     <tr>
                                         <th>Image</th>
-                                        <th>Tailor Name</th>
+                                        <th>Designer Name</th>
                                         <th>email</th>
                                         <th>Brand</th>
                                         <th>Location</th>
@@ -89,6 +90,8 @@
                                 </thead>
                                 <tbody>
                                     @foreach($tailor as $tailors)
+
+                                    @if($tailors->role_id === 2) 
                                     
                                     <tr>
                                         <td class="product-thumbnail">
@@ -101,15 +104,17 @@
                                         <td>{{$tailors->location}}</td>
                                        
                                     </tr>
+                                    @endif
                                     
                                    @endforeach
                                 </tbody>
                             </table>
+                           {{ $tailor->withQueryString()->links() }}
                         </div>
                        
-                    </form>
-                
+                    </form>                
                 </div>
+
             </div>
         </div>
     </div>

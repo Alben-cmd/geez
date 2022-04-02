@@ -42,7 +42,7 @@ class RegisterController extends Controller
                 return $this->redirectTo;
                 break;
             case 2:
-                $this->redirectTo = route('tailor.dashboard');
+                $this->redirectTo = route('designer.dashboard');
                 return $this->redirectTo;
                 break;
             case 3:

@@ -50,9 +50,9 @@ Route::get('search', 'HomeController@search')->name('search');
 
 //Checkout section
 Route::view('/checkout', 'front.search_results');
-//tailors
-Route::get('/tailors', 'TailorController@index')->name('tailors');
-Route::get('/tailors/{id}', 'TailorController@show')->name('tailor.show');
+//Designers
+Route::get('/designers', 'TailorController@index')->name('tailors');
+Route::get('/designers/{id}', 'TailorController@show')->name('tailor.show');
 //user dashborad 
 // Route::get('/dashboard', 'ProfileController@index')->name('dashboard');
 //editing profile 
@@ -76,12 +76,12 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     Route::get('cloth/edit/{id}', 'ClothController@edit')->name('cloth.edit');
     Route::post('cloth/post/{id}', 'ClothController@update')->name('cloth.update');
     Route::get('cloth/delete/{id}', 'ClothController@destroy')->name('cloth.delete');
-    //admin tailor section
-    Route::get('tailor', 'TailorController@index')->name('tailor');
-    Route::get('tailor/{id}', 'TailorController@show')->name('tailor.show');
-    Route::get('tailor/edit/{id}', 'TailorController@edit')->name('tailor.edit');
-    Route::post('tailor/post/{id}', 'TailorController@update')->name('tailor.update');
-    Route::get('tailor/delete/{id}', 'TailorController@destroy')->name('tailor.delete');
+    //admin designer section
+    Route::get('designer', 'TailorController@index')->name('tailor');
+    Route::get('designer/{id}', 'TailorController@show')->name('tailor.show');
+    Route::get('designer/edit/{id}', 'TailorController@edit')->name('tailor.edit');
+    Route::post('designer/post/{id}', 'TailorController@update')->name('tailor.update');
+    Route::get('designer/delete/{id}', 'TailorController@destroy')->name('tailor.delete');
     //Enabling Trending 
     Route::get('/cloth/trend_enable/{id}', 'ClothController@enable_trending')->name('enable.trending');
     //disable Trending
@@ -105,16 +105,16 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
 
 });
 
-//Tailor section 
+//Designers section 
 
-Route::group(['as' => 'tailor.', 'prefix' => 'tailor', 'namespace' => 'Tailor', 'middleware' => ['auth', 'tailor']], function () 
+Route::group(['as' => 'designer.', 'prefix' => 'designer', 'namespace' => 'Tailor', 'middleware' => ['auth', 'tailor']], function () 
 {
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 
     //profile 
     Route::get('profile', 'ProfileController@index')->name('profile');
     Route::post('/update-profile/{id}', 'ProfileController@update')->name('profile.update');
-    // tailor clothes section
+    // designer clothes section
     Route::get('clothes', 'ClothController@index')->name('clothes');
     Route::get('add_clothes', 'ClothController@create')->name('clothes.create');
     Route::post('cloth/add', 'ClothController@store')->name('cloth.add');
@@ -152,10 +152,10 @@ Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middl
     //subscribe 
     Route::get('subscribed', 'DashboardController@subscribed')->name('subscribed');
     Route::post('subscribe', 'SubscribeController@store')->name('add.subscribe');
-    Route::post('/subscribe/{id}', 'ProfileController@user_tailor')->name('user.tailor');
     Route::get('remove_subscription/{id}', 'SubscribeController@destroy')->name('delete.subscribe');
-    // become a Tailor
-    Route::get('/become_tailor', 'DashboardController@become_tailor')->name('become_tailor');
+    // become a designer
+    Route::get('/become_designer', 'ProfileController@become_tailor')->name('become_tailor');
+    Route::post('/become_designer/{id}', 'ProfileController@user_tailor')->name('user_tailor');
     //messaging
     Route::get('messaging', 'DashboardController@messaging')->name('messaging');
     //checkout

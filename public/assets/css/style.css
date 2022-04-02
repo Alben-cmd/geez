@@ -6663,6 +6663,29 @@ Pages - My Account
   transform: translateY(-1px);
   border-color: #fb5d5d;
 }
+.pro-pagination-style span {
+  font-weight: 400;
+  color: #1d1d1d;
+  padding: 0;
+  height: 40px;
+  line-height: 40px;
+  background: #f6f6f6;
+  font-size: 14px;
+  display: inline-block;
+  width: 40px;
+  border-radius: 100%;
+  text-align: center;
+  vertical-align: top;
+  font-size: 16px;
+  transition: all 0.3s ease 0s;
+}
+.pro-pagination-style span.disabled {
+  color: #6c757d;
+  pointer-events: none;
+  background-color: #fff;
+  
+}
+
 .pro-pagination-style a:hover {
   color: #fff;
   background-color: #fb5d5d;

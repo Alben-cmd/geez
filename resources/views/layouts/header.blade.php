@@ -12,7 +12,7 @@
                             <ul>
                                 <li class="{{ (Request()->is('/' )) ? 'active':"" }}"><a href="{{ route('home') }} ">Home</a></li>
                                 <li class="{{ (Request()->is('clothes' )) ? 'active':"" }}"><a href="{{ route('clothes') }} ">Clothes</a></li>
-                                <li class="{{ (Request()->is('tailors' )) ? 'active':"" }}"><a href="{{ route('tailors') }} ">Tailors</a></li>
+                                <li class="{{ (Request()->is('designer' )) ? 'active':"" }}"><a href="{{ route('tailors') }} ">Designers</a></li>
                                 <li class="{{ (Request()->is('about' )) ? 'active':"" }}"><a href="{{ route('about') }} ">About</a></li>
                                 <li class="{{ (Request()->is('contact' )) ? 'active':"" }}"><a href="{{ route('contact') }} ">Contact us</a></li>
                                
@@ -39,7 +39,7 @@
                                         @if(Auth::user()->role_id == 1)
                                         <li><a href="{{ route('user.dashboard') }} ">Dashboard</a></li>
                                         @elseif(Auth::user()->role_id == 2)
-                                        <li><a href="{{ route('tailor.dashboard') }} ">Dashboard</a></li>
+                                        <li><a href="{{ route('designer.dashboard') }} ">Dashboard</a></li>
                                         @elseif(Auth::user()->role_id == 3)
                                         <li><a href="{{ route('admin.dashboard') }} ">Dashboard</a></li>
                                         @endif

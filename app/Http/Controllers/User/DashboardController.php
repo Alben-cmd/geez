@@ -36,13 +36,6 @@ class DashboardController extends Controller
         return view('user.message');
     }
 
-    public function become_tailor()
-    {
-        $profile = User::where('id' , Auth::id())->first();    
-        return view('user.become_tailor', compact('profile'));
-    }
-
-
     public function storecomment(Request $request)
     {
         $validatedData = $request->validate([
@@ -73,7 +66,7 @@ class DashboardController extends Controller
             'sender_id' => auth()->id(),
             'receiver_id' => $tailor_id,
         ]);
-        Session::flash('success', 'Chat with the tailor');
+        Session::flash('success', 'Chat with the Designer');
         return redirect()->route('user.messaging')->with('selectedConversation', $conversation);
 
     }

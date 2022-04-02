@@ -170,7 +170,7 @@
     </div>
     {{-- Clothes area ends --}}
 
-    {{-- tailor area starts  --}}
+    {{-- Designer area starts  --}}
 
     <div class="product-area pt-100px pb-100px">
         <div class="container">
@@ -246,7 +246,7 @@
                                 </div>
                                @empty
                                 <tr>
-                                    <td><font color="#fb5d5d">No Tailor Found!</font> </td>
+                                    <td><font color="#fb5d5d">No Designer Found!</font> </td>
                                 </tr>
                                 @endforelse
                               
@@ -265,7 +265,7 @@
         </div>
     </div>
 
-    {{-- Tailor area ends  --}}
+    {{-- Designer area ends  --}}
 
 
 </main><!-- End #main -->

@@ -19,14 +19,14 @@
                         {{-- error and success messages --}}
                         @include('partials.messaging')
                         <div class="tab-pane fade show active" id="dashboard">
-                            <h4>Become a Tailor </h4>
+                            <h4>Become a Designer</h4>
         <span style="color: green;"><em> This action cannot be Reversed</em></span>
         <div class="login">
             <div class="login_form_container">
                 <div class="account_login_form">
                     <div class="row">
                          <div class="col-6"> 
-                        <form method="POST" action="{{ route('user.user.tailor', ['id' => $profile->id]) }}" enctype="multipart/form-data" class="form-horizontal">
+                        <form method="POST" action="{{ route('user.become_tailor', ['id' => $profile->id]) }}" enctype="multipart/form-data" class="form-horizontal">
                                 @csrf
                            
                                 <div class="default-form-box mb-20">

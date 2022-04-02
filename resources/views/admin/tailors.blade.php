@@ -19,7 +19,7 @@
                         <!-- dashboard  -->
                         {{-- error and success messages --}}
                         @include('partials.messaging')
-                        <h3>Tailors </h3>
+                        <h3>Designers </h3>
                         
                         <div class="table_page table-responsive">
                             <table>
@@ -49,7 +49,7 @@
                                 </tbody>
                                 @empty
                                 <tr>
-                                    <td><font color="#fb5d5d">No Tailor(S) Found! </font></td>
+                                    <td><font color="#fb5d5d">No Designer(S) Found! </font></td>
                                 </tr>
                                 @endforelse
                             </table>

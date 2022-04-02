@@ -23,7 +23,7 @@
                                     <div class="account_login_form">
                                         <div class="row">
                                              <div class="col-6"> 
-                                            <form method="POST" action="{{ route('tailor.profile.update', ['id' => $profile->id]) }}" enctype="multipart/form-data" class="form-horizontal">
+                                            <form method="POST" action="{{ route('designer.profile.update', ['id' => $profile->id]) }}" enctype="multipart/form-data" class="form-horizontal">
                                                     @csrf
                                                
                                                     <div class="default-form-box mb-20">

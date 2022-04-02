@@ -43,7 +43,7 @@ class SubscribeController extends Controller
 
         if($subscribe != null)
         {
-            return redirect()->back()->with('info', 'Tailor already Subscribed to!');
+            return redirect()->back()->with('info', 'Designer already Subscribed to!');
         }
         else{
 
@@ -54,7 +54,7 @@ class SubscribeController extends Controller
 
             $subscribe->save(); 
 
-            return redirect()->back()->with('success', 'Tailor Subscribed to!');
+            return redirect()->back()->with('success', 'Designer Subscribed to!');
         }
     }
 
@@ -101,6 +101,6 @@ class SubscribeController extends Controller
     public function destroy($id)
     {
         subscribe::where('id', $id)->delete();   
-        return redirect()->back()->with('success', 'Tailor Removed!');  
+        return redirect()->back()->with('success', 'Designer Removed!');  
     }
 }

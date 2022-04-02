@@ -174,6 +174,7 @@
                                         </div>
                                     </div>
                                     
+                                    {{ $clothes->links() }}
                                 </div>
                             </div>
                         </div>

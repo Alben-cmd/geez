@@ -59,9 +59,18 @@
                                                 </div>
                                             </div>
                                             @empty
-                                            <tr>
-                                                <td><font color="#fb5d5d">No Record Found </font></td>
-                                            </tr>
+                                            <div class="container">
+                                                <div class="row justify-content-center align-item-center">
+                                                    <div class="text-center"><img src="{{ asset('assets/images/icons/cloth.jpg') }} " width="130" height="">
+                                                        <h3><strong>You do not have any cloth yet.</strong></h3>
+                                                        <h4> Click the button bellow to add a cloth</h4>
+                                                        <div class="save_button mt-3" align="center">
+                                                            <a href="{{ route('admin.add_cloth') }} "><button class="btn" type="submit">Designers</button></a>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
                                             @endforelse
                                         </div>
                                     </div>

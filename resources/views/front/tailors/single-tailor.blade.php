@@ -1,5 +1,5 @@
 @extends ('layouts.master')
-@section('title', '| tailor')
+@section('title', '| Designer')
 @section('content')
 
     <!-- breadcrumb-area start -->
@@ -7,11 +7,11 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12 text-center">
-                    <h2 class="breadcrumb-title">Tailor</h2>
+                    <h2 class="breadcrumb-title">Designer</h2>
                     <!-- breadcrumb-list start -->
                     <ul class="breadcrumb-list">
                         <li class="breadcrumb-item"><a href="{{route('home') }} ">Home</a></li>
-                        <li class="breadcrumb-item "><a href="{{ route('tailors') }}"></a> Tailor</li>
+                        <li class="breadcrumb-item "><a href="{{ route('tailors') }}"></a> Designer</li>
                         <li class="breadcrumb-item active">{{ $tailor['fname'] }} {{ $tailor['lname'] }}</li>
                     </ul>
                     <!-- breadcrumb-list end -->
@@ -61,7 +61,7 @@
                 </div>
                 <div class="col-lg-6 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="200">
                     <div class="product-details-content quickview-content">
-                        <h2>{{ $tailor['name'] }}</h2>
+                        
                         <div class="pricing-meta">
                             <ul>
                                 <li class="old-price not-cut">{{ $tailor['address'] }}</li>
@@ -77,7 +77,7 @@
                                     @if(Auth::user())
                                     <input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
                                     @endif
-                                    <input type="hidden" name="tailor_id" value="{{ $item->id}} ">
+                                    <input type="hidden" name="tailor_id" value="{{ $tailor->id}} ">
                                     <button class="add-cart">Subscribe </button>
                                 </form>
                                 
@@ -90,13 +90,8 @@
                             </div> --}}
                         </div>
                          <div class="pro-details-social-info pro-details-same-style d-flex">
-                            <span>Brand Name:</span>
-                            <ul class="d-flex">
-                                <li>
-                                    <a href="">{{ $tailor['brand_name'] }}</a>
-                                </li>
-                                
-                            </ul>
+                            <span>Brand Name: </span>{{ $tailor['brand_name'] }}
+                           
                         </div>
                         <div class="pro-details-sku-info pro-details-same-style  d-flex">
                             <span>Email: </span>

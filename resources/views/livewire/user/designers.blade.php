@@ -37,9 +37,18 @@
                             </div>
                         </div>
                         @empty
-                        <tr>
-                            <td><font color="#fb5d5d">No Tailor Subscribed To! </font></td>
-                        </tr>
+                        <div class="container">
+                            <div class="row justify-content-center align-item-center">
+                                <div class="text-center"><img src="{{ asset('assets/images/icons/tailor.jpg') }} " width="130" height="">
+                                    <h3><strong>You have not subscribed to any Designer yet.</strong></h3>
+                                    <h4> Click the button bellow to select from Designers</h4>
+                                    <div class="save_button mt-3" align="center">
+                                        <a href="{{ route('tailors') }} "><button class="btn" type="submit">Designers</button></a>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
                         @endforelse
                                                                         
                     </div>

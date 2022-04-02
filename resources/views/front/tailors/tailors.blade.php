@@ -7,11 +7,11 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12 text-center">
-                    <h2 class="breadcrumb-title">Tailors</h2>
+                    <h2 class="breadcrumb-title">Designers</h2>
                     <!-- breadcrumb-list start -->
                     <ul class="breadcrumb-list">
                         <li class="breadcrumb-item"><a href="{{ route('home') }} ">Home</a></li>
-                        <li class="breadcrumb-item active">Tailors</li>
+                        <li class="breadcrumb-item active">Designers</li>
                     </ul>
                     <!-- breadcrumb-list end -->
                 </div>
@@ -75,7 +75,7 @@
                                                 </div>
                                             </div>
                                             @empty
-                                            <font color="#fb5d5d">No Tailor(s) Found! </font></td>
+                                            <font color="#fb5d5d">No Designer(s) Found! </font></td>
 
                                             @endforelse
                                         
