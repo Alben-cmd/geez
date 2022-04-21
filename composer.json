@@ -19,7 +19,8 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "2.0",
         "livewire/livewire": "^2.10",
-        "olimortimer/laravelshoppingcart": "^5.0"
+        "olimortimer/laravelshoppingcart": "^5.0",
+        "unicodeveloper/laravel-paystack": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

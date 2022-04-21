@@ -10,6 +10,7 @@ use Session;
 use App\Comment;
 use App\Subscribe;
 use App\Wishlist;
+use App\Order;
 use App\Conversation;
 
 class DashboardController extends Controller
@@ -59,9 +60,9 @@ class DashboardController extends Controller
             return redirect()->back()->with('success', 'Thanks for Sharing!');
     }
 
-    public function checkout($tailor_id)
+    public function message_tailor($tailor_id)
     {
-        // dd(auth()->id());
+      
         $conversation = Conversation:: firstOrCreate([
             'sender_id' => auth()->id(),
             'receiver_id' => $tailor_id,
@@ -69,5 +70,11 @@ class DashboardController extends Controller
         Session::flash('success', 'Chat with the Designer');
         return redirect()->route('user.messaging')->with('selectedConversation', $conversation);
 
+    }
+
+    public function payment_history()
+    {
+        $history = Order::where('user_id', Auth::id())->get();
+        return view('user.payment_history', compact('history'));
     }
 }

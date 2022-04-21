@@ -1,5 +1,5 @@
 @extends ('layouts.master')
-@section('title', '| dashboard')
+@section('title', '| clothes')
 @section('content')
     
     <!-- breadcrumb-area end -->

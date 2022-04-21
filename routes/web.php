@@ -31,13 +31,9 @@ Route::view('/single-cloth', 'front.clothes.single-cloth');
 //cart section
 Route::get('/cart', 'CartController@index')->name('cart.index');
 Route::post('/cart', 'CartController@store')->name('cart.store');
-
 Route::get('/cart/add_quantity/{rowID}', 'CartController@update_plus')->name('cart.add_quantity');
 Route::get('/cart/sub_quantity/{rowID}', 'CartController@update_minus')->name('cart.sub_quanity');
-
 Route::get('/cart/{id}', 'CartController@destroy')->name('cart.destroy');
-
-
 Route::get('/empty_cart', 'CartController@empty_cart')->name('empty_cart');
 
 // Route::get('/empty', function() {
@@ -61,10 +57,11 @@ Route::get('/profile', 'ProfileController@index')->name('profile');
 Route::post('/update-profile/{id}', 'ProfileController@update')->name('profile.update');
 Auth::routes();
 
-
 //firebase testing 
 Route::view('customers', 'customers');
-//Admin Section 
+
+
+//**Admin Section 
 
 Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () 
 {
@@ -123,9 +120,7 @@ Route::group(['as' => 'designer.', 'prefix' => 'designer', 'namespace' => 'Tailo
     Route::get('cloth/delete/{id}', 'ClothController@destroy')->name('cloth.delete');
     //messaging 
     Route::get('messaging', 'DashboardController@messaging')->name('messaging');
-    //payment History
-    Route::get('payment_history', 'DashboardController@payment_history')->name('payment_history');
-
+    
 });
 
 //User section 
@@ -138,15 +133,12 @@ Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middl
     Route::get('wishlist', 'WishlistController@index')->name('wishlist.index');
     Route::post('add_wishlist', 'WishlistController@store')->name('add.wishlist');
     Route::get('remove_wishlist/{id}', 'WishlistController@destroy')->name('delete.wishlist');
-
     //my clothes 
     Route::get('my_clothes', 'DashboardController@my_clothes')->name('my_clothes');
-
     // comments
     Route::post('comments/', 'DashboardController@storecomment')->name('store.comment');
-
     //profile  
-    Route::get('/profile/', 'ProfileController@index')->name('profile');
+    Route::get('profile/', 'ProfileController@index')->name('profile');
     Route::post('/update-profile/{id}', 'ProfileController@update')->name('profile.update');
     
     //subscribe 
@@ -159,5 +151,11 @@ Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middl
     //messaging
     Route::get('messaging', 'DashboardController@messaging')->name('messaging');
     //checkout
-    Route::get('/checkout/{tailor_id}', 'DashboardController@checkout')->name('checkout');
-});
+    Route::get('/message_tailor/{tailor_id}', 'DashboardController@message_tailor')->name('message.tailor');
+    //Paystack section 
+    Route::post('/pay', 'PaymentController@redirectToGateway')->name('pay');
+    Route::get('/payment/callback', 'PaymentController@handleGatewayCallback');
+    //payment History
+    Route::get('payment_history', 'DashboardController@payment_history')->name('payment_history');
+
+    });

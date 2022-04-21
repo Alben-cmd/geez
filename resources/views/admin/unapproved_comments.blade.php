@@ -1,5 +1,5 @@
 @extends ('layouts.master')
-@section('title', '| dashboard')
+@section('title', '| comments')
 @section('content')
     
     <!-- breadcrumb-area end -->
@@ -19,7 +19,7 @@
                         <!-- dashboard  -->
                         {{-- error and success messages --}}
                         @include('partials.messaging')
-                        <h3>Comments </h3>
+                        <h4>Comments </h4>
                         
                         <div class="table_page table-responsive">
                             <table>
@@ -48,10 +48,15 @@
                                    
                                 </tbody>
                                 @empty
-                                <tr>
-                                    <td><font color="#fb5d5d">No Unaproved comment(s) Found! </font></td>
-                                </tr>
-                                @endforelse
+                                            <div class="container">
+                                                <div class="row justify-content-center align-item-center">
+                                                    <div class="text-center"><img src="{{ asset('assets/images/icons/comments.png') }} " width="130" height="">
+                                                        <h3><strong>No Unaproved comment(s) Found!</strong></h3>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @endforelse
                             </table>
                         </div>
                     </div>

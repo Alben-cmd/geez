@@ -4,6 +4,7 @@
         <li> <a href="{{ route('user.my_clothes') }}" class="nav-link {{ (Request()->is('user/my_clothes')) ? 'active': '' }} ">My Saved Clothes</a></li>
         <li><a href="{{ route('user.subscribed') }}"  class="nav-link {{ (Request()->is('user/subscribed')) ? 'active': '' }}">My designers</a></li>
          <li><a href="{{ route('user.messaging') }}"  class="nav-link {{ (Request()->is('user/messaging')) ? 'active': '' }}">Messaging</a></li>
+         <li><a href="{{ route('user.payment_history') }}"class="nav-link {{ (Request()->is('user/payment_history')) ? 'active': '' }}">Payment History</a></li>
         <li><a href="{{ route('user.profile') }}"class="nav-link {{ (Request()->is('user/profile')) ? 'active': '' }}">My profile</a></li>
         <li><a href="{{ route('user.become_tailor') }}" class="nav-link {{ (Request()->is('user/become_designer')) ? 'active': '' }}">Become a Tailor</a></li>
         <li>

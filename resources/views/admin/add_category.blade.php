@@ -1,5 +1,5 @@
 @extends ('layouts.master')
-@section('title', '| dashboard')
+@section('title', '| category')
 @section('content')
     
     <!-- breadcrumb-area end -->
@@ -20,7 +20,7 @@
                         {{-- error and success messages --}}
                         @include('partials.messaging')
 
-                        <h3>Add Category</h3>
+                        <h4>Add Category</h4>
                         <hr>
                         {{-- error and success messages --}}
                         {{-- @include('partials.messaging') --}}

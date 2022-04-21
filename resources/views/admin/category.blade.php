@@ -1,5 +1,5 @@
 @extends ('layouts.master')
-@section('title', '| dashboard')
+@section('title', '| category')
 @section('content')
     
     <!-- breadcrumb-area end -->
@@ -20,7 +20,7 @@
                         {{-- error and success messages --}}
                         @include('partials.messaging')
                         <div class="tab-pane fade show active" id="dashboard">
-                            <h3>Categories </h3>
+                            <h4>Categories </h4>
                             {{-- error and success messages --}}
                             {{-- @include('partials.messaging') --}}
                             <div class="row">

@@ -67,6 +67,7 @@
                             </a>
                             <!-- Single Wedge End -->
                             <!-- Single Wedge Start -->
+                    
                             <a href="{{ route('user.wishlist.index') }}" class="header-action-btn">
                                 <i class="pe-7s-like"></i>
                             </a>

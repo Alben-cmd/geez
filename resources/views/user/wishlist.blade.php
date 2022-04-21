@@ -1,5 +1,5 @@
 @extends ('layouts.master')
-@section('title', '| clothes')
+@section('title', '| wishlist')
 @section('content')
 
     <!-- breadcrumb-area start -->
@@ -41,8 +41,7 @@
                                         <th>Image</th>
                                         <th>Product Name</th>
                                         <th>Price</th>
-                                       {{--  <th>Subtotal</th> --}}
-                                        <th>Add To Cart</th>
+                                        <th>Message Tailor</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -56,18 +55,34 @@
                                         <td class="product-name"><a href="#">{{$item->cloth->name}}</a></td>
                                         <td class="product-price-cart"><span class="amount">{{ $item->cloth->presentPrice()}}</span></td>
                                         
-                                        {{-- <td class="product-subtotal">$70.00</td> --}}
-                                        <td class="product-wishlist-cart">
-                                            <form action="{{ route('cart.store') }}" method="POST">
+                                      <td>
+                                            <form action="{{ route('cart.store') }}" method="POST" class="product-wishlist-cart">
                                                 @csrf
                                                 <input type="hidden" name="id" value="{{ $item->cloth->id}} ">
                                                 <input type="hidden" name="name" value="{{ $item->cloth->name}} ">
                                                 <input type="hidden" name="price" value="{{ $item->cloth->price}} ">
                                                 <button> Add To Cart</button>
                                             </form>
+                                            <a href="{{ route('user.message.tailor', ['tailor_id' => $item->cloth->tailor_id ]) }} "><i class="fa fa-comments" aria-hidden="true"></i></a>
+                                        </td>
+                                         {{--<td>
+                                           <form action="{{ route('message.tailor') }}" method="POST">
+                                              
+                                                
+                                                <input type="hidden" name="cloth_name" value="{{ $item->cloth->name }}">
+                                                <input type="hidden" name="price" value="{{ $item->cloth->price }} ">
+                                                <input type="hidden" name="tailor_name" value="{{ $item->cloth->tailor_id }} ">
+
+                                                <button type="submit"><i class="fa fa-comments" aria-hidden="true"></i></button>
+                                                
+                                            </form>
+                                            
+                                    
+                                        </td>--}}
+                                        <td><a href="{{ route('user.delete.wishlist', ['id' =>$item->id ]) }} "><i class="fa fa-times"></i></a>
+                                            
                                             
                                         </td>
-                                        <td><a href="{{ route('user.delete.wishlist', ['id' =>$item->id ]) }} "><i class="fa fa-times"></i></a></td>
                                     </tr>
                                     @empty
                                         <h5><font color="#fb5d5d"> No Items in Wishlist!</font></h5>

@@ -150,6 +150,8 @@
                                                             <input type="hidden" name="price" value= "{{ $item->price}} ">
                                                             <button  title="Add To Cart" class=" add-to-cart"> Add To Cart</button>
                                                         </form>
+
+                                                       
                                                     </div>
                                                     <div class="content">
                                                         

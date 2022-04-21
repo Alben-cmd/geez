@@ -1,5 +1,5 @@
 @extends ('layouts.master')
-@section('title', '| dashboard')
+@section('title', '| clothes')
 @section('content')
     
     <!-- breadcrumb-area end -->
@@ -65,7 +65,7 @@
                                                         <h3><strong>You do not have any cloth yet.</strong></h3>
                                                         <h4> Click the button bellow to add a cloth</h4>
                                                         <div class="save_button mt-3" align="center">
-                                                            <a href="{{ route('admin.add_cloth') }} "><button class="btn" type="submit">Designers</button></a>
+                                                            <a href="{{ route('admin.add_cloth') }} "><button class="btn" type="submit">Add Cloth</button></a>
                                                         </div>
                                                         
                                                     </div>

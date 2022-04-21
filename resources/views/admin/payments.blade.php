@@ -1,5 +1,5 @@
 @extends ('layouts.master')
-@section('title', '| dashboard')
+@section('title', '| payments')
 @section('content')
     
     <!-- breadcrumb-area end -->
@@ -19,7 +19,7 @@
                         <!-- dashboard  -->
                         {{-- error and success messages --}}
                         @include('partials.messaging')
-                        <h3>Payments </h3>
+                        <h4>Payments </h4>
                         
                         <div class="table_page table-responsive">
                             <table>
@@ -32,18 +32,28 @@
                                         <th>Reference</th>
                                         <th>Date</th>
                                     </tr>
-                                    
                                 </thead>
+                                @forelse ($order as $key => $item)
                                 <tbody>
                                     <tr>
-                                        <td>1 </td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                        <td>5</td>
+                                        <td>{{ $item->user->fname}} {{ $item->user->lname}}</td>
+                                        <td>{{ $item->user->email}}</td>
+                                        <td>{{ $item->presentAmount()}}</td>
+                                        <td>{{ $item->reference}}</td>
+                                        <td>{{$item->created_at->format('d-m-Y')}}</td>
                                     </tr>
                                    
                                 </tbody>
+                                @empty
+                            <div class="container">
+                                <div class="row justify-content-center align-item-center">
+                                    <div class="text-center"><img src="{{ asset('assets/images/icons/payment.png') }} " width="130" height="">
+                                        <h3><strong>No Payments Yet!</strong></h3>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        @endforelse
                             </table>
                         </div>
                     </div>

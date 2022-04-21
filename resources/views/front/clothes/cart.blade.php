@@ -28,7 +28,7 @@
             {{-- error and success messages --}}
             @include('partials.messaging')
             @if (Cart::count() > 0)
-
+            
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                     <form action="#">
@@ -74,11 +74,12 @@
                                                 {{ method_field('DELETE') }}
                                                 <button type="submit"><i class="fa fa-times"></i></button> 
                                             </form> --}}
+                                            <a href="{{ route('user.message.tailor', ['tailor_id' => $item->model->tailor_id ]) }} "><i class="fa fa-comments" aria-hidden="true"></i></a>
                                             <a href="{{ route('cart.destroy', ['id' => $item->rowId]) }}"><i class="fa fa-times"></i></a>
-                                            <a href="{{ route('user.checkout', ['tailor_id' => $item->model->tailor_id ]) }} "><i class="fa fa-comments" aria-hidden="true"></i></a>
+                                            
                                             {{-- <form method="POST" action="{{ route('user.checkout') }}" enctype="multipart/form-data">
                                                 @csrf
-                                                <input type="hidden" name="body" value="{{ $item->model->name }}, {{ $item->qty }}, {{$item->subtotal() / 100 }} ">
+                                                <input type="hidden" name="body" value="{{ $item->model->name }}, {{ $item->qty }}, {{$item->subtotal() }} ">
 
                                                 <button type="submit">submit</button>
                                                 
@@ -112,9 +113,9 @@
                             </div>
                         </div>
                     </form>
-                    {{-- <div class="row">
+                    <div class="row">
                         <div class="col-lg-4 col-md-6 mb-lm-30px">
-                            <div class="discount-code-wrapper">
+                            {{--<div class="discount-code-wrapper">
                                 <div class="title-wrap">
                                     <h4 class="cart-bottom-title section-bg-gray">Use Coupon Code</h4>
                                 </div>
@@ -125,7 +126,7 @@
                                         <button class="cart-btn-2" type="submit">Apply Coupon</button>
                                     </form>
                                 </div>
-                            </div>
+                            </div>--}}
                         </div>
                         <div class="col-lg-4 col-md-6 mb-lm-30px">
                             
@@ -137,18 +138,50 @@
                                 </div>
                                 <h5>Sub Total products <span>&#8358;{{Cart::subtotal() / 100}} </span></h5>
                                 <h5>Tax <span>{{Cart::tax() }}</span></h5>
-                              <div class="total-shipping">
+                              {{--<div class="total-shipping">
                                     <h5>Total shipping</h5>
                                     <ul>
                                         <li><input type="checkbox" /> Standard <span>$20.00</span></li>
                                         <li><input type="checkbox" /> Express <span>$30.00</span></li>
                                     </ul>
-                                </div>
+                                </div>--}}
                                 <h4 class="grand-totall-title">Grand Total <span>{{Cart::total() / 100 }}</span></h4>
-                                <a href="checkout.html">Proceed to Checkout</a>
+                                @auth
+                                <div class="discount-code-wrapper">
+                                        
+                                <div class="discount-code">
+                                <form method="POST" action="{{ route('user.pay') }}" accept-charset="UTF-8" role="form">
+                                    <div class="row" style="margin-bottom:40px;">
+                                        <div class="col-md-8 col-md-offset-2">
+                                            
+                                            <input type="hidden" name="email" value="{{ Auth::user()->email }}">
+                                            <input type="hidden" name="first_name" value="{{ Auth::user()->fname }}">
+                                            <input type="hidden" name="last_name" value="{{ Auth::user()->lname }}">
+                                            <input type="hidden" name="phone" value="{{ Auth::user()->phone_1 }}">
+                                            <input type="hidden" name="first_name" value="{{ Auth::user()->fname }}">
+                                            <input type="hidden" name="orderID" value="345">
+                                            <input type="hidden" name="amount" value="{{Cart::total() }}"> 
+                                            <input type="hidden" name="quantity" value="{{ $item->qty }}">
+                                            <input type="hidden" name="currency" value="NGN">
+                                            {{--<input type="hidden" name="metadata" value="{{ json_encode($array = ['key_name' => 'value',]) }}" >  For other necessary things you want to add to your payload. it is optional though --}}
+                                            <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}"> {{-- required --}}
+                                            
+                                            
+                                            {{ csrf_field() }}
+
+                                                
+                                                    <button class="cart-btn-2" type="submit" style="text-align:center">
+                                                        Pay now!
+                                                    </button>  
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>                         
+                                @endauth                              
                             </div>
                         </div>
-                    </div> --}} 
+                    </div> 
                 </div>
             </div>
         </div>

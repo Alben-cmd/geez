@@ -25,9 +25,4 @@ class DashboardController extends Controller
     {
         return view('tailor.message');
     }
-
-    public function payment_history()
-    {
-        return view('tailor.payment_history');
-    }
 }

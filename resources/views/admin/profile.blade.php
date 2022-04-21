@@ -1,5 +1,5 @@
 @extends ('layouts.master')
-@section('title', '| dashboard')
+@section('title', '| profile')
 @section('content')
     
     <!-- breadcrumb-area end -->
@@ -19,7 +19,7 @@
                         <!-- dashboard  -->
                         {{-- error and success messages --}}
                         @include('partials.messaging')
-                        <h3>My Profile </h3>
+                        <h4>My Profile </h4>
 
                         <div class="login">
                             <div class="login_form_container">
