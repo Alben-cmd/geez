@@ -19,7 +19,7 @@
                         <!-- dashboard  -->
                         {{-- error and success messages --}}
                         @include('partials.messaging')
-                        <h3>Payment History </h3>
+                        <h4>Payment History </h4>
                         
                         <div class="table_page table-responsive">
                             <table>

@@ -15,7 +15,7 @@
                         <!-- dashboard  -->
                         {{-- error and success messages --}}
                         @include('partials.messaging')
-                            <h4>My Cloths</h4>
+                            <h4>My Designes</h4>
                         <div class="row">
                         <div class="col">
                             <div class="tab-content">

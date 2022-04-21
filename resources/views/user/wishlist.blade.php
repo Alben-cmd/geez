@@ -27,7 +27,7 @@
     <!-- Wishlist Area Start -->
     <div class="cart-main-area pt-100px pb-100px">
         <div class="container">
-            <h3 class="cart-page-title">Your Wishlist items</h3>
+            <h4 class="cart-page-title">Your Wishlist items</h4>
             {{-- error and success messages --}}
             @include('partials.messaging')
             <div class="row">

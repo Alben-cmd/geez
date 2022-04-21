@@ -1,7 +1,7 @@
 <div class="dashboard_tab_button" data-aos="fade-up" data-aos-delay="0">
     <ul role="tablist" class="nav flex-column dashboard-list">
         <li><a href="{{ route('user.dashboard') }}" class="nav-link {{ (Request()->is('user/dashboard')) ? 'active': '' }}">Dashboard</a></li>
-        <li> <a href="{{ route('user.my_clothes') }}" class="nav-link {{ (Request()->is('user/my_clothes')) ? 'active': '' }} ">My Saved Clothes</a></li>
+        <li> <a href="{{ route('user.my_clothes') }}" class="nav-link {{ (Request()->is('user/my_clothes')) ? 'active': '' }} ">My Wishlist</a></li>
         <li><a href="{{ route('user.subscribed') }}"  class="nav-link {{ (Request()->is('user/subscribed')) ? 'active': '' }}">My designers</a></li>
          <li><a href="{{ route('user.messaging') }}"  class="nav-link {{ (Request()->is('user/messaging')) ? 'active': '' }}">Messaging</a></li>
          <li><a href="{{ route('user.payment_history') }}"class="nav-link {{ (Request()->is('user/payment_history')) ? 'active': '' }}">Payment History</a></li>

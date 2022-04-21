@@ -19,6 +19,7 @@
                         {{-- error and success messages --}}
                         @include('partials.messaging')
                         <div class="tab-pane fade show active" id="dashboard">
+                            <h4>My Wishlist</h4>
                 <div class="tab-pane fade show active" id="shop-grid">
                     <div class="row mb-n-30px">
                         @forelse ($my_clothes as $key => $item)

@@ -106,11 +106,7 @@
 <div class="container">
     <div class="row justify-content-center align-item-center">
         <div class="text-center"><img src="{{ asset('assets/images/icons/open_message.png') }} " width="130" height="">
-            <h3><strong>You do not have any messages yet.</strong></h3>
-            <h4> Click the button bellow to select from your Designers</h4>
-            <div class="save_button mt-3" align="center">
-                <a href=""><button class="btn" type="submit">Designers</button></a>
-            </div>
+            <h3><strong>You do not have any message!</strong></h3>
             
         </div>
     </div>
