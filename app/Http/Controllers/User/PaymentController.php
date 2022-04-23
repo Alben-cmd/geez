@@ -36,11 +36,9 @@ class PaymentController extends Controller
     public function handleGatewayCallback()
     {
         $paymentDetails = Paystack::getPaymentData();
-        // dd($paymentDetails);
-        dd(request()->reference);
-    
+        // dd($paymentDetails);   
         $order = Order::where('reference', request()->reference)->first();
-        
+        dd($order);
         $order->status = 1;
         $order->save();
         
