@@ -45,7 +45,11 @@
                                         <td>{{$item->created_at->format('d-m-Y')}}</td>
                                         <td>{{ $item->presentAmount()}}</td>
                                         <td>{{$item->reference}}</td>
-                                        <td>{{ $item->status === 1 ? 'Success' : 'Failed' }}</td>
+                                        <td>@if($item->status === 1)
+                                          Success
+                                        @else 
+                                            Failed
+                                        @endif</td>
                                     </tr>
                                    
                                 </tbody>
