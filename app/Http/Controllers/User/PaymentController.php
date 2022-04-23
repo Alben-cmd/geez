@@ -21,7 +21,7 @@ class PaymentController extends Controller
            $order->reference = $request->reference;
            $order->status = 0;
            $order->save();
-           dd($order);
+        
         try{
             return Paystack::getAuthorizationUrl()->redirectNow();
         }catch(\Exception $e) {
@@ -37,6 +37,7 @@ class PaymentController extends Controller
     {
         $paymentDetails = Paystack::getPaymentData();
         // dd($paymentDetails);
+        dd(request()->reference);
     
         $order = Order::where('reference', request()->reference)->first();
         
