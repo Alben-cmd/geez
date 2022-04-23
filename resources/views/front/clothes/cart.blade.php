@@ -161,7 +161,7 @@
                                             <input type="hidden" name="first_name" value="{{ Auth::user()->fname }}">
                                             <input type="hidden" name="orderID" value="345">
                                             <input type="hidden" name="amount" value="{{Cart::total() }}"> 
-                                            <input type="hidden" name="quantity" value="{{ $item->qty }}">
+                                            <input type="hidden" name="quantity" value="{{ Cart::count() }}">
                                             <input type="hidden" name="currency" value="NGN">
                                             {{--<input type="hidden" name="metadata" value="{{ json_encode($array = ['key_name' => 'value',]) }}" >  For other necessary things you want to add to your payload. it is optional though --}}
                                             <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}"> {{-- required --}}
