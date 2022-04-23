@@ -37,11 +37,12 @@ class PaymentController extends Controller
     {
         $paymentDetails = Paystack::getPaymentData();
         // dd($paymentDetails);
-
+        dd(request()->reference);
         $order = Order::where('reference', request()->reference)->first();
 
         $order->status = 1;
         $order->save();
+        dd($order);
 
         return redirect()->route('user.dashboard')->with('success', 'Payment Successful!');        
     }
