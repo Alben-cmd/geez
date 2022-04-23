@@ -39,10 +39,10 @@ class PaymentController extends Controller
         // dd($paymentDetails);
     
         $order = Order::where('reference', request()->reference)->first();
-
+        dd($order);
         $order->status = 1;
         $order->save();
-        dd($order);
+        
 
         return redirect()->route('user.dashboard')->with('success', 'Payment Successful!');        
     }
