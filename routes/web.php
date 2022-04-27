@@ -146,7 +146,7 @@ Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middl
     Route::post('subscribe', 'SubscribeController@store')->name('add.subscribe');
     Route::get('remove_subscription/{id}', 'SubscribeController@destroy')->name('delete.subscribe');
     // become a designer
-    Route::get('/become_designer', 'ProfileController@become_tailor')->name('become_tailor');
+    Route::get('/become_designer/{id}', 'ProfileController@become_tailor')->name('become_tailor');
     Route::post('/become_designer/{id}', 'ProfileController@user_tailor')->name('user_tailor');
     //messaging
     Route::get('messaging', 'DashboardController@messaging')->name('messaging');

@@ -6,7 +6,7 @@
          <li><a href="{{ route('user.messaging') }}"  class="nav-link {{ (Request()->is('user/messaging')) ? 'active': '' }}">Messaging</a></li>
          <li><a href="{{ route('user.payment_history') }}"class="nav-link {{ (Request()->is('user/payment_history')) ? 'active': '' }}">Payment History</a></li>
         <li><a href="{{ route('user.profile') }}"class="nav-link {{ (Request()->is('user/profile')) ? 'active': '' }}">My profile</a></li>
-        <li><a href="{{ route('user.become_tailor') }}" class="nav-link {{ (Request()->is('user/become_designer')) ? 'active': '' }}">Become a Tailor</a></li>
+        <li><a href="{{ route('user.become_tailor', ['id' => Auth::id()]) }}" class="nav-link {{ (Request()->is('user/become_designer')) ? 'active': '' }}">Become a Tailor</a></li>
         <li>
             <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); 
                 document.getElementById('logout-form').submit();">
