@@ -56,10 +56,10 @@
                                         <div class="container">
                                             <div class="row justify-content-center align-item-center">
                                                 <div class="text-center"><img src="{{ asset('assets/images/icons/cloth.jpg') }} " width="130" height="">
-                                                    <h3><strong>You do not have any Cloth yet.</strong></h3>
-                                                    <h4> Click the button bellow to add a Cloth</h4>
+                                                    <h3><strong>You do not have any Design yet.</strong></h3>
+                                                    <h4> Click the button bellow to add a Design</h4>
                                                     <div class="save_button mt-3" align="center">
-                                                        <a href="{{ route('designer.clothes.create') }} "><button class="btn" type="submit">Add Cloth</button></a>
+                                                        <a href="{{ route('designer.clothes.create') }} "><button class="btn" type="submit">Add Design</button></a>
                                                     </div>
                                                     
                                                 </div>

@@ -1,5 +1,5 @@
 @extends ('layouts.master')
-@section('title', '| clothes')
+@section('title', '| Designes')
 @section('content')
     
     <!-- breadcrumb-area end -->
@@ -20,7 +20,7 @@
                         {{-- error and success messages --}}
                         @include('partials.messaging')
                         <div class="tab-pane fade show active" id="dashboard">
-                            <h4>My Cloths </h4>
+                            <h4>My Designes </h4>
                             <div class="row">
                             <div class="col">
                                 <div class="tab-content">
@@ -62,10 +62,10 @@
                                             <div class="container">
                                                 <div class="row justify-content-center align-item-center">
                                                     <div class="text-center"><img src="{{ asset('assets/images/icons/cloth.jpg') }} " width="130" height="">
-                                                        <h3><strong>You do not have any cloth yet.</strong></h3>
-                                                        <h4> Click the button bellow to add a cloth</h4>
+                                                        <h3><strong>You do not have any Design yet.</strong></h3>
+                                                        <h4> Click the button bellow to add a Design</h4>
                                                         <div class="save_button mt-3" align="center">
-                                                            <a href="{{ route('admin.add_cloth') }} "><button class="btn" type="submit">Add Cloth</button></a>
+                                                            <a href="{{ route('admin.add_cloth') }} "><button class="btn" type="submit">Add Designes</button></a>
                                                         </div>
                                                         
                                                     </div>

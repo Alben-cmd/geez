@@ -69,7 +69,7 @@
                     </div>
                     @empty
                     <tr>
-                        <td><font color="#fb5d5d">No Clothe(s) Posted! </font></td>
+                        <td><font color="#fb5d5d">No Deigne Posted! </font></td>
                     </tr>
                     @endforelse
 

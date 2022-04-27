@@ -1,5 +1,5 @@
 @extends ('layouts.master')
-@section('title', '| clothes')
+@section('title', '| Designes')
 @section('content')
     
     <!-- breadcrumb-area end -->
@@ -16,7 +16,7 @@
                         {{-- error and success messages --}}
                         @include('partials.messaging')
                         <div class="tab-pane fade show active" id="dashboard">
-                            <h4>Edit Cloth </h4>
+                            <h4>Edit Designes </h4>
                             <div class="login">
                                 <div class="login_form_container">
                                     <div class="account_login_form">

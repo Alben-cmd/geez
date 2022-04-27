@@ -71,7 +71,7 @@
                 <!-- Section Title Start -->
                 <div class="col-12">
                     <div class="section-title text-center mb-0">
-                        <h2 class="title">Clothes</h2>
+                        <h2 class="title">Desinges</h2>
                         <hr>
                         <br>
                         <br>
@@ -152,7 +152,7 @@
                                 </div>
                                 @empty
                                 <tr>
-                                    <td><font color="#fb5d5d">No Clothe(s) Found! </td>
+                                    <td><font color="#fb5d5d">No Design Found! </td>
                                 </tr>
                                 @endforelse
                                 {{-- ending of single cloth --}}

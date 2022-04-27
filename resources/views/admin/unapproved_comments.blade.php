@@ -27,7 +27,7 @@
                                 <thead>
                                     <tr>
                                         <th>S/N</th>
-                                        <th>Cloth Name</th>
+                                        <th>Design Name</th>
                                         <th>Email</th>
                                         <th>Comment</th>
                                         <th>Actions</th>

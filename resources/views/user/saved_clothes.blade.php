@@ -1,5 +1,5 @@
 @extends ('layouts.master')
-@section('title', '| clothes')
+@section('title', '| Designes')
 @section('content')
     
     <!-- breadcrumb-area end -->
@@ -54,10 +54,10 @@
                             <div class="container">
                                 <div class="row justify-content-center align-item-center">
                                     <div class="text-center"><img src="{{ asset('assets/images/icons/cloth.jpg') }} " width="130" height="">
-                                        <h3><strong>You do not have any Saved clothes yet.</strong></h3>
-                                        <h4> Click the button bellow to select from our Clothes</h4>
+                                        <h3><strong>You do not have any Saved Designes yet.</strong></h3>
+                                        <h4> Click the button bellow to select from our Designes</h4>
                                         <div class="save_button mt-3" align="center">
-                                            <a href="{{ route('clothes') }} "><button class="btn" type="submit">Clothes</button></a>
+                                            <a href="{{ route('clothes') }} "><button class="btn" type="submit">Designes</button></a>
                                         </div>
                                         
                                     </div>

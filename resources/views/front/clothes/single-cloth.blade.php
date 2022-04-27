@@ -1,5 +1,5 @@
 @extends ('layouts.master')
-@section('title', '| cloth')
+@section('title', '| Designes')
 @section('content')
 
     <!-- breadcrumb-area start -->
@@ -7,11 +7,11 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12 text-center">
-                    <h2 class="breadcrumb-title">Clothes</h2>
+                    <h2 class="breadcrumb-title">Designes</h2>
                     <!-- breadcrumb-list start -->
                     <ul class="breadcrumb-list">
                         <li class="breadcrumb-item"><a href="{{route('home') }} ">Home</a></li>
-                        <li class="breadcrumb-item"> <a href="{{ route('clothes') }} "></a>Clothes</li>
+                        <li class="breadcrumb-item"> <a href="{{ route('clothes') }} "></a>Designes</li>
                         <li class="breadcrumb-item active">{{ $cloth->slug }}</li>
                     </ul>
                     <!-- breadcrumb-list end -->

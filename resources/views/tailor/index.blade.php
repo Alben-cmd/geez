@@ -17,7 +17,7 @@
                         @include('partials.messaging')
                         <div class="tab-pane fade show active" id="dashboard">
                             <h4>Hi Designer {{ $profile->fname }}</h4>
-                            <p>From your account dashboard. you can easily check &amp; view your <a href="#">Cloths</a>,<a href="">Designer</a>, <a href=""> Saved Cloths</a> and <a href="#">Edit your Password and Account Details.</a></p>
+                            <p>From your account dashboard. you can easily check &amp; view your <a href="#">Designes</a>,<a href="">Designer</a>, <a href=""> Saved Designes</a> and <a href="#">Edit your Password and Account Details.</a></p>
                         </div>               
 
                     </div>
