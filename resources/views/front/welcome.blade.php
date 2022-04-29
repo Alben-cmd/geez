@@ -71,7 +71,7 @@
                 <!-- Section Title Start -->
                 <div class="col-12">
                     <div class="section-title text-center mb-0">
-                        <h2 class="title">Desinges</h2>
+                        <h2 class="title">Designs</h2>
                         <hr>
                         <br>
                         <br>
@@ -179,7 +179,7 @@
                 <!-- Section Title Start -->
                 <div class="col-12">
                     <div class="section-title text-center mb-0">
-                        <h2 class="title">Tailors</h2>
+                        <h2 class="title">Designers</h2>
                         <hr>
                         <br>
                         <br>

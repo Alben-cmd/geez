@@ -1,5 +1,5 @@
 @extends ('layouts.master')
-@section('title', '| designes')
+@section('title', '| designs')
 @section('content')
 
     <!-- breadcrumb-area start -->
@@ -7,11 +7,11 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-12 text-center">
-                    <h2 class="breadcrumb-title">Designes</h2>
+                    <h2 class="breadcrumb-title">Designs</h2>
                     <!-- breadcrumb-list start -->
                     <ul class="breadcrumb-list">
                         <li class="breadcrumb-item"><a href="{{ route('home') }} ">Home</a></li>
-                        <li class="breadcrumb-item active">Designes</li>
+                        <li class="breadcrumb-item active">Designs</li>
                     </ul>
                     <!-- breadcrumb-list end -->
                 </div>
@@ -60,7 +60,7 @@
                                    
                                     @empty
                                         <tr>
-                                           <font color="#fb5d5d">No Clothe(s) Found!</font>
+                                           <font color="#fb5d5d">No design(s) Found!</font>
                                         </tr>
                                     @endforelse
                                     </ul>
@@ -85,7 +85,7 @@
                             
                             
                         </div>
-                        <div><p><h3> <strong>{{ $Category_name }} Clothes</strong> </h3> </p></div>
+                        <div><p><h3> <strong>{{ $Category_name }} Designs</strong> </h3> </p></div>
                         <!-- Left Side End -->
                         <div class="shop-tab nav">
                             .
@@ -170,7 +170,7 @@
                                             </div>
                                             @empty
                                             <tr>
-                                                <td><font color="#fb5d5d">No Cloth(s) Found! </font></td>
+                                                <td><font color="#fb5d5d">No Design(s) Found! </font></td>
                                             </tr>
                                             @endforelse
                                         </div>

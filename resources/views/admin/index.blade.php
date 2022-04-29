@@ -19,7 +19,7 @@
                         <div class="col-md-3 grid-margin stretch-card">
                           <div class="card">
                             <div class="card-body">
-                              <p class="card-title text-md-center text-xl-left">Designes</p>
+                              <p class="card-title text-md-center text-xl-left">Designs</p>
                               <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
                                 
                               </div>

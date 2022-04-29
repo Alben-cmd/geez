@@ -44,6 +44,19 @@
                                     <span class="price">
                                         <span class="new">{{ $item->cloth->presentPrice()}}</span>
                                     </span>
+
+                                    <span class="price">
+                                        <span class="new">
+                                            <form action="{{ route('cart.store') }}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="id" value="{{ $item->cloth->id}} ">
+                                                <input type="hidden" name="name" value="{{ $item->cloth->name}} ">
+                                                <input type="hidden" name="price" value= "{{ $item->cloth->price}} ">
+                                                <button  title="Add To Cart" class="title"> Add To Cart</button>
+                                            </form>
+                                        </span>
+                                    </span>
+
                                     <div class="save_button">
                                         <a href="{{ route('user.delete.wishlist', ['id' => $item['id']]) }}"> <button class="btn" type="submit">Remove</button></a>
                                     </div>
@@ -54,10 +67,10 @@
                             <div class="container">
                                 <div class="row justify-content-center align-item-center">
                                     <div class="text-center"><img src="{{ asset('assets/images/icons/cloth.jpg') }} " width="130" height="">
-                                        <h3><strong>You do not have any Saved Designes yet.</strong></h3>
-                                        <h4> Click the button bellow to select from our Designes</h4>
+                                        <h3><strong>You do not have any Saved Designs yet.</strong></h3>
+                                        <h4> Click the button bellow to select from our Designs</h4>
                                         <div class="save_button mt-3" align="center">
-                                            <a href="{{ route('clothes') }} "><button class="btn" type="submit">Designes</button></a>
+                                            <a href="{{ route('clothes') }} "><button class="btn" type="submit">Designs</button></a>
                                         </div>
                                         
                                     </div>

@@ -1,5 +1,5 @@
 @extends ('layouts.master')
-@section('title', '| Designes')
+@section('title', '| Designs')
 @section('content')
     
     <!-- breadcrumb-area end -->
@@ -20,7 +20,7 @@
                         {{-- error and success messages --}}
                         @include('partials.messaging')
                         <div class="tab-pane fade show active" id="dashboard">
-                            <h4>My Designes </h4>
+                            <h4>My Designs </h4>
                             <div class="row">
                             <div class="col">
                                 <div class="tab-content">
@@ -65,7 +65,7 @@
                                                         <h3><strong>You do not have any Design yet.</strong></h3>
                                                         <h4> Click the button bellow to add a Design</h4>
                                                         <div class="save_button mt-3" align="center">
-                                                            <a href="{{ route('admin.add_cloth') }} "><button class="btn" type="submit">Add Designes</button></a>
+                                                            <a href="{{ route('admin.add_cloth') }} "><button class="btn" type="submit">Add Designs</button></a>
                                                         </div>
                                                         
                                                     </div>

@@ -48,6 +48,7 @@
                                             <div class="save_button mt-3">
                                                 <button class="btn"
                                                     type="submit">Update</button>
+                                                    <br>
                                             </div>
                                             </div>
                                             <div class="col-6">
