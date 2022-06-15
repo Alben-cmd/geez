@@ -17,6 +17,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 //front page
 //home
 
+
 Route::get('sub', 'user\SubscribeController@index')->name('subscribe');
 Route::get('/', 'HomeController@index')->name('home');
 //about
@@ -127,6 +128,9 @@ Route::group(['as' => 'designer.', 'prefix' => 'designer', 'namespace' => 'Tailo
 
 Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middleware' => ['auth', 'user']], function () 
 {
+
+    Route::post('send_measurement/male', 'DashboardController@sendMaleMeasure')->name('sendMaleMeasure');
+    Route::post('send_measurement/female', 'DashboardController@sendFemaleMeasure')->name('sendFemaleMeasure');
 
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
     //wishlist 

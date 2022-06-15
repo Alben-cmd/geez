@@ -28,7 +28,7 @@
                                              
                                         </small>
                                     </span>
-                                    <span class="contacts-list-msg text-secondary">{{$conversation->messages->last()->body ?? ''}}</span>
+                                    <span class="contacts-list-msg text-secondary">{{\Illuminate\Support\Str::limit($conversation->messages->last()->body, 10, $end='...') ?? ''}}</span>
 
                                     
                                 </div>
@@ -90,12 +90,29 @@
                 <div class="card-footer">
                     <form wire:submit.prevent="sendMessage" action="#">
                         <div class="input-group">
-                            <input wire:model.defer="body" type="text" name="message" placeholder="Type Message ..." class="form-control">
+                            <input wire:model.defer="body" type="text" name="message" placeholder="Type Message ..." class="form-control" required>
                             <span class="input-group-append">
-                                <button type="submit" class="btn btn-secondary">Send</button>
+                                <button type="submit" class="btn-message">Send</button>
                             </span>
                         </div>
                     </form>
+                    <div class="header-actions">
+                        <ul>
+                   
+                            <li class="dropdown "><a href="#" style="color: #fb5d5d; font-weight: 600;">Send Measurements<i class="pe-7s-angle-down"></i></a>
+                                <ul class="sub-menu">
+                                    <!-- location: particals/user_dashboard -->
+                                    <li><a href="#" class="header-action-btn" data-bs-toggle="modal" data-bs-target="#maleMeasure">
+                                        Male 
+                                       </a></li>
+                                    <li><a href="#" class="header-action-btn" data-bs-toggle="modal" data-bs-target="#femaleMeasure">
+                                        Female 
+                                      </a></li>
+                                
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <!-- /.card-footer-->
             </div>
@@ -113,3 +130,78 @@
 </div>
 @endif
 
+<!-- Search Modal Start -->
+<div class="modal popup-search-style" id="maleMeasure">
+    <button type="button" class="close-btn" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+    <div class="modal-overlay">
+        <div class="modal-dialog p-0" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h2>Fill your Measurment Below (Male)</h2>
+                    <form method="POST" action="{{ route('user.sendMaleMeasure') }}" class="form-horizontal">
+                        @csrf
+                        <div class="row">
+                            <div class="col-6">
+                                <input type="text" name="male_name" placeholder="Male Name">
+                                <input type="text" name="shoulder" placeholder="Shoulder">
+                                <input type="text" name="chest" placeholder="Chest">
+                                <input type="text" name="wrist" placeholder="Wrist">
+                                <input type="text" name="throuser_length" placeholder="Throuser Length">
+                                <input type="text" name="m_others" placeholder="Others">
+                            </div>
+                            <div class="col-6">
+                                <input type="text" name="top_length" placeholder="Top Length">
+                                <input type="text" name="arm_length" placeholder="Arm Length">
+                                <input type="text" name="lap" placeholder="Lap">
+                                <input type="text" name="neck" placeholder="Neck">  
+                                <input type="hidden" name="conversation_id" value="{{ $conversation->id }}">                     
+                            </div>                          
+                        </div>
+                        <br>
+                        <button type="submit" class="btn-message2">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Search Modal End -->
+<!-- Search Modal Start -->
+<div class="modal popup-search-style" id="femaleMeasure">
+    <button type="button" class="close-btn" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+    <div class="modal-overlay">
+        <div class="modal-dialog p-0" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h2>Fill your Measurment Below (Female)</h2>
+                    <form method="POST" action="{{ route('user.sendFemaleMeasure') }}" class="form-horizontal">
+                        @csrf
+                        <div class="row">
+                            <div class="col-6">
+                                <input type="text" name="female_name" placeholder="Female Name">
+                                <input type="text" name="shoulder" placeholder="Shoulder">
+                                <input type="text" name="chest" placeholder="Chest">
+                                <input type="text" name="round_slip" placeholder="Round Slip">
+                                <input type="text" name="throuser_length" placeholder="Throuser Length">
+                                <input type="text" name="sleeve_length" placeholder="Sleeve Length">
+                                <input type="text" name="hips" placeholder="Hips">
+                                <input type="hidden" name="conversation_id" value="{{ $conversation->id }}"> 
+                            </div>
+                            <div class="col-6">
+                                <input type="text" name="top_length" placeholder="Top Length">
+                                <input type="text" name="arm_length" placeholder="Arm Length">
+                                <input type="text" name="tommy" placeholder="Tummy">
+                                <input type="text" name="gown_length" placeholder="Gown Length">
+                                <input type="text" name="f_others" placeholder="Others">
+                            </div>
+                            
+                        </div>
+                        <br>
+                            <button type="submit" class="btn-message2">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Search Modal End -->

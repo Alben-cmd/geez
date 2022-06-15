@@ -48,8 +48,6 @@ class ConversationMessages extends Component
             ->orWhere('receiver_id', auth()->id())
             ->get();
         return view('livewire.user.messages.conversation-messages', compact('conversations'));
-    }
-
-    
+    }  
 
 }

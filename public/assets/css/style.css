@@ -124,7 +124,7 @@ input {
   height: 50px;
   font-size: 15px;
   width: 100%;
-  background: transparent;
+  /* background: transparent; */
   border-radius: 0;
   -webkit-border-radius: 0;
   text-align: left;
@@ -5142,6 +5142,29 @@ Pages - My Account
   outline: none;
   box-shadow: none;
 }
+.btn-message {
+  color: #fff;
+  background: linear-gradient(-155deg, #fd3d6b 0%, #fd7863 98%, #f3dfe0 100%);
+  width: 119px;
+  height: 45px;
+  font-size: 11px;
+  z-index: 1;
+  position: relative;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.btn-message2 {
+  color: #fff;
+  background: linear-gradient(-155deg, #fd3d6b 0%, #fd7863 98%, #f3dfe0 100%);
+  width: 119px;
+  height: 45px;
+  font-size: 11px;
+  z-index: 1;
+  position: relative;
+  overflow: hidden;
+  box-shadow: none;
+}
 
 .btn-primary {
   color: #fff;
@@ -5635,6 +5658,36 @@ Pages - My Account
   margin-left: 6px;
   color: #9f9e9e;
 }
+/* rating */
+.rating-css div {
+  color: #ffe400;
+  font-size: 30px;
+  font-family: sans-serif;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 20px 0;
+}
+.rating-css input {
+  display: none;
+}
+.rating-css input + label {
+  font-size: 25px;
+  text-shadow: 1px 1px 0 #8f8420;
+  cursor: pointer;
+}
+.rating-css input:checked + label ~ label {
+  color: #b4afaf;
+}
+.rating-css label:active {
+  transform: scale(0.8);
+  transition: 0.3s ease;
+}
+.checked {
+  color: #ffd900;
+}
+
+/* End of Star Rating */
 .product .content .title {
   font-size: 16px;
   margin: 10px 0 10px;
@@ -7374,28 +7427,27 @@ Pages - My Account
 }
 
 .login-content h2 {
-  font-weight: 700;
+  font-weight: 200;
   color: #fff;
-  font-size: 30px;
+  font-size: 20px;
   text-align: center;
   margin: 0 0 48px;
 }
 .login-content h3 {
-  font-weight: 600;
+  font-weight: 200;
   color: #fff;
-  font-size: 14px;
-  text-transform: uppercase;
-  margin: 0 0 29px;
+  font-size: 20px;
+  margin: 0 0 10px;
 }
 .login-content form > input {
   width: 100%;
-  background-color: #fff;
+  background-color: #fff !important;
   padding: 1px 20px;
-  color: #000;
-  line-height: 47px;
+  color: #fff !important;
+  line-height: 3px;
   border: none;
   border-radius: 5px;
-  margin-bottom: 25px;
+  margin-bottom: 5px;
 }
 .login-content form > input::-webkit-input-placeholder {
   color: #000;
@@ -7470,6 +7522,22 @@ Pages - My Account
   position: absolute;
   top: 0;
   right: 0;
+  display: flex;
+  width: 60px;
+  height: 50px;
+  background: #fb5d5d;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 0;
+  outline: 0;
+  font-size: 20px;
+  border-radius: 0 5px 5px 0;
+  transition: all 0.3s ease 0s;
+}
+.modal .submit-btn-btn {
+  position: absolute;
   display: flex;
   width: 60px;
   height: 50px;

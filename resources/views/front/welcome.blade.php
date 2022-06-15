@@ -154,6 +154,7 @@
                                 <tr>
                                     <td><font color="#fb5d5d">No Design Found! </td>
                                 </tr>
+                                
                                 @endforelse
                                 {{-- ending of single cloth --}}
                               

@@ -45,13 +45,24 @@ class ClothController extends Controller
         $cloth = Cloth::where('slug', $slug)->firstOrFail();
         $comment = Comment::where('cloth_id' , $cloth->id)
                             ->where('approved', '1')->get();
+        $rating_sum = Comment::where('cloth_id' , $cloth->id)
+                            ->where('approved', '1')->sum('stars_rated');
+        if($comment->count() > 0)
+        {
+            $rating_value = $rating_sum/$comment->count();
+        }
+        else
+        {
+            $rating_value = 0;
+        }
+        
         $unapproved_comments = Comment::where('cloth_id', $cloth->id)
                             ->where('approved', '0')->get();
         $alsoLike = Cloth::where('slug', '!=', $slug)->mightAlsoLike()->get();
         $brand_name = User::where('id', $cloth->tailor_id )->first();
-        // dd($brand_name);
+        //  dd($rating_value);
 
-        return view ('front.clothes.single-cloth', compact('cloth', 'alsoLike', 'comment', 'unapproved_comments', 'brand_name'));
+        return view ('front.clothes.single-cloth', compact('cloth', 'alsoLike', 'comment', 'unapproved_comments', 'brand_name', 'rating_value'));
     }
 
     public function edit($id)

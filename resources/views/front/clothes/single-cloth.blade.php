@@ -145,9 +145,7 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    
+    </div>  
 
     
     <!-- product details description area start -->
@@ -157,7 +155,7 @@
                 <div class="description-review-topbar nav">
                     {{-- <a data-bs-toggle="tab" href="#des-details2">Information</a> --}}
                     <a class="active" data-bs-toggle="tab" href="#des-details1">Details</a>
-                    <a data-bs-toggle="tab" href="#des-details3">Comments ({{ $comment->count() }})</a>
+                    <a data-bs-toggle="tab" href="#des-details3">Reviews ({{ $comment->count() }})</a>
                 </div>
                 <div class="tab-content description-review-bottom">
                     {{-- <div id="des-details2" class="tab-pane">
@@ -175,6 +173,8 @@
                             <p>
                                 {{ $cloth->details}}
 
+                                
+
                             </p>
                         </div>
                     </div>
@@ -182,6 +182,16 @@
                         <div class="row">
                             <div class="col-lg-7">
                                 <div class="review-wrapper">
+                                    <p><strong> Ratings and Reviews</strong></p>
+                                    @php $ratenum = number_format($rating_value) @endphp
+                                    @for($i =1; $i<= $ratenum; $i++)
+                                                    <i class="fa fa-star checked"></i>
+                                                    @endfor
+                                                    @for($j = $ratenum+1; $j <= 5; $j++)
+                                                    <i class="fa fa-star"></i>
+                                                    @endfor
+                                                    <span>{{$comment->count() }} Ratings </span>
+                                                    <hr>
                                     @forelse ($comment as $key => $item)
                                     <div class="single-review">
                                         
@@ -195,7 +205,15 @@
                                                 </div>
                                                 
                                             </div>
+                                            @php $ratenum = number_format($item->stars_rated) @endphp
                                             <div class="review-bottom">
+                                                @for($i =1; $i<= $ratenum; $i++)
+                                                    <i class="fa fa-star checked"></i>
+                                                    @endfor
+                                                    @for($j = $ratenum+1; $j <= 5; $j++)
+                                                    <i class="fa fa-star"></i>
+                                                    @endfor
+
                                                 <p align="justify">
                                                     {{$item->comment}}
                                                 </p>
@@ -207,36 +225,51 @@
                                     <hr>
                                     {{-- single end --}}
                                    @empty
-                                        <p>No Comments!</p>
+                                        <p>No Review!</p>
                                     @endforelse
                                 </div>
                             </div>
                             
                             <div class="col-lg-5">
                                 <div class="ratting-form-wrapper pl-50">
-                                    <h3>Add a Comment</h3>
-                                    <br>
+                                    <h3>Add a Review</h3>
+
                                     <div class="ratting-form">
                                         <form method="POST" action="{{ route('user.store.comment') }}" class="form-horizontal">
                                         @csrf
-
+                                        <div class="star-box">
+                                            <span>Your rating:</span>
+                                            <div class="rating-css">
+                                                <div class="star-icon">
+                                                    <input type="radio" value="1" name="stars_rated" checked id="rating1">
+                                                    <label for="rating1" class="fa fa-star"></label>
+                                                    <input type="radio" value="2" name="stars_rated" id="rating2">
+                                                    <label for="rating2" class="fa fa-star"></label>
+                                                    <input type="radio" value="3" name="stars_rated" id="rating3">
+                                                    <label for="rating3" class="fa fa-star"></label>
+                                                    <input type="radio" value="4" name="stars_rated" id="rating4">
+                                                    <label for="rating4" class="fa fa-star"></label>
+                                                    <input type="radio" value="5" name="stars_rated" id="rating5">
+                                                    <label for="rating5" class="fa fa-star"></label>
+                                                </div>
+                                            </div>
+                                        </div>
                                         
-                                           
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="rating-form-style">
-                                                        <input placeholder="Name" name="name" type="text" />
+                                                        <input placeholder="Name" name="name" type="text" required/>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="rating-form-style">
-                                                        <input placeholder="Email" name="email" type="email" />
+                                                        <input placeholder="Email" name="email" type="email" required />
                                                     </div>
                                                 </div>
                                                 <input type="hidden" name="cloth_id" value="{{ $cloth->id}}">
                                                 <div class="col-md-12">
                                                     <div class="rating-form-style form-submit">
-                                                        <textarea name="comment" placeholder="Message"></textarea>
+                                                        <textarea name="comment" placeholder="Message" required></textarea>
                                                         {{-- @if(Auth::user())
                                                             @if(Auth::user()->role_id == '1')
                                                                 <button class="btn btn-primary btn-hover-color-primary "
