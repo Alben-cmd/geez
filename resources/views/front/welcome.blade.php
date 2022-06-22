@@ -87,16 +87,17 @@
                         <div class="tab-pane fade show active" id="tab-product--all">
                             <div class="row">
                                 {{-- begining of single cloth  --}}
-                                @forelse ($clothes as $key => $item)
+                                @forelse ($clothes as $cloth)
                                 <div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-30px" data-aos="fade-up"
            
                                     data-aos-delay="200">
                                     <!-- Single Prodect -->
                                     <div class="product">
                                         <div class="thumb">
-                                            <a href="{{ route('cloth.show', ['slug' => $item['slug']  ]) }}" class="image">
-                                                <img src="{{ asset('/assets/images/clothes/' .$item['image']) }}" alt="Product" />
-                                                <img class="hover-image" src="{{ asset('/assets/images/clothes/' .$item['image']) }}"
+                                            
+                                            <a href="{{ route('cloth.show', ['slug' => $cloth->slug  ]) }}" class="image">
+                                                <img src="{{ asset('/assets/images/clothes/' .$cloth->image) }}" alt="Product" />
+                                                <img class="hover-image" src="{{ asset('/assets/images/clothes/' .$cloth->image) }}"
                                                     alt="Product" />
                                             </a>
                                             <span class="badges">
@@ -109,13 +110,13 @@
                                                     @if(Auth::user())
                                                     <input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
                                                     @endif
-                                                    <input type="hidden" name="cloth_id" value="{{ $item->id}} ">
+                                                    <input type="hidden" name="cloth_id" value="{{ $cloth->id}} ">
                                                     <button><i class="pe-7s-like"></i> </button>
                                                 </form>
                                             </div>
                                                {{--  <a href="#" class="action wishlist" title="Wishlist"><i class="pe-7s-like"></i>
                                                 </a> --}}
-                                                @if(Auth::user())
+                                                <!-- @if(Auth::user())
                                                 @if(Auth::user()->role_id == 3)
                                                 @if($item['trending'] == '0')
                                                 <a href="{{ route('admin.enable.trending', ['id' => $item->id]) }}" class="action wishlist"
@@ -125,26 +126,26 @@
                                                 title="Trending"><i class="pe-7s-cloud-upload"></i></a>
                                                 @endif
                                                 @endif
-                                                @endif
+                                                @endif -->
                                             </div>
                                             <div class="pro-details-cart">
                                                 {{-- <button class="add-cart" href=""> Add To Cart</button> --}}
                                                 <form action="{{ route('cart.store') }}" method="POST">
                                                     @csrf
-                                                    <input type="hidden" name="id" value="{{ $item->id}} ">
-                                                    <input type="hidden" name="name" value="{{ $item->name}} ">
-                                                    <input type="hidden" name="price" value="{{ $item->price}} ">
+                                                    <input type="hidden" name="id" value="{{ $cloth->id}} ">
+                                                    <input type="hidden" name="name" value="{{ $cloth->name}} ">
+                                                    <input type="hidden" name="price" value="{{ $cloth->price}} ">
                                                     <button  class="add-to-cart"> Add To Cart</button>
                                                 </form>
                                             </div>
                                         </div>
                                         <div class="content">
-                                            <h5 class="title"><a href="{{ route('cloth.show', ['slug' => $item['slug']  ]) }}">{{ $item->name }}</a></h5>
-                                            <h5 class="title"><a href="#">Designer:{{ $item->tailor->brand_name }}
+                                            <h5 class="title"><a href="{{ route('cloth.show', ['slug' => $cloth->slug  ]) }}">{{ $cloth->name }}</a></h5>
+                                            <h5 class="title"><a href="#">Designer:{{ $cloth->tailor->brand_name }}
                                                 </a>
                                             </h5>
                                             <span class="price">
-                                                <span class="new">{{ $item->presentPrice()}}</span>
+                                                <span class="new">{{ $cloth->presentPrice()}}</span>
                                                 
                                             </span>
                                         </div>
