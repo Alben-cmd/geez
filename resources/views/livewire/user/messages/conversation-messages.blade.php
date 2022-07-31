@@ -28,7 +28,13 @@
                                              
                                         </small>
                                     </span>
-                                    <span class="contacts-list-msg text-secondary">{{\Illuminate\Support\Str::limit($conversation->messages->last()->body, 10, $end='...') ?? ''}}</span>
+                                   @if($conversation->messages->last()->body ?? null)
+                                    <span class="contacts-list-msg text-secondary">
+                                        
+                                        {{\Illuminate\Support\Str::limit($conversation->messages->last()->body, 15, $end='...') ?? ''}}</span>
+                                    @else
+                                    <span class="contacts-list-msg text-secondary"></span>
+                                    @endif
 
                                     
                                 </div>
@@ -56,6 +62,7 @@
                             @endif
                         </span>
                     </h3>
+                    
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -75,7 +82,7 @@
                             @endif
                             <!-- /.direct-chat-img -->
                             <div class="direct-chat-text">
-                                {{ $message->body }}
+                                {!! $message->body !!}
                             </div>
                             <!-- /.direct-chat-text -->
                         </div>
@@ -112,6 +119,23 @@
                                 </ul>
                             </li>
                         </ul>
+                        <span>
+                            <form wire:submit.prevent="uploadImages" enctype="multipart/form-data">
+                                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                                <input type="file" wire:model.defer="image" id="file_upload_id" style="display:none">
+
+                                <label>Image</label>&nbsp;&nbsp;<a href="#"><i id="icon_upload" class="fa fa-upload" onclick="_upload()"></i></a>
+
+                                <script>
+                                function _upload(){
+                                    document.getElementById('file_upload_id').click();
+                                }
+                                </script>
+                                <span>
+                                    <button type="submit" class="#">Send</button>
+                                </span>
+                            </form>
+                        </span>
                     </div>
                 </div>
                 <!-- /.card-footer-->

@@ -71,31 +71,41 @@
                             </ul>
                         </div>
                         
-                        <p class="mt-30px mb-0">{{ $cloth->details }}</p>
                         <div class="pro-details-quality">
                             {{-- <div class="cart-plus-minus">
                                 <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1" />
                             </div> --}}
                             <div class="pro-details-cart">
                                 {{-- <button class="add-cart" href=""> Add To Cart</button> --}}
-                                <form action="{{ route('cart.store') }}" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="id" value="{{ $cloth->id}} ">
-                                    <input type="hidden" name="name" value="{{ $cloth->name}} ">
-                                    <input type="hidden" name="price" value="{{ $cloth->price}} ">
-                                    <button  class="add-cart"> Add To Cart</button>
-                                </form>
-                            </div>
-                            <div class="pro-details-compare-wishlist pro-details-wishlist">
-
                                 <form action="{{ route('user.add.wishlist') }}" method="POST">
                                     @csrf
                                     @if(Auth::user())
                                     <input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
                                     @endif
                                     <input type="hidden" name="cloth_id" value="{{ $cloth->id}} ">
-                                    <button><i class="pe-7s-like"></i> </button>
+                                    <button  class="add-cart"> Add To Wishlist</button>
                                 </form>
+                                
+                                
+                                <!-- <form action="{{ route('cart.store') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $cloth->id}} ">
+                                    <input type="hidden" name="name" value="{{ $cloth->name}} ">
+                                    <input type="hidden" name="price" value="{{ $cloth->price}} ">
+                                    <button  class="add-cart"> Add To Cart</button>
+                                </form> -->
+                            </div>
+                            <div class="pro-details-compare-wishlist pro-details-wishlist">
+
+                                <!-- <form action="{{ route('user.add.wishlist') }}" method="POST">
+                                    @csrf
+                                    @if(Auth::user())
+                                    <input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
+                                    @endif
+                                    <input type="hidden" name="cloth_id" value="{{ $cloth->id}} ">
+                                    <button><i class="pe-7s-like"></i> </button>
+                                </form> -->
+                                <a href="{{ route('user.message.tailor', ['tailor_id' => $cloth->tailor->id ]) }} "><i class="fa fa-comments" aria-hidden="true"></i></a>
                                 
                             </div>
                             {{-- <div class="pro-details-compare-wishlist pro-details-compare">
@@ -117,7 +127,28 @@
                                     <a href="#">{{ $cloth->category}}</a>
                                 </li>
                                 {{-- <li>
-                                    <a href="#">eCommerce</a>
+                                    <a href="#">Reviews</a>
+                                </li> --}}
+                            </ul>
+                        </div>
+                        <div class="pro-details-categories-info pro-details-same-style d-flex">
+                            <span>Ratings: </span>
+                            <ul class="d-flex">
+                                <li>
+                                   
+                                        @php $ratenum = number_format($rating_value) @endphp
+                                    @for($i =1; $i<= $ratenum; $i++)
+                                                    <i class="fa fa-star checked"></i>
+                                                    @endfor
+                                                    @for($j = $ratenum+1; $j <= 5; $j++)
+                                                    <i class="fa fa-star"></i>
+                                                    @endfor
+                                                    
+                                                 
+                              
+                                </li>
+                                {{-- <li>
+                                    <a href="#">Reviews</a>
                                 </li> --}}
                             </ul>
                         </div>

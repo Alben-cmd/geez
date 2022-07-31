@@ -72,14 +72,14 @@
                                 <i class="pe-7s-like"></i>
                             </a>
                             <!-- Single Wedge End -->
-                            <a href="{{ route('cart.index') }}"
+                            <!-- <a href="{{ route('cart.index') }}"
                                 class="header-action-btn header-action-btn-cart">
                                 <i class="pe-7s-shopbag"></i>
                                 @if( Cart::instance('default')->count() > 0)
                                 <span class="header-action-num">{{ Cart::instance('default')->count() }} </span>
                                 @endif
                                 
-                            </a>
+                            </a> -->
                             <a href="#offcanvas-mobile-menu"
                                 class="header-action-btn header-action-btn-menu offcanvas-toggle d-lg-none">
                                 <i class="pe-7s-menu"></i>

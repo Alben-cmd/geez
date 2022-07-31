@@ -14,7 +14,7 @@ class ClothController extends Controller
      public function index()
     {
         if (request()->category) {
-            $clothes = Cloth::where('category', request()->category)->get();
+            $clothes = Cloth::where('category', request()->category)->paginate(20);
             // dd($clothes);
             $categories = Category::get();
             $Category_name = Category::where('name', request()->category)->first()->name;

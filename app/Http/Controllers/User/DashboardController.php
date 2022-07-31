@@ -13,10 +13,12 @@ use App\Wishlist;
 use App\Order;
 use App\Conversation;
 use App\Message;
+use Illuminate\Routing\UrlGenerator;
 
 
 class DashboardController extends Controller
 {
+    protected $url;
 
     public function index()
     {
@@ -122,14 +124,49 @@ class DashboardController extends Controller
             return redirect()->back()->with('success', 'Thanks for your review!');
     }
 
-    public function message_tailor($tailor_id)
-    {
+    // public function message_tailor($tailor_id)
+    // {
       
+    //     $conversation = Conversation:: firstOrCreate([
+    //         'sender_id' => auth()->id(),
+    //         'receiver_id' => $tailor_id,
+    //     ]);
+    //     Session::flash('success', 'Chat with the Designer');
+    //     return redirect()->route('user.messaging')->with('selectedConversation', $conversation);
+
+    // }
+
+    public function message_tailor(Request $request)
+    {
+ 
         $conversation = Conversation:: firstOrCreate([
             'sender_id' => auth()->id(),
-            'receiver_id' => $tailor_id,
+            'receiver_id' => $request->tailor_id,
         ]);
-        Session::flash('success', 'Chat with the Designer');
+
+        //using implode on the cloth. 
+
+        $array = collect([
+
+            'cloth_name' =>'Hi, I am interested in your product. The name is '. $request->cloth_name,
+            'price' =>'and costs '. $request->price
+            
+        ]);
+        $body = $array->implode(', ');
+
+
+        Message::create([
+            'conversation_id' => $conversation->id,
+            'user_id' => auth()->id(),
+            'body' => $body
+        ]);
+        Message::create([
+            'conversation_id' => $conversation->id,
+            'user_id' => auth()->id(),
+            'body' =>'<img  src="'.url('/').'/assets/images/clothes/'.$request->image.'"alt="image" width="100" height="150">'
+
+        ]);
+        Session::flash('success', 'Continue chat with the Designer');
         return redirect()->route('user.messaging')->with('selectedConversation', $conversation);
 
     }

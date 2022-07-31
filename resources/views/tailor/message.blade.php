@@ -17,7 +17,7 @@
                         @include('partials.messaging')
                         <div class="tab-pane fade show active" id="dashboard">
                             <h4>Messaging</h4>
-                            @livewire('user.messages.conversation-messages')  
+                            @livewire('tailor.messages.conversation-messages')  
                         </div>               
 
                     </div>

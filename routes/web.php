@@ -13,12 +13,9 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::post('/try', 'HomeController@try')->name('try');
 
-//front page
-//home
-
-
-Route::get('sub', 'user\SubscribeController@index')->name('subscribe');
+// Route::get('sub', 'user\SubscribeController@index')->name('subscribe');
 Route::get('/', 'HomeController@index')->name('home');
 //about
 Route::get('/about', 'HomeController@about')->name('about');
@@ -143,8 +140,7 @@ Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middl
     Route::post('comments/', 'DashboardController@storecomment')->name('store.comment');
     //profile  
     Route::get('profile/', 'ProfileController@index')->name('profile');
-    Route::post('/update-profile/{id}', 'ProfileController@update')->name('profile.update');
-    
+    Route::post('/update-profile/{id}', 'ProfileController@update')->name('profile.update'); 
     //subscribe 
     Route::get('subscribed', 'DashboardController@subscribed')->name('subscribed');
     Route::post('subscribe', 'SubscribeController@store')->name('add.subscribe');
@@ -155,7 +151,7 @@ Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middl
     //messaging
     Route::get('messaging', 'DashboardController@messaging')->name('messaging');
     //checkout
-    Route::get('/message_tailor/{tailor_id}', 'DashboardController@message_tailor')->name('message.tailor');
+    Route::post('/message_tailor', 'DashboardController@message_tailor')->name('message.tailor');
     //Paystack section 
     Route::post('/pay', 'PaymentController@redirectToGateway')->name('pay');
     Route::get('/payment/callback', 'PaymentController@handleGatewayCallback');

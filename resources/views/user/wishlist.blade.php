@@ -32,7 +32,6 @@
             @include('partials.messaging')
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                    <form action="#">
                         <div class="table-content table-responsive cart-table-content">
                             @if($wishlist->count() > 0)
                             <table>
@@ -56,29 +55,22 @@
                                         <td class="product-price-cart"><span class="amount">{{ $item->cloth->presentPrice()}}</span></td>
                                         
                                       <td>
-                                            <form action="{{ route('cart.store') }}" method="POST" class="product-wishlist-cart">
-                                                @csrf
-                                                <input type="hidden" name="id" value="{{ $item->cloth->id}} ">
-                                                <input type="hidden" name="name" value="{{ $item->cloth->name}} ">
-                                                <input type="hidden" name="price" value="{{ $item->cloth->price}} ">
-                                                <button> Add To Cart</button>
-                                            </form>
-                                            <a href="{{ route('user.message.tailor', ['tailor_id' => $item->cloth->tailor_id ]) }} "><i class="fa fa-comments" aria-hidden="true"></i></a>
-                                        </td>
-                                         {{--<td>
-                                           <form action="{{ route('message.tailor') }}" method="POST">
-                                              
+                                        <form action="{{ route('user.message.tailor') }}" method="POST">
+                                            @csrf
                                                 
                                                 <input type="hidden" name="cloth_name" value="{{ $item->cloth->name }}">
-                                                <input type="hidden" name="price" value="{{ $item->cloth->price }} ">
-                                                <input type="hidden" name="tailor_name" value="{{ $item->cloth->tailor_id }} ">
+                                                <input type="hidden" name="price" value="{{ $item->cloth->presentPrice() }} ">
+                                                <input type="hidden" name="image" value="{{$item->cloth->image}}" alt="image" width=”100” height=”150” />
+                                                
+                                                <input type="hidden" name="tailor_id" value="{{ $item->cloth->tailor_id }} ">
 
                                                 <button type="submit"><i class="fa fa-comments" aria-hidden="true"></i></button>
                                                 
                                             </form>
-                                            
-                                    
-                                        </td>--}}
+                                            {{--<a href="{{ route('user.message.tailor', ['tailor_id' => $item->cloth->tailor_id ]) }} "><i class="fa fa-comments" aria-hidden="true"></i></a>
+                                            --}}
+                                        </td>
+
                                         <td><a href="{{ route('user.delete.wishlist', ['id' =>$item->id ]) }} "><i class="fa fa-times"></i></a>
                                             
                                             
@@ -90,7 +82,7 @@
                                 </tbody>
                             </table>
                         </div>
-                    </form>
+          
                     
                 </div>
             </div>

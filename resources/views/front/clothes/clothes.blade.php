@@ -129,7 +129,7 @@
                                                                     <button><i class="pe-7s-like"></i> </button>
                                                                 </form>
                                                             </div>
-                                                                @if(Auth::user())
+                                                                <!-- @if(Auth::user())
                                                                 @if(Auth::user()->role_id == 3)
                                                                 @if($item['trending'] == '0')
                                                                 <a href="{{ route('admin.enable.trending', ['id' => $item->id]) }}" class="action wishlist"
@@ -140,16 +140,23 @@
                                                                 @endif
                                                                 @endif
                                                                 @endif
-                                                                
+                                                                 -->
                                                         </div>
-                                                       
-                                                        <form action="{{ route('cart.store') }}" method="POST">
+                                                        <form action="{{ route('user.add.wishlist') }}" method="POST">
+                                                            @csrf
+                                                            @if(Auth::user())
+                                                            <input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
+                                                            @endif
+                                                            <input type="hidden" name="cloth_id" value="{{ $item->id}} ">
+                                                            <button  title="Add To Cart" class=" add-to-cart"> Add To Wishlist</button>
+                                                        </form>
+                                                        <!-- <form action="{{ route('cart.store') }}" method="POST">
                                                             @csrf
                                                             <input type="hidden" name="id" value="{{ $item->id}} ">
                                                             <input type="hidden" name="name" value="{{ $item->name}} ">
                                                             <input type="hidden" name="price" value= "{{ $item->price}} ">
                                                             <button  title="Add To Cart" class=" add-to-cart"> Add To Cart</button>
-                                                        </form>
+                                                        </form> -->
 
                                                        
                                                     </div>

@@ -5,11 +5,15 @@ namespace App\Http\Livewire\User\Messages;
 use Livewire\Component;
 use App\Conversation;
 use App\Message;
+use Carbon\Carbon;
+use Livewire\WithFileUploads;
 
 class ConversationMessages extends Component
 {
+    use WithFileUploads;
     public $selectedConversation;
     public $body;
+    public $image;
 
     public function mount()
     {
@@ -40,6 +44,36 @@ class ConversationMessages extends Component
             $this->selectedConversation = Conversation::findOrFail($conversationId);
         }
 
+    // public function uploadImages()
+    // {
+    //     foreach ($this->images as $key=>$image){
+    //         $this->images[key] = $image->store('assets.images','public' );
+    //     }
+    //     $this->images = json_encode($this->images);
+    //     Message::create(['filename' =>$this->image]);
+    //     session()->flash('message', 'Image Uploaded');
+    //     $this->emit('imagesUploaded');
+    // }
+
+        public function uploadImages()
+        {
+            $validatedData = $this->validate([
+                'image' => 'required|image|mimes:jpeg,png,svg,jpg,gif|max:1024',
+            ]);
+
+            $name = Carbon::now()->timestamp. '.' .$this->image->extension();
+            $dis_name = '<img  src="'.url('/').'/storage/'.$name.'"alt="image" width="100" height="150">';
+
+            $imageName = $this->image->storeAs("image", $name);
+            
+ 
+        Message::create([
+            'conversation_id' => $this->selectedConversation->id,
+            'user_id' => auth()->id(),
+            'body' => $dis_name
+        ]);
+        $this->viewMessage($this->selectedConversation->id);
+        }
     public function render()
     {
 
@@ -49,5 +83,7 @@ class ConversationMessages extends Component
             ->get();
         return view('livewire.user.messages.conversation-messages', compact('conversations'));
     }  
+
+
 
 }

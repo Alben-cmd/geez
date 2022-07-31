@@ -129,14 +129,22 @@
                                                 @endif -->
                                             </div>
                                             <div class="pro-details-cart">
-                                                {{-- <button class="add-cart" href=""> Add To Cart</button> --}}
-                                                <form action="{{ route('cart.store') }}" method="POST">
+                                                {{-- <button class="add-cart" href=""> Add To Wishlist</button> --}}
+                                                <form action="{{ route('user.add.wishlist') }}" method="POST">
+                                                    @csrf
+                                                    @if(Auth::user())
+                                                    <input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
+                                                    @endif
+                                                    <input type="hidden" name="cloth_id" value="{{ $cloth->id}} ">
+                                                    <button  class="add-to-cart"> Add To Wishlist</button>
+                                                </form>
+                                                <!-- <form action="{{ route('cart.store') }}" method="POST">
                                                     @csrf
                                                     <input type="hidden" name="id" value="{{ $cloth->id}} ">
                                                     <input type="hidden" name="name" value="{{ $cloth->name}} ">
                                                     <input type="hidden" name="price" value="{{ $cloth->price}} ">
                                                     <button  class="add-to-cart"> Add To Cart</button>
-                                                </form>
+                                                </form> -->
                                             </div>
                                         </div>
                                         <div class="content">

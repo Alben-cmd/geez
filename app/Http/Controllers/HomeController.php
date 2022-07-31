@@ -63,4 +63,9 @@ class HomeController extends Controller
 
         return view('front.search_results', compact('cloth', 'tailor'));
     }
+
+    // public function try (Request $request)
+    // {
+    //     dd($request);
+    // }
 }
