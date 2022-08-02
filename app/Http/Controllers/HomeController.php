@@ -18,7 +18,7 @@ class HomeController extends Controller
         $clothes = DB::table('comments')
         ->join('cloths', 'comments.cloth_id', '=', 'cloths.id')
         ->select(DB::raw('avg(stars_rated) as average, cloths.*'))
-        ->DISTINCT('cloth_id')
+        ->distinct('cloth_id')
         ->orderBy('average', 'desc')
         ->take(6)
         ->get();
