@@ -16,8 +16,8 @@ class HomeController extends Controller
     public function index()
     {       
         $clothes = DB::table('comments')
-        ->join('cloths', 'comments.cloth_id', '=', 'cloths.id')
         ->select(DB::raw('avg(stars_rated) as average, cloths.*'))
+        ->join('cloths', 'comments.cloth_id', '=', 'cloths.id')
         ->groupBy('cloth_id')
         ->orderBy('average', 'desc')
         ->take(6)
