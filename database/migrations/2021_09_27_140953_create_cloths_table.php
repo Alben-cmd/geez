@@ -16,7 +16,6 @@ class CreateClothsTable extends Migration
         Schema::create('cloths', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('trending')->default(0);
             $table->string('category');
             $table->string('image');
             $table->string('slug')->unique();

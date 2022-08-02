@@ -21,7 +21,7 @@ class CreateCommentsTable extends Migration
             $table->text('comment');
             $table->boolean('approved');
             $table->integer('cloth_id');
-            $table->string('stars_rated');
+            $table->integer('stars_rated');
             $table->timestamps();
         });
     }
