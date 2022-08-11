@@ -124,17 +124,17 @@ class DashboardController extends Controller
             return redirect()->back()->with('success', 'Thanks for your review!');
     }
 
-    // public function message_tailor($tailor_id)
-    // {
-      
-    //     $conversation = Conversation:: firstOrCreate([
-    //         'sender_id' => auth()->id(),
-    //         'receiver_id' => $tailor_id,
-    //     ]);
-    //     Session::flash('success', 'Chat with the Designer');
-    //     return redirect()->route('user.messaging')->with('selectedConversation', $conversation);
+    public function message_tailor_cloth($tailor_id)
+    {
 
-    // }
+        $conversation = Conversation:: firstOrCreate([
+            'sender_id' => auth()->id(),
+            'receiver_id' => $tailor_id,
+        ]);
+        Session::flash('success', 'Chat with the Designer');
+        return redirect()->route('user.messaging')->with('selectedConversation', $conversation);
+
+    }
 
     public function message_tailor(Request $request)
     {

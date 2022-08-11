@@ -3,11 +3,12 @@
     <div class="dashboard_tab_button" data-aos="fade-up" data-aos-delay="0">
         <ul role="tablist" class="nav flex-column dashboard-list">
             <li><a href="{{ route('admin.dashboard') }}" class="nav-link {{ (Request()->is('admin/dashboard')) ? 'active': '' }}">Dashboard</a></li>
-            <li> <a href="{{ route('admin.clothes') }}" class="nav-link {{ (Request()->is('admin/clothes')) ? 'active': '' }}">My Designs</a></li>
-            <li><a href="{{ route('admin.add_cloth') }}" class="nav-link {{ (Request()->is('admin/add_cloth' )) ? 'active': '' }}">Add Designs</a></li>
+            <!-- <li> <a href="{{ route('admin.clothes') }}" class="nav-link {{ (Request()->is('admin/clothes')) ? 'active': '' }}">My Designs</a></li> -->
+            <!-- <li><a href="{{ route('admin.add_cloth') }}" class="nav-link {{ (Request()->is('admin/add_cloth' )) ? 'active': '' }}">Add Designs</a></li> -->
             <li><a href="{{ route('admin.category') }}" class="nav-link {{ (Request()->is('admin/category')) ? 'active': '' }}">Category</a></li>
             <li><a href="{{ route('admin.add_category') }}" class="nav-link {{ (Request()->is('admin/add_category')) ? 'active': '' }}">Add Category</a></li>
             <li> <a href="{{ route('admin.tailor') }}" class="nav-link {{ (Request()->is('admin/designer')) ? 'active': '' }}">Designers</a></li>
+            <li> <a href="{{ route('admin.users') }}" class="nav-link {{ (Request()->is('admin/users')) ? 'active': '' }}">Users</a></li>
             <li> <a href="{{ route('admin.approved_comments') }}"  class="nav-link {{ (Request()->is('admin/approved_comments')) ? 'active': '' }}">Approved Comments</a></li>
             <li> <a href="{{ route('admin.unapproved_comments') }}" class="nav-link {{ (Request()->is('admin/unapproved_comments')) ? 'active': '' }}">Unapproved Comments</a></li>
             <li><a href="{{ route('admin.payments') }}" class="nav-link {{ (Request()->is('admin/payments')) ? 'active': '' }}">Payments</a>

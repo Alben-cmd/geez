@@ -28,7 +28,6 @@
                                     <tr>
                                         <th>S/N</th>
                                         <th>Name</th>
-                                        <th>Brand Name</th>
                                         <th>Phone</th>
                                         <th>Actions</th>
                                     </tr>
@@ -36,14 +35,13 @@
                                    $count = 1;
                                   @endphp
                                 </thead>
-                                @forelse ($tailors as $key => $item)
+                                @forelse ($users as $key => $item)
                                 <tbody>
                                     <tr>
                                         <td>{{ $count++ }} </td>
                                         <td>{{ $item['fname'] }} {{ $item['lname'] }}</td>
-                                        <td>{{ $item['brand_name'] }}</td>
                                         <td>{{ $item['phone_1'] }}</td>
-                                        <td><a href="{{ route('admin.tailor.show', ['id' => $item['id']]) }} " class="view">view</a> {{-- | <a href="{{ route('admin.tailor.edit', ['id' => $item['id']]) }}" class="view">Edit</a> --}} | <a href="{{ route('admin.tailor.delete', ['id' => $item['id']]) }}" onclick="return confirm('Are you sure?')" class="view">Delete</a></td>
+                                        <td><a href="{{ route('admin.user.delete', ['id' => $item['id']]) }}" onclick="return confirm('Are you sure?')"  class="view">Delete</a></td>
                                     </tr>
                                    
                                 </tbody>

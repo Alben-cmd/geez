@@ -33,7 +33,7 @@
                                     @else
                                     <span class="contacts-list-msg text-secondary"></span>
                                     @endif
-
+                                    
                                     
                                 </div>
                                 <!-- /.contacts-list-info -->

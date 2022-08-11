@@ -77,6 +77,9 @@ Route::group(['as' => 'admin.', 'prefix' => 'admin', 'namespace' => 'Admin', 'mi
     Route::get('designer/edit/{id}', 'TailorController@edit')->name('tailor.edit');
     Route::post('designer/post/{id}', 'TailorController@update')->name('tailor.update');
     Route::get('designer/delete/{id}', 'TailorController@destroy')->name('tailor.delete');
+    //Users section 
+    Route::get('users', 'DashboardController@users')->name('users');
+    Route::get('user/delete/{id}', 'DashboardController@destroy_user')->name('user.delete');
     //Enabling Trending 
     Route::get('/cloth/trend_enable/{id}', 'ClothController@enable_trending')->name('enable.trending');
     //disable Trending
@@ -151,7 +154,7 @@ Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middl
     //messaging
     Route::get('messaging', 'DashboardController@messaging')->name('messaging');
     //checkout
-    Route::post('/message_tailor', 'DashboardController@message_tailor')->name('message.tailor');
+    Route::get('/message_tailor/{tailor_id}', 'DashboardController@message_tailor_cloth')->name('message.tailor');
     //Paystack section 
     Route::post('/pay', 'PaymentController@redirectToGateway')->name('pay');
     Route::get('/payment/callback', 'PaymentController@handleGatewayCallback');

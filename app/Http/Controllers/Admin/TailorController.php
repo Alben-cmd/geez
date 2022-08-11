@@ -121,7 +121,7 @@ class TailorController extends Controller
      */
     public function destroy($id)
     {
-        Tailor::where('id', $id)->delete();   
+        User::where('id', $id)->delete();   
         return redirect()->route('admin.dashboard')->with('success', 'Tailor Deleted!');
     }
 }
