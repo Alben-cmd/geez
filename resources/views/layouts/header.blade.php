@@ -38,6 +38,7 @@
                                         
                                         @if(Auth::user()->role_id == 1)
                                         <li><a href="{{ route('user.dashboard') }} ">Dashboard</a></li>
+                                        <li><a href="{{ route('user.wallet') }} ">Virtual Wallet</a></li>
                                         @elseif(Auth::user()->role_id == 2)
                                         <li><a href="{{ route('designer.dashboard') }} ">Dashboard</a></li>
                                         @elseif(Auth::user()->role_id == 3)

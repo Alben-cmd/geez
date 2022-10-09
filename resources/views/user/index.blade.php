@@ -48,6 +48,20 @@
                                 </div>
                               </div>
                             </div>
+
+                            <div class="col-md-3 grid-margin stretch-card">
+                              <div class="card">
+                                <div class="card-body">
+                                    <p class="card-title text-md-center text-xl-left"> Wallet Balance</p>
+                                    <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
+                                      
+                                    </div>
+                                    <br>  
+                                    <p class="mb-0 mt-2 text-bold">&#8358;{{ $walletBalance }} </p>
+                                </div>
+                              </div>
+                            </div>
+
                           </div>
                     </div>
                 </div>
