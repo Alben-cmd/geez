@@ -18,6 +18,8 @@ class CreateOrdersTable extends Migration
             $table->integer('user_id')->references('id')->on('users');
             $table->string('amount');
             $table->boolean('status');
+            $table->string('description');
+            $table->string('orderID')->nullable();
             $table->string('reference')->nullable();
             $table->timestamps();
         });
