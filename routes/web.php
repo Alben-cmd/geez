@@ -121,6 +121,9 @@ Route::group(['as' => 'designer.', 'prefix' => 'designer', 'namespace' => 'Tailo
     Route::get('cloth/delete/{id}', 'ClothController@destroy')->name('cloth.delete');
     //messaging 
     Route::get('messaging', 'DashboardController@messaging')->name('messaging');
+
+    // Wallet routes
+    Route::get('wallet', 'WalletController@wallet')->name('wallet');
     
 });
 
