@@ -24,7 +24,10 @@ class DashboardController extends Controller
     {
         $my_clothes = Wishlist::where('user_id', Auth::id())->get();
         $subscribe = Subscribe::where('user_id', Auth::id())->get();
-        return view('user.index', compact('my_clothes', 'subscribe'));
+        $user = User::find(auth()->id());
+        $walletBalance = $user->balance;
+        
+        return view('user.index', compact('my_clothes', 'subscribe', 'walletBalance'));
     }
 
     public function subscribed()

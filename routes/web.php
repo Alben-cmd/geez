@@ -121,6 +121,9 @@ Route::group(['as' => 'designer.', 'prefix' => 'designer', 'namespace' => 'Tailo
     Route::get('cloth/delete/{id}', 'ClothController@destroy')->name('cloth.delete');
     //messaging 
     Route::get('messaging', 'DashboardController@messaging')->name('messaging');
+
+    // Wallet routes
+    Route::get('wallet', 'WalletController@wallet')->name('wallet');
     
 });
 
@@ -161,5 +164,14 @@ Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middl
     Route::get('/payment/callback', 'PaymentController@handleGatewayCallback');
     //payment History
     Route::get('payment_history', 'DashboardController@payment_history')->name('payment_history');
+    
+    
+    // Wallet routes
+    Route::get('wallet', 'WalletController@wallet')->name('wallet');
+    Route::get('get-balance', 'WalletController@getBalance')->name('get.balance');
+    Route::post('fund-wallet', 'WalletController@createOrder')->name('create.order');
+
+    Route::post('/pay', 'WalletController@redirectToGateway')->name('pay');
+    Route::get('/payment/callback', 'WalletController@handleGatewayCallback')->name('payment');
 
     });

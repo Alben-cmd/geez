@@ -9,23 +9,38 @@ use Illuminate\Support\Facades\Redirect;
 use Paystack;
 use App\Order;
 use Auth;
+use Illuminate\Support\Str;
 
 class PaymentController extends Controller
 {
     public function redirectToGateway(Request $request)
     {
-        $order = new Order();
+        
+        
+        $transRef = Str::random(8);
 
-           $order->user_id = Auth::user()->id;
-           $order->amount = $request->amount;
-           $order->reference = $request->reference;
-           $order->status = 0;
-           $order->save();
+        // $order = new Order();
+
+        // $order->user_id = Auth::user()->id;
+        // $order->amount = $request->amount;
+        // $order->reference = $transRef;
+        // $order->status = 0;
+        // $order->save();
+        
+        // $data = array(
+        //     "amount" => 700 * 100,
+        //     "reference" => '4g4g5485g8545jg8gj',
+        //     "email" => 'user@mail.com',
+        //     "currency" => "NGN",
+        //     "orderID" => 23456,
+        // );
         
         try{
             return Paystack::getAuthorizationUrl()->redirectNow();
         }catch(\Exception $e) {
+
             return Redirect::back()->with('success','The paystack token has expired. Please refresh the page and try again.');
+        
         }        
     }
 
