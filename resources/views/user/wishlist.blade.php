@@ -55,7 +55,7 @@
                                         <td class="product-price-cart"><span class="amount">{{ $item->cloth->presentPrice()}}</span></td>
                                         
                                       <td>
-                                        <form action="{{ route('user.message.tailor') }}" method="POST">
+                                        <form action="{{ route('user.checkout') }}" method="POST">
                                             @csrf
                                                 
                                                 <input type="hidden" name="cloth_name" value="{{ $item->cloth->name }}">

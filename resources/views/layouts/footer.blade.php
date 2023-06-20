@@ -135,7 +135,7 @@
             <div class="modal-dialog p-0" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <h2>Search Your Product</h2>
+                        <h2>Search  For Desgins</h2>
                         <form action="{{ route('search') }} " method="GET" class="navbar-form position-relative" role="search">
                             <div class="form-group">
                                 <input type="text" name="query" value="{{ request()->input('query') }} " class="form-control" placeholder="Search here...">
@@ -148,6 +148,27 @@
         </div>
     </div>
     <!-- Search Modal End -->
+<!-- Message image Modal Start -->
+                                        <div class="modal popup-search-style" id="messageimage">
+                                            <button type="button" class="close-btn" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                                            <div class="modal-overlay">
+                                                <div class="modal-dialog p-0" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-body">
+                                                            <h2>Search  For Desgins</h2>
+                                                            <form action="{{ route('search') }} " method="GET" class="navbar-form position-relative" role="search">
+                                                                <div class="form-group">
+                                                                    <input type="text" name="query" value="{{ request()->input('query') }} " class="form-control" placeholder="Search here...">
+                                                                </div>
+                                                                <button type="submit" class="submit-btn"><i class="pe-7s-search"></i></button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Message image Modal End -->
+    
 
     <!-- Login Modal Start -->
     <div class="modal popup-login-style" id="loginActive">

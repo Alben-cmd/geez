@@ -28,15 +28,17 @@
                                              
                                         </small>
                                     </span>
-                                   @if($conversation->messages->last()->body ?? null)
+                                    @if($conversation->messages->last()->body ?? null)
                                     <span class="contacts-list-msg text-secondary">
-                                        
+                                        @if(Str::startsWith($conversation->messages->last()->body, '<img'))
+                                        <i class="pe-7s-photo"></i> Photo
+                                        @else
                                         {{\Illuminate\Support\Str::limit($conversation->messages->last()->body, 15, $end='...') ?? ''}}</span>
+                                        @endif 
                                     @else
                                     <span class="contacts-list-msg text-secondary"></span>
                                     @endif
-
-                                    
+                                                                       
                                 </div>
                                 <!-- /.contacts-list-info -->
                             </a>
@@ -178,7 +180,11 @@
                                 <input type="text" name="arm_length" placeholder="Arm Length">
                                 <input type="text" name="lap" placeholder="Lap">
                                 <input type="text" name="neck" placeholder="Neck">  
-                                <input type="hidden" name="conversation_id" value="{{ $conversation->id }}">                     
+                                
+                                
+                                <input type="hidden" name="conversation_id" value="{{ $conversation->id ?? null }}">
+                               
+                                                    
                             </div>                          
                         </div>
                         <br>
@@ -209,7 +215,7 @@
                                 <input type="text" name="throuser_length" placeholder="Throuser Length">
                                 <input type="text" name="sleeve_length" placeholder="Sleeve Length">
                                 <input type="text" name="hips" placeholder="Hips">
-                                <input type="hidden" name="conversation_id" value="{{ $conversation->id }}"> 
+                                <input type="hidden" name="conversation_id" value="{{ $conversation->id ?? null  }}" > 
                             </div>
                             <div class="col-6">
                                 <input type="text" name="top_length" placeholder="Top Length">

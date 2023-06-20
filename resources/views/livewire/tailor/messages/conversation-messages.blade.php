@@ -1,3 +1,6 @@
+@php
+    use Illuminate\Support\Str;
+@endphp
 @if ($conversations->isNotEmpty())
 <div class="container" wire:poll>
     <div class="pt-2 row">
@@ -29,7 +32,12 @@
                                         </small>
                                     </span>
                                    @if($conversation->messages->last()->body ?? null)
-                                    <span class="contacts-list-msg text-secondary">{{\Illuminate\Support\Str::limit($conversation->messages->last()->body, 15, $end='...') ?? ''}}</span>
+                                    <span class="contacts-list-msg text-secondary">
+                                        @if(Str::startsWith($conversation->messages->last()->body, '<img'))
+                                        <i class="pe-7s-photo"></i> Photo
+                                        @else
+                                        {{\Illuminate\Support\Str::limit($conversation->messages->last()->body, 15, $end='...') ?? ''}}</span>
+                                        @endif 
                                     @else
                                     <span class="contacts-list-msg text-secondary"></span>
                                     @endif
@@ -80,7 +88,26 @@
                             @endif
                             <!-- /.direct-chat-img -->
                             <div class="direct-chat-text">
-                                {!! $message->body !!}
+                                @if(Str::startsWith($message->body, '<img'))
+                                    @php
+                                        // Extract the image URL from the database field
+                                        $urlStart = 'src="';
+                                        $urlEnd = '"';
+                                        $startPosition = strpos($message->body, $urlStart) + strlen($urlStart);
+                                        $endPosition = strpos($message->body, $urlEnd, $startPosition);
+                                        $imageUrl = substr($message->body, $startPosition, $endPosition - $startPosition);
+                                    @endphp
+                                        <a href="#" class="header-action-btn" data-bs-toggle="modal" data-bs-target="#messageimage">
+                                            {!! $message->body !!}
+                                        </a>
+                                       
+                                        @else
+                                        {{ $message->body}}
+                                       
+                                        @endif 
+
+                                        
+                                
                             </div>
                             <!-- /.direct-chat-text -->
                         </div>
@@ -137,3 +164,18 @@
     </div>
 </div>
 @endif
+
+<!-- Message image Modal Start -->
+<div class="modal popup-search-style" id="messageimage">
+    <button type="button" class="close-btn" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+    <div class="modal-overlay">
+        <div class="modal-dialog p-0" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img src="{{ $imageUrl }}" alt="Image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Message image Modal End -->

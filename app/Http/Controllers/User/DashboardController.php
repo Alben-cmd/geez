@@ -136,41 +136,6 @@ class DashboardController extends Controller
 
     }
 
-    public function message_tailor(Request $request)
-    {
- 
-        $conversation = Conversation:: firstOrCreate([
-            'sender_id' => auth()->id(),
-            'receiver_id' => $request->tailor_id,
-        ]);
-
-        //using implode on the cloth. 
-
-        $array = collect([
-
-            'cloth_name' =>'Hi, I am interested in your product. The name is '. $request->cloth_name,
-            'price' =>'and costs '. $request->price
-            
-        ]);
-        $body = $array->implode(', ');
-
-
-        Message::create([
-            'conversation_id' => $conversation->id,
-            'user_id' => auth()->id(),
-            'body' => $body
-        ]);
-        Message::create([
-            'conversation_id' => $conversation->id,
-            'user_id' => auth()->id(),
-            'body' =>'<img  src="'.url('/').'/assets/images/clothes/'.$request->image.'"alt="image" width="100" height="150">'
-
-        ]);
-        Session::flash('success', 'Continue chat with the Designer');
-        return redirect()->route('user.messaging')->with('selectedConversation', $conversation);
-
-    }
-
     public function payment_history()
     {
         $history = Order::where('user_id', Auth::id())->get();

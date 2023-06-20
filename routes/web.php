@@ -137,6 +137,7 @@ Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User', 'middl
     Route::get('wishlist', 'WishlistController@index')->name('wishlist.index');
     Route::post('add_wishlist', 'WishlistController@store')->name('add.wishlist');
     Route::get('remove_wishlist/{id}', 'WishlistController@destroy')->name('delete.wishlist');
+    Route::post('checkout', 'WishlistController@message_tailor')->name('checkout');
     //my clothes 
     Route::get('my_designes', 'DashboardController@my_clothes')->name('my_clothes');
     // comments
