@@ -49,19 +49,7 @@
               </div>
             </div>
 
-            <div class="pb-4">
-              <form class="form" method="POST" action="{{ route('user.create.order') }}">
-                @csrf
-                <div class="col-md-6">
-                  <input type="number" name="amount" class="form-control" placeholder="Amount" value="{{ old('amount') }}">
-                  <input type="hidden" name="reference" value="{{ Paystack::genTranxRef() }}">
-                  
-                  <button type="submit" class="mt-2 bg-primary rounded">Fund Wallet</button>
-                  <a href="#" class="p-1 bg-info rounded">Make A Transfer</a>
-                </div>
-              </form>
-                
-            </div>
+            
           </div>
 
           <div class="row">

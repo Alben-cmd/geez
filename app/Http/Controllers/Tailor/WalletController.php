@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Tailor;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -22,7 +22,7 @@ class WalletController extends Controller
         
         $transactions = DB::table('transactions')->where('payable_id', auth()->id())->latest()->take(20)->get();    
         
-        return view('user.wallet.index', compact('walletBalance', 'transactions'));
+        return view('tailor.wallet.index', compact('walletBalance', 'transactions'));
     }
 
     public function getBalance()
